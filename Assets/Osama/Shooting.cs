@@ -6,9 +6,10 @@ public class Shooting : MonoBehaviour
 {
     public Transform cam;
     public RaycastHit hit;
-    public int ufo;
-    public GameObject Ufo;
+    public GameObject ufObject;
+    public GameObject metalScrap;
     public PickUp pickup;
+    public int ufo;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics.Raycast(cam.position, cam.forward, out hit, 10))
+        if (Physics.Raycast(cam.position, cam.forward, out hit, 20))
         {
             if (hit.transform.gameObject.tag == "UFO")
             {
@@ -29,7 +30,8 @@ public class Shooting : MonoBehaviour
                         ufo -= 5;
                         if (ufo == 0)
                         {
-                            Ufo.SetActive(false);
+                            ufObject.SetActive(false);
+                            metalScrap.SetActive(true);
                         }
                     }
                 }

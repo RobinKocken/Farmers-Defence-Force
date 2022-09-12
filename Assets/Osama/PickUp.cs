@@ -5,12 +5,6 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
     public Transform cam;
-    public GameObject Metalscrap;
-    public GameObject plank;
-    public GameObject tree;
-    public GameObject treestump;
-    public GameObject treetrunk;
-    public GameObject Planks;
     public GameObject gun;
     public GameObject gunPlayer;
     public GameObject axe;
