@@ -10055,7 +10055,7 @@ MonoBehaviour:
   loading: {fileID: 1717257189}
   dayTimeSelect: {fileID: 1122134844}
   loadingText: {fileID: 948448689}
-  loadingTime: 180
+  loadingTime: 8
   startLoadTime: 2
 --- !u!1 &1667522764
 GameObject:
@@ -10831,6 +10831,7 @@ MonoBehaviour:
   volume: {fileID: 799425812}
   xsens: {fileID: 1396600141}
   ysens: {fileID: 1678106880}
+  hud: {fileID: 0}
   optionsMenu:
   - {fileID: 1478630995}
   - {fileID: 2009948616}

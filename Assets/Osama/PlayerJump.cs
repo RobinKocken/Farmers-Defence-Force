@@ -9,6 +9,8 @@ public class PlayerJump : MonoBehaviour
 
     void Update()
     {
+        if (PauseManager.Paused) return;
+
         if (Input.GetButtonDown("Jump"))
         {
             if(isGrounded==true)

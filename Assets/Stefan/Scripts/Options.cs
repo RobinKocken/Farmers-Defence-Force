@@ -12,8 +12,4 @@ public class Options : MonoBehaviour
     public static void SetYSens(float sensitivity) => ySens = sensitivity;
     public static void SetVolume(float _volume) => AudioListener.volume = _volume;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this);
-    }
 }

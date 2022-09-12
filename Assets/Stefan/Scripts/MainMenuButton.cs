@@ -106,8 +106,6 @@ public class MainMenuButton : MonoBehaviour
 
     void Update()
     {
-        float num = Time.timeScale;
-        Time.timeScale = 1;
         //Check if button is clicked on
 
         if (Released) OnClick();
@@ -142,10 +140,6 @@ public class MainMenuButton : MonoBehaviour
         currentColorTimer += Time.deltaTime * colorChangeRate;
 
         transform.localScale = Vector3.SmoothDamp(transform.localScale,targetSize, ref sizeVelocity, sizeSmoothTime);
-
-        print(Time.timeScale);
-        Time.timeScale = num;
-        print(Time.timeScale);
     }
 
     public virtual void OnClick()

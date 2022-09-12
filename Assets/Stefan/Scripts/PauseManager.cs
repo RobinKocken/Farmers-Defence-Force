@@ -33,19 +33,30 @@ public class PauseManager : MonoBehaviour
 
     public void OnPause()
     {
-        Time.timeScale = 0;
-
         menu.SetActive(true);
 
         SetCursor(true,CursorLockMode.Confined);
+
+        var rigidbodies = FindObjectsOfType(typeof(Rigidbody)) as Rigidbody[];
+
+        foreach (var body in rigidbodies)
+        {
+            body.isKinematic = true;
+        }
     }
 
     public void OnContinue()
     {
-        Time.timeScale = 1;
         menu.SetActive(false);
 
         SetCursor(false, CursorLockMode.Locked);
+        
+        var rigidbodies = FindObjectsOfType(typeof(Rigidbody)) as Rigidbody[];
+
+        foreach (var body in rigidbodies)
+        {
+            body.isKinematic = false;
+        }
     }
 
     void SetCursor(bool visisble, CursorLockMode mode)
@@ -73,6 +84,8 @@ public class PauseManager : MonoBehaviour
 
     void ToMainMenu()
     {
+        TogglePause();
+        SetCursor(true, CursorLockMode.None);
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
     #endregion
