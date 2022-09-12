@@ -27,6 +27,7 @@ public class Tree : MonoBehaviour
     {
         Destroy(middle);
         stump.SetActive(true);
+        trunk.GetComponent<Rigidbody>().isKinematic = false;
     }
     public void ChopTree(int damage)
     {
