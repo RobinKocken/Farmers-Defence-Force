@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Manager
   - Items
+  - Tree
+  - TreeTrunk
+  - Plank
+  - Gun
+  - Axe
+  - Ufo
+  - MetalScrap
   layers:
   - Default
   - TransparentFX

@@ -21,7 +21,7 @@ public class Shooting : MonoBehaviour
     {
         if (Physics.Raycast(cam.position, cam.forward, out hit, 20))
         {
-            if (hit.transform.gameObject.tag == "UFO")
+            if (hit.transform.gameObject.tag == "Ufo")
             {
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
