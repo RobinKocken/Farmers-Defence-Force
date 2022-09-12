@@ -21,6 +21,11 @@ public class Slot : MonoBehaviour
         if(transform.childCount > 0)
         {
             boxImage.color = manager.rarityColors[transform.GetChild(0).GetComponent<InventoryItem>().itemData.rarity];
+
+            if(transform.GetChild(0).GetComponent<InventoryItem>().amount <= 0)
+            {
+                Destroy(transform.GetChild(0).gameObject);
+            }
         }
         else
         {

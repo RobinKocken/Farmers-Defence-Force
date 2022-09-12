@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    public KeyCode inv;
+    bool bla;
+
     public GameObject inventory;
 
     public Transform inventorySlotHolder;
@@ -31,11 +34,16 @@ public class InventoryManager : MonoBehaviour
         SetSlotIDS();
         CheckSlots();
 
-        AddItem(itemToAdd, amountToAdd);
+        //AddItem(itemToAdd, amountToAdd);
     }
 
     void Update()
     {
+        if(Input.GetKeyDown(inv))
+        {
+            inventory.SetActive(bla = !bla);
+        }
+
         if(inventory.activeSelf == true)
         {
             cursor.position = Input.mousePosition + offset;
@@ -58,7 +66,7 @@ public class InventoryManager : MonoBehaviour
         {
             slots.Add(inventorySlotHolder.GetChild(i));
             isFull.Add(false);
-        }        
+        }
         //Sets Hotbar Slots
         for(int i = 0; i < inventoryHotbarSlotHolder.childCount; i++)
         {
@@ -95,9 +103,49 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void AddItem(GameObject item, int amount)
+    public void CraftItem(int[] iDS, int[] iDSAmount, GameObject outcome, int outcomeAmount)
     {
-        
+        //Collecting Info weather or not Item can be Crafted
+        bool[] collected = new bool[iDS.Length];
+        Transform[] collectedSlots = new Transform[iDS.Length];
+
+        for(int x = 0; x < iDS.Length; x++)
+        {
+            for(int i = 0; i < slots.Count; i++)
+            {
+                if(isFull[i] == true)
+                {
+                    if(slots[i].GetChild(0).GetComponent<InventoryItem>().itemData.iD == iDS[x] && slots[i].GetChild(0).GetComponent<InventoryItem>().amount >= iDSAmount[x])
+                    {
+                        collected[x] = true;
+                        collectedSlots[x] = slots[i].GetChild(0);
+                    }
+                }
+            }
+        }
+
+        for(int i = 0; i < collected.Length; i++)
+        {
+            if(collected[i] == false)
+            {
+                return;
+            }
+        }
+
+        for(int i = 0; i < collectedSlots.Length; i++)
+        {
+            collectedSlots[i].GetComponent<InventoryItem>().amount -= iDSAmount[i];
+        }
+
+        for(int i = 0; i < outcomeAmount; i++)
+        {
+            AddItem(outcome);
+        }
+
+    }
+
+    public void AddItem(GameObject item)
+    {
         for(int x = 0; x < slots.Count; x++)
         {
             if(isFull[x] == false)
