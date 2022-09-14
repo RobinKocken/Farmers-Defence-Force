@@ -24,17 +24,11 @@ public class InventoryManager : MonoBehaviour
     public Color[] rarityColors;
     public Color defaultColor;
 
-    public GameObject itemToAdd;
-    public int amountToAdd;
-
-
     void Start()
     {
         InitializeInventory();
         SetSlotIDS();
         CheckSlots();
-
-        //AddItem(itemToAdd, amountToAdd);
     }
 
     void Update()
@@ -87,7 +81,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void CheckSlots()
+    public void CheckSlots()
     {
         //Check if Slots are Full
         for(int i = 0; i < slots.Count; i++)
@@ -113,6 +107,8 @@ public class InventoryManager : MonoBehaviour
         {
             for(int i = 0; i < slots.Count; i++)
             {
+                CheckSlots();
+
                 if(isFull[i] == true)
                 {
                     if(slots[i].GetChild(0).GetComponent<InventoryItem>().itemData.iD == iDS[x] && slots[i].GetChild(0).GetComponent<InventoryItem>().amount >= iDSAmount[x])
@@ -135,17 +131,34 @@ public class InventoryManager : MonoBehaviour
         for(int i = 0; i < collectedSlots.Length; i++)
         {
             collectedSlots[i].GetComponent<InventoryItem>().amount -= iDSAmount[i];
+            CheckSlots();
         }
 
         for(int i = 0; i < outcomeAmount; i++)
         {
             AddItem(outcome);
         }
-
     }
 
     public void AddItem(GameObject item)
     {
+        for(int i  = 0; i < slots.Count; i++)
+        {
+            if(isFull[i] == true)
+            {
+                if(isFull[i] == true && slots[i].GetChild(0).GetComponent<InventoryItem>().itemData.iD == item.GetComponent<InventoryItem>().itemData.iD)
+                {
+                    if(item.GetComponent<InventoryItem>().amount <= slots[i].GetChild(0).GetComponent<InventoryItem>().itemData.maxStack - slots[i].GetChild(0).GetComponent<InventoryItem>().amount)
+                    {
+                        slots[i].GetChild(0).GetComponent<InventoryItem>().amount += item.GetComponent<InventoryItem>().amount;
+                        CheckSlots();
+                        return;
+                    }
+                    return;
+                }
+            }
+        }
+
         for(int x = 0; x < slots.Count; x++)
         {
             if(isFull[x] == false)

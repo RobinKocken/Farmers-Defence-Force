@@ -25,6 +25,7 @@ public class Slot : MonoBehaviour
             if(transform.GetChild(0).GetComponent<InventoryItem>().amount <= 0)
             {
                 Destroy(transform.GetChild(0).gameObject);
+                manager.CheckSlots();
             }
         }
         else
