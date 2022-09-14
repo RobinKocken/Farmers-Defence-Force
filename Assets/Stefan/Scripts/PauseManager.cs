@@ -5,14 +5,19 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
     public HUDManager hud;
-    public GameObject menu;
+    public GameObject menu,pauseMenu;
     public MainMenuButton @continue, options, quitmenu, quitgame;
     public GameObject optionsHolder;
+
+    [Header("Are You Sure?")]
+    public GameObject areUSure;
+    public MainMenuButton AUScontinue, AUScancel;
     public static bool Paused { get; private set; }
 
     private void Start()
     {
         InitializeButtons();
+        MainMenuButton.startingGame = false;
     }
     /// <summary>
     /// Function used to pause or continue the game
@@ -35,7 +40,7 @@ public class PauseManager : MonoBehaviour
     {
         menu.SetActive(true);
 
-        SetCursor(true,CursorLockMode.Confined);
+        SetCursor(true,CursorLockMode.None);
 
         var rigidbodies = FindObjectsOfType(typeof(Rigidbody)) as Rigidbody[];
 
@@ -48,6 +53,8 @@ public class PauseManager : MonoBehaviour
     public void OnContinue()
     {
         menu.SetActive(false);
+        areUSure.SetActive(false);
+        pauseMenu.SetActive(true);
 
         SetCursor(false, CursorLockMode.Locked);
         
@@ -69,8 +76,29 @@ public class PauseManager : MonoBehaviour
     {
         @continue.onButtonClicked = ContinueGame;
         options.onButtonClicked = ToOptions;
-        quitmenu.onButtonClicked = ToMainMenu;
-        quitgame.onButtonClicked = Application.Quit;
+        quitmenu.onButtonClicked = ToggleAreYouSureMenu;
+        quitgame.onButtonClicked = ToggleAreYouSureQuit;
+
+        AUScancel.onButtonClicked = AUSCancel;
+    }
+
+    void ToggleAreYouSureMenu()
+    {
+        pauseMenu.SetActive(false);
+        areUSure.SetActive(true);
+        AUScontinue.onButtonClicked = ToMainMenu;
+    }
+
+    void ToggleAreYouSureQuit()
+    {
+        pauseMenu.SetActive(false);
+        areUSure.SetActive(true);
+        AUScontinue.onButtonClicked = Application.Quit;
+    }
+    void AUSCancel()
+    {
+        areUSure.SetActive(false);
+        pauseMenu.SetActive(true);
     }
 
     #region Button Methods
