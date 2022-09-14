@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HUDManager : MonoBehaviour
 {
+    [Header("Pause")]
     public PauseManager pauseManager;
 
     public bool canToggleMenu;

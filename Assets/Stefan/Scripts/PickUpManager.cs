@@ -10,10 +10,12 @@ public class PickUpManager : MonoBehaviour
 {
     public GameObject messagePrefab;
 
-    public Transform spawnPos;
     public float maxLifeTime;
     public float smoothTime, minDstToFirstPos;
+    public float sizeSmoothTime, minSizeToDestroy;
+
     public List<NotificationData> activeNotifications = new();
+    public Transform spawnPos;
     public Transform[] possiblePositions;
 
 
@@ -30,12 +32,17 @@ public class PickUpManager : MonoBehaviour
 
             current.lifeTime += Time.deltaTime;
 
-            if (current.lifeTime >= maxLifeTime)
+            if (current.transform.localScale.x <= minSizeToDestroy)
             {
                 Destroy(current.transform.gameObject);
                 activeNotifications.Remove(current);
 
                 continue;
+            }
+
+            if (current.lifeTime >= maxLifeTime)
+            {
+                current.transform.localScale = Vector3.SmoothDamp(current.transform.localScale, Vector3.zero, ref current.scaleVelocity, sizeSmoothTime);
             }
 
             if (current.arrivedAtStart)
@@ -78,6 +85,7 @@ public class PickUpManager : MonoBehaviour
         public string itemName;
         public bool arrivedAtStart;
         public Vector3 velocity;
+        public Vector3 scaleVelocity;
 
         public NotificationData(Transform obj, int amount, string itemName)
         {
