@@ -27,11 +27,24 @@ public class Shooting : MonoBehaviour
                 {
                     if (pickup.gunIsActief == true)
                     {
-                        ufo -= 5;
-                        if (ufo == 0)
+                        if (pickup.damageBoostIsActief == true)
                         {
-                            ufObject.SetActive(false);
-                            metalScrap.SetActive(true);
+                            ufo -= 10;
+                            if (ufo == 0)
+                            {
+                                ufObject.SetActive(false);
+                                metalScrap.SetActive(true);
+                            }
+                        
+                        }
+                        else
+                        {
+                            ufo -= 5;
+                            if (ufo == 0)
+                            {
+                                ufObject.SetActive(false);
+                                metalScrap.SetActive(true);
+                            }
                         }
                     }
                 }

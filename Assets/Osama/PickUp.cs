@@ -5,22 +5,26 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
     public Transform cam;
+    public RaycastHit hit;
+    public PlayerMovement script;
+
     public GameObject gun;
     public GameObject gunPlayer;
     public GameObject axe;
     public GameObject axePlayer;
-    public RaycastHit hit;
+    
     public int treeHp;
     public int treeTrunkHp;
     public int metalScrapTotal;
     public int plankTotal;
-    public bool kanKanon1maken;
-    public bool kanKanon2maken;
-    public bool kanKanon3maken;
+    public float timeUntilOver = 30;
+
     public bool gunIsOpgepakt;
     public bool axeIsOpgepakt;
     public bool gunIsActief;
     public bool axeIsActief;
+    public bool damageBoostIsActief;
+    public bool speedBoostIsActief;
 
 
     // Start is called before the first frame update
@@ -105,18 +109,15 @@ public class PickUp : MonoBehaviour
             gunIsActief = false;
             axeIsActief = false;
         }
-
-        if (metalScrapTotal == 5 && plankTotal == 5)
+        if (damageBoostIsActief)
         {
-            kanKanon1maken = true;
+            timeUntilOver -= 1 * Time.deltaTime;
+            print(timeUntilOver);
         }
-        if (metalScrapTotal == 10 && plankTotal == 5)
+        if (speedBoostIsActief)
         {
-            kanKanon2maken = true;
-        }
-        if (metalScrapTotal == 5 && plankTotal == 10)
-        {
-            kanKanon3maken = true;
+            timeUntilOver -= 1 * Time.deltaTime;
+            print(timeUntilOver);
         }
     }
 
@@ -133,5 +134,23 @@ public class PickUp : MonoBehaviour
             Destroy(collision.gameObject);
             plankTotal += 1;
         }
+        if (collision.gameObject.tag == "DamageUp")
+        {
+            Destroy(collision.gameObject);
+            damageBoostIsActief = true;
+            Invoke("SetBoolBack", 30);
+        }
+        if (collision.gameObject.tag == "SpeedUp")
+        {
+            Destroy(collision.gameObject);
+            speedBoostIsActief = true;
+            Invoke("SetBoolBack", 30);
+        }
+    }
+    private void SetBoolBack()
+    {
+        damageBoostIsActief = false;
+        speedBoostIsActief = false;
+        script.speed = script.walkSpeed;
     }
 }

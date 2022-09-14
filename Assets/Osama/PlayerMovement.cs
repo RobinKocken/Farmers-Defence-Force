@@ -5,13 +5,17 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Vector3 v;
+
     public float horizontal;
     public float vertical;
     public float z;
-    public float walkSpeed, runSpeed;
+    public float walkSpeed, runSpeed, boostSpeed;
     public float speed;
     public float stamina;
+
     public bool running;
+
+    public PickUp pickup;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         speed = walkSpeed;
         walkSpeed = 4;
         runSpeed = 8;
+        boostSpeed = 12;
     }
 
     // Update is called once per frame
@@ -35,34 +40,42 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(v*speed * Time.deltaTime);
         //print(stamina);
 
-        if (stamina > 0)
+        if (pickup.speedBoostIsActief == true)
         {
-           
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            speed = boostSpeed;
+            stamina = 100;
+        }
+        else if (pickup.speedBoostIsActief == false)
+        {
+            if (stamina > 0)
             {
-                running = true;
-                speed = runSpeed;
-                
-                
+
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    running = true;
+                    speed = runSpeed;
+
+
+                }
+                else if (Input.GetKeyUp(KeyCode.LeftShift))
+                {
+                    speed = walkSpeed;
+                    running = false;
+                }
             }
-            else if (Input.GetKeyUp(KeyCode.LeftShift))
+            else
             {
-                speed = walkSpeed;
                 running = false;
+                speed = walkSpeed;
             }
-        }
-        else
-        {
-            running = false;
-            speed = walkSpeed;
-        }
-        if (running == true)
-        {
-            stamina -= 10 * Time.deltaTime;
-        }
-        else if (stamina < 100 )
-        {
-            stamina += 5 * Time.deltaTime;
+            if (running == true)
+            {
+                stamina -= 10 * Time.deltaTime;
+            }
+            else if (stamina < 100)
+            {
+                stamina += 5 * Time.deltaTime;
+            }
         }
     }
 }
