@@ -3,21 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Manager
-  - Tree
-  - TreeTrunk
-  - Plank
-  - Gun
-  - Axe
-  - Ufo
-  - MetalScrap
-<<<<<<< Updated upstream
-  - DamageUp
-  - SpeedUp
-=======
-  - Item
->>>>>>> Stashed changes
+  tags: []
   layers:
   - Default
   - TransparentFX
