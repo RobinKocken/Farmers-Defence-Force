@@ -14,5 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iDS: 0000000001000000
   iDSAmounts: 0100000001000000
+  requirements:
+  - ingredient: 0
+    amount: 5
+  - ingredient: 2
+    amount: 1
+  - ingredient: 3
+    amount: 26
   outcome: {fileID: 9051253941683823545, guid: fd0adac6c3a9a974692ebd66ed1b95c5, type: 3}
   outcomeAmount: 1

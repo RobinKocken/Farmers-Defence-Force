@@ -103,11 +103,11 @@ public class InventoryManager : MonoBehaviour
         bool[] collected = new bool[iDS.Length];
         Transform[] collectedSlots = new Transform[iDS.Length];
 
+        CheckSlots();
         for(int x = 0; x < iDS.Length; x++)
         {
             for(int i = 0; i < slots.Count; i++)
             {
-                CheckSlots();
 
                 if(isFull[i] == true)
                 {
