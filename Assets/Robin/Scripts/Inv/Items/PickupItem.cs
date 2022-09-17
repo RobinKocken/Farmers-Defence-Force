@@ -14,7 +14,7 @@ public class PickupItem : MonoBehaviour
 
     public void PickUp()
     {
-        Destroy(gameObject);
-        manager.AddItem(item);
+        //Destroy(gameObject);
+        //manager.AddItem(item);
     }
 }

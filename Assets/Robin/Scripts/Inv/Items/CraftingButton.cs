@@ -14,6 +14,6 @@ public class CraftingButton : MonoBehaviour
 
     public void CraftItem()
     {
-        manager.CraftItem(recipe.iDS, recipe.iDSAmounts, recipe.outcome, recipe.outcomeAmount);
+        //manager.CraftItem(recipe.iDS, recipe.iDSAmounts, recipe.outcome, recipe.outcomeAmount);
     }
 }

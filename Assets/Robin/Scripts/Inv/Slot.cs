@@ -2,36 +2,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Slot : MonoBehaviour
 {
-    public int iD;
-    public InventoryManager manager;
+    InventoryManager manager;
 
+    public Item itemData;
+    public int amount;
+
+    public Image iconRenderer;
     public Image boxImage;
+
+    public TMP_Text amountText;
+
+    public int iD;
 
     void Start()
     {
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<InventoryManager>();
-        boxImage = GetComponent<Image>();
+
+        boxImage = gameObject.GetComponent<Image>();
+        iconRenderer = iconRenderer.GetComponent<Image>();
+
+        iconRenderer.enabled = false;
     }
 
     void Update()
     {
-        if(transform.childCount > 0)
+        if(itemData != null)
         {
-            boxImage.color = manager.rarityColors[transform.GetChild(0).GetComponent<InventoryItem>().itemData.rarity];
+            iconRenderer.enabled = true;
+            iconRenderer.sprite = itemData.icon;
 
-            if(transform.GetChild(0).GetComponent<InventoryItem>().amount <= 0)
-            {
-                Destroy(transform.GetChild(0).gameObject);
-                manager.CheckSlots();
-            }
+            boxImage.color = manager.rarityColors[itemData.rarity];
         }
         else
         {
+            iconRenderer.sprite = null;
+            iconRenderer.enabled = false;
+
             boxImage.color = manager.defaultColor;
         }
+
+        if(amount <= 1 )
+        {
+            amountText.enabled = false;
+        }
+        else
+        {
+            amountText.enabled = true;
+        }
+
+        amountText.text = amount.ToString();
     }
 
     public void SetID()
