@@ -12,14 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 404b9a3d642d58044bd1eac0ce97f97c, type: 3}
   m_Name: Axe Crafting
   m_EditorClassIdentifier: 
-  iDS: 0000000001000000
-  iDSAmounts: 0100000001000000
   requirements:
-  - ingredient: 0
-    amount: 5
-  - ingredient: 2
+  - id: 0
     amount: 1
-  - ingredient: 3
-    amount: 26
-  outcome: {fileID: 9051253941683823545, guid: fd0adac6c3a9a974692ebd66ed1b95c5, type: 3}
+  - id: 1
+    amount: 1
+  outcome: {fileID: 11400000, guid: 22cfc8286c85f0e4b8f9b833e7b02c67, type: 2}
   outcomeAmount: 1

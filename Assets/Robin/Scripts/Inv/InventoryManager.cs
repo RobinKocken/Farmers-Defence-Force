@@ -20,8 +20,10 @@ public class InventoryManager : MonoBehaviour
     public Transform cursor;
     public Image boxCursor;
     public Vector3 offset;
+
     Item itemHolder;
     int itemAmount;
+
     public Image iconHolder;
     public TMP_Text itemAmountText;
 
@@ -40,7 +42,6 @@ public class InventoryManager : MonoBehaviour
     {
         InitializeInventory();
         SetSlotIDS();
-        //CheckSlots();
 
         boxCursor = boxCursor.GetComponent<Image>();
         iconHolder = iconHolder.GetComponent<Image>();
@@ -91,14 +92,12 @@ public class InventoryManager : MonoBehaviour
         for(int i = 0; i < inventorySlotHolder.childCount; i++)
         {
             slots.Add(inventorySlotHolder.GetChild(i));
-            //isFull.Add(false);
         }
         //Sets Hotbar Slots
         for(int i = 0; i < inventoryHotbarSlotHolder.childCount; i++)
         {
             slots.Add(inventoryHotbarSlotHolder.GetChild(i));
             hotbarSlots.Add(inventoryHotbarSlotHolder.GetChild(i));
-            //isFull.Add(false);
         }
     }
 
@@ -113,101 +112,73 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    //public void CheckSlots()
-    //{
-    //    //Check if Slots are Full
-    //    for(int i = 0; i < slots.Count; i++)
-    //    {
-    //        if(slots[i].childCount > 0)
-    //        {
-    //            isFull[i] = true;
-    //        }
-    //        else
-    //        {
-    //            isFull[i] = false;
-    //        }
-    //    }
-    //}
+    public void CraftItem(Requirements[] reqs, Item outcome, int outcomeAmount)
+    {
+        //Collecting Info what Items can be collected
+        Item[] collectedItem = new Item[reqs.Length];
+        int[] collectedID = new int[reqs.Length];
+        
+        for(int x =  0; x < reqs.Length; x++)
+        {
+            for(int i = 0; i < slots.Count; i++)
+            {
+                if(slots[i].GetComponent<Slot>().itemData != null)
+                {
+                    if(slots[i].GetComponent<Slot>().itemData.iD == reqs[x].id && slots[i].GetComponent<Slot>().amount >= reqs[x].amount)
+                    {
+                        collectedItem[x] = slots[i].GetComponent<Slot>().itemData;
+                        collectedID[x] = slots[i].GetComponent<Slot>().iD;
+                    }
+                }
+            }
+        }
 
-    //public void CraftItem(int[] iDS, int[] iDSAmount, GameObject outcome, int outcomeAmount)
-    //{
-    //    //Collecting Info weather or not Item can be Crafted
-    //    bool[] collected = new bool[iDS.Length];
-    //    Transform[] collectedSlots = new Transform[iDS.Length];
+        for(int i = 0; i < collectedItem.Length; i++)
+        {
+            if(collectedItem[i] == null)
+            {
+                return;
+            }
+        }
 
-    //    CheckSlots();
-    //    for(int x = 0; x < iDS.Length; x++)
-    //    {
-    //        for(int i = 0; i < slots.Count; i++)
-    //        {
+        for(int i = 0; i < collectedID.Length; i++)
+        {
+            slots[collectedID[i]].GetComponent<Slot>().amount -= reqs[i].amount;
+        }
 
-    //            if(isFull[i] == true)
-    //            {
-    //                if(slots[i].GetChild(0).GetComponent<InventoryItem>().itemData.iD == iDS[x] && slots[i].GetChild(0).GetComponent<InventoryItem>().amount >= iDSAmount[x])
-    //                {
-    //                    collected[x] = true;
-    //                    collectedSlots[x] = slots[i].GetChild(0);
-    //                }
-    //            }
-    //        }
-    //    }
+        AddItem(outcome, outcomeAmount);
+    }
 
-    //    for(int i = 0; i < collected.Length; i++)
-    //    {
-    //        if(collected[i] == false)
-    //        {
-    //            return;
-    //        }
-    //    }
+    public void AddItem(Item item, int itemAmount)
+    {
+        for(int i = 0; i < slots.Count; i++)
+        {
+            if(slots[i].GetComponent<Slot>().itemData != null)
+            {
+                if(slots[i].GetComponent<Slot>().itemData.iD == item.iD)
+                {
+                    if(itemAmount <= slots[i].GetComponent<Slot>().itemData.maxStack - slots[i].GetComponent<Slot>().amount)
+                    {
+                        slots[i].GetComponent<Slot>().amount += itemAmount;
+                        return;
+                    }
+                }
+            }
+        }
 
-    //    for(int i = 0; i < collectedSlots.Length; i++)
-    //    {
-    //        collectedSlots[i].GetComponent<InventoryItem>().amount -= iDSAmount[i];
-    //        CheckSlots();
-    //    }
+        for(int i = 0; i < slots.Count; i++)
+        {
+            if(slots[i].GetComponent<Slot>().itemData == null)
+            {
+                //AddItem
+                slots[i].GetComponent<Slot>().itemData = item;
+                slots[i].GetComponent<Slot>().amount = itemAmount;
+                return;
+            }
+        }
 
-    //    for(int i = 0; i < outcomeAmount; i++)
-    //    {
-    //        AddItem(outcome);
-    //    }
-    //}
-
-    //public void AddItem(GameObject item)
-    //{
-    //    for(int i  = 0; i < slots.Count; i++)
-    //    {
-    //        if(isFull[i] == true)
-    //        {
-    //            if(isFull[i] == true && slots[i].GetChild(0).GetComponent<InventoryItem>().itemData.iD == item.GetComponent<InventoryItem>().itemData.iD)
-    //            {
-    //                if(item.GetComponent<InventoryItem>().amount <= slots[i].GetChild(0).GetComponent<InventoryItem>().itemData.maxStack - slots[i].GetChild(0).GetComponent<InventoryItem>().amount)
-    //                {
-    //                    slots[i].GetChild(0).GetComponent<InventoryItem>().amount += item.GetComponent<InventoryItem>().amount;
-    //                    CheckSlots();
-    //                    return;
-    //                }
-    //                return;
-    //            }
-    //        }
-    //    }
-
-    //    for(int x = 0; x < slots.Count; x++)
-    //    {
-    //        if(isFull[x] == false)
-    //        {
-    //            //Add Item
-    //            Instantiate(item, slots[x]);
-    //            CheckSlots();
-    //            return;
-    //        }
-    //        else
-    //        {
-    //            Debug.Log("Slot is Full");
-    //        }
-    //    }
-
-    //    Debug.Log("All Slots are Full");
-    //}
+        Debug.Log("All Slots are full");
+    }
 
     public void PickupDropInventory()
     {

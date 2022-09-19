@@ -5,7 +5,8 @@ using UnityEngine;
 public class PickupItem : MonoBehaviour
 {
     public InventoryManager manager;
-    public GameObject item;
+    public Item item;
+    public int amount;
 
     void Start()
     {
@@ -14,7 +15,7 @@ public class PickupItem : MonoBehaviour
 
     public void PickUp()
     {
-        //Destroy(gameObject);
-        //manager.AddItem(item);
+        manager.AddItem(item, amount);
+        Destroy(gameObject);
     }
 }

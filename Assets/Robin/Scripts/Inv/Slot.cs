@@ -45,6 +45,11 @@ public class Slot : MonoBehaviour
             boxImage.color = manager.defaultColor;
         }
 
+        if(amount <= 0)
+        {
+            itemData = null;
+        }
+
         if(amount <= 1 )
         {
             amountText.enabled = false;
