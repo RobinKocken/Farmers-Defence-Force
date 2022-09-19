@@ -38,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
         v.x = horizontal;
         v.z = vertical;
         transform.Translate(v*speed * Time.deltaTime);
-        //print(stamina);
 
         if (pickup.speedBoostIsActief == true)
         {
@@ -74,8 +73,21 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (stamina < 100)
             {
-                stamina += 5 * Time.deltaTime;
+                Invoke("Stamina", 3);
             }
         }
+        print(stamina);
+        if(stamina==100 || stamina > 100)
+        {
+            stamina = 100;
+        }
+        if (stamina == 0 || stamina < 0)
+        {
+            stamina = 0;
+        }
+    }
+    public void Stamina()
+    {
+        stamina += 5 * Time.deltaTime;
     }
 }
