@@ -42,12 +42,7 @@ public class PauseManager : MonoBehaviour
 
         SetCursor(true,CursorLockMode.None);
 
-        var rigidbodies = FindObjectsOfType(typeof(Rigidbody)) as Rigidbody[];
-
-        foreach (var body in rigidbodies)
-        {
-            body.isKinematic = true;
-        }
+        Time.timeScale = 0;
     }
 
     public void OnContinue()
@@ -57,13 +52,8 @@ public class PauseManager : MonoBehaviour
         pauseMenu.SetActive(true);
 
         SetCursor(false, CursorLockMode.Locked);
-        
-        var rigidbodies = FindObjectsOfType(typeof(Rigidbody)) as Rigidbody[];
 
-        foreach (var body in rigidbodies)
-        {
-            body.isKinematic = false;
-        }
+        Time.timeScale = 1;
     }
 
     void SetCursor(bool visisble, CursorLockMode mode)

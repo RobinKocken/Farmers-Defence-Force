@@ -139,9 +139,9 @@ public class MainMenuButton : MonoBehaviour
             buttonText.color = Color.Lerp(buttonText.color, targetColor, currentColorTimer);
         if(image)
             image.color = Color.Lerp(image.color, targetColor, currentColorTimer);
-        currentColorTimer += Time.deltaTime * colorChangeRate;
+        currentColorTimer += Options.deltaTime * colorChangeRate;
 
-        transform.localScale = Vector3.SmoothDamp(transform.localScale,targetSize, ref sizeVelocity, sizeSmoothTime);
+        transform.localScale = Vector3.SmoothDamp(transform.localScale,targetSize, ref sizeVelocity, sizeSmoothTime,Mathf.Infinity, Options.deltaTime);
     }
 
     public virtual void OnClick()
