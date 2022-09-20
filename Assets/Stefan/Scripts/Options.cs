@@ -9,8 +9,10 @@ public class Options : MonoBehaviour
     public static float ySens = 350;
     public static float volume { get { return AudioListener.volume; } }
 
+    public static float cameraShakeAmount = 1;
+
     /// <summary>
-    /// Delta time berekenen omdat de buttons niet werken volgens Time.deltaTime als de game gepauzeerd is
+    /// Eigen Delta time berekenen omdat de buttons niet werken volgens Time.deltaTime als de game gepauzeerd is
     /// </summary>
     public static float deltaTime { get; private set; }
 
@@ -31,6 +33,8 @@ public class Options : MonoBehaviour
 
     public static void SetXSens(float sensitvitiy) => xSens = sensitvitiy;
     public static void SetYSens(float sensitivity) => ySens = sensitivity;
+
+    public static void SetCameraShake(float shakeAmount) => cameraShakeAmount = shakeAmount;
     public static void SetVolume(float _volume) => AudioListener.volume = _volume;
 
 }

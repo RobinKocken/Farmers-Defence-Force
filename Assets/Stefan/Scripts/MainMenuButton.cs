@@ -106,8 +106,6 @@ public class MainMenuButton : MonoBehaviour
 
     void Update()
     {
-        print("Jow");
-        print(Time.timeScale);
         //Check if button is clicked on
 
         if (Released) OnClick();

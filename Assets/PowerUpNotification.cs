@@ -30,7 +30,7 @@ public class PowerUpNotification : MonoBehaviour
         {
             for (int i = 0; i < borders.Length; i++)
             {
-                borders[i].color = value;
+                borders[i].color = new(value.r,value.g,value.b);
             }
         }
     }

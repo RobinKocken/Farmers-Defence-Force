@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class OptionsMainMenu : MonoBehaviour
 {
     public OptionsMenuButton audioButton, videoButton, gameplayButton;
-    public Slider volume, xsens, ysens;
+    public Slider volume, xsens, ysens, cameraShake;
     public HUDManager hud;
 
     public bool Fullscreen 
@@ -89,5 +89,6 @@ public class OptionsMainMenu : MonoBehaviour
         volume.value = AudioListener.volume;
         xsens.value = Options.xSens;
         ysens.value = Options.ySens;
+        cameraShake.value = Options.cameraShakeAmount;
     }
 }

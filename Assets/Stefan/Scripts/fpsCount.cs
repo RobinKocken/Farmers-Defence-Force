@@ -14,7 +14,7 @@ public class fpsCount : MonoBehaviour
     }
     void Update()
     {
-        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
+        deltaTime += (Options.deltaTime - deltaTime) * 0.1f;
         float fps = 1.0f / deltaTime;
         text.text = Mathf.Ceil(fps).ToString();
     }

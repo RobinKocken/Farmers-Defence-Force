@@ -80,8 +80,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4292467161
+  m_fontColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -224,6 +224,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1930676563517835111}
     m_Modifications:
+    - target: {fileID: 2551277534983602482, guid: e7276192ddc90894aa4229f831a61faa,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.8490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551277534983602482, guid: e7276192ddc90894aa4229f831a61faa,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.8490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551277534983602482, guid: e7276192ddc90894aa4229f831a61faa,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.8490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551277534983602482, guid: e7276192ddc90894aa4229f831a61faa,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4292467161
+      objectReference: {fileID: 0}
     - target: {fileID: 2551277534983602482, guid: e7276192ddc90894aa4229f831a61faa,
         type: 3}
       propertyPath: m_VerticalAlignment
