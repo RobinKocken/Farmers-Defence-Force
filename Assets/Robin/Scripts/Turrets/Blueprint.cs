@@ -29,6 +29,8 @@ public class Blueprint : MonoBehaviour
         if(Input.GetKeyDown(buildKey))
         {
             move = Instantiate(prefab);
+
+            move.transform.SetParent(this.gameObject.transform);
         }
 
         Raycast();
@@ -36,7 +38,7 @@ public class Blueprint : MonoBehaviour
 
     void Raycast()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = new Ray(cam.transform.position, cam.transform.forward);
 
         if(Physics.Raycast(ray, out hit, distance, placeble))
         {
@@ -51,6 +53,8 @@ public class Blueprint : MonoBehaviour
                 if(Input.GetButtonDown("Fire1"))
                 {
                     move.transform.position = hit.point;
+
+                    move.transform.parent = null;
                     mouseWheel = 0;
                     move = null;
                 }
