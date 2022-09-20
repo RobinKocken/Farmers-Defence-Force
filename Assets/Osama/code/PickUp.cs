@@ -7,6 +7,7 @@ public class PickUp : MonoBehaviour
     public Transform cam;
     public RaycastHit hit;
     public PlayerMovement script;
+    public Shooting code;
 
     public GameObject gun;
     public GameObject gunPlayer;
@@ -18,6 +19,7 @@ public class PickUp : MonoBehaviour
     public int metalScrapTotal;
     public int plankTotal;
     public float timeUntilOver = 30;
+    public float timeUntilOver2 = 30;
 
     public bool gunIsOpgepakt;
     public bool axeIsOpgepakt;
@@ -90,6 +92,7 @@ public class PickUp : MonoBehaviour
                 gunPlayer.SetActive(true);
                 axeIsActief = false;
                 gunIsActief = true;
+                code.kanSchieten = true;
             }
         }
         if (axeIsOpgepakt == true)
@@ -100,6 +103,7 @@ public class PickUp : MonoBehaviour
                 gunPlayer.SetActive(false);
                 axeIsActief = true;
                 gunIsActief = false;
+                code.kanSchieten = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha0))
@@ -108,6 +112,7 @@ public class PickUp : MonoBehaviour
             gunPlayer.SetActive(false);
             gunIsActief = false;
             axeIsActief = false;
+            code.kanSchieten = false;
         }
         if (damageBoostIsActief)
         {
@@ -116,8 +121,8 @@ public class PickUp : MonoBehaviour
         }
         if (speedBoostIsActief)
         {
-            timeUntilOver -= 1 * Time.deltaTime;
-            print(timeUntilOver);
+            timeUntilOver2 -= 1 * Time.deltaTime;
+            print(timeUntilOver2);
         }
     }
 

@@ -10,14 +10,14 @@ public class Shooting : MonoBehaviour
     public GameObject metalScrap;
     public PickUp pickup;
     public int ufo;
-    private float cooldown = 2f;
+    public float cooldown = 2f;
     public float ammo = 5;
     public bool kanSchieten;
-    private bool cooldownShooting;
+    public bool cooldownActive;
     // Start is called before the first frame update
     void Start()
     {
-        cooldownShooting = true;
+       
     }
 
     // Update is called once per frame
@@ -27,36 +27,54 @@ public class Shooting : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0) && kanSchieten == true)
             {
-                Shoot();
+               
+            }
+            else if (cooldownActive == true)
+            {
+                
             }
         }
-       
+        if (cooldownActive == true)
+        {
+            cooldown -= 1f * Time.deltaTime;
+            kanSchieten = false;
+            if (cooldown < 0 || cooldown == 0)
+            {
+                kanSchieten = true;
+                cooldownActive = false;
+                cooldown = 2f;
+            }
+        }
+        
+
         if (ammo < 0 || ammo == 0)
         {
             ammo = 0f;
             kanSchieten = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && ammo == 0)
+        if (Input.GetKeyDown(KeyCode.R))
         {
             Reload();
         }
-    }
-
-    void Shoot()
-    {
-        kanSchieten = false;
 
         if (Physics.Raycast(cam.position, cam.forward, out hit, 20))
         {
+           
             if (hit.transform.gameObject.tag == "Ufo")
             {
+                
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
+                   
                     if (pickup.gunIsActief == true)
                     {
+                        
                         if (kanSchieten == true)
                         {
+                            ammo--;
+                            cooldownActive = true;
+                            
                             if (pickup.damageBoostIsActief == true && ammo > 0)
                             {
                                 ufo -= 10;
@@ -81,9 +99,8 @@ public class Shooting : MonoBehaviour
                 }
             }
         }
-        Invoke("Cooldown", cooldown);
-        ammo--;
     }
+
     public void Reload()
     {
         kanSchieten = true;
@@ -91,6 +108,13 @@ public class Shooting : MonoBehaviour
     }
     public void Cooldown()
     {
-        kanSchieten = true;
+        cooldownActive = true;
+        cooldown -= 1f * Time.deltaTime;
+        if(cooldown<0 || cooldown == 0)
+        {
+            kanSchieten = true;
+            cooldownActive = false;
+            cooldown = 2f;
+        }
     }
 }

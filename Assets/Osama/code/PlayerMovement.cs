@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
                 Invoke("Stamina", 3);
             }
         }
-        print(stamina);
+        //print(stamina);
         if(stamina==100 || stamina > 100)
         {
             stamina = 100;
