@@ -11,8 +11,9 @@ public class SingleShotScript : MonoBehaviour
 
     [Header("Components")]
     public Transform frame;
-    public Transform gear;
     public Transform cannon;
+    public Transform gearFrame;
+    public Transform gearMotor;
 
     bool aggro;
 
@@ -25,7 +26,9 @@ public class SingleShotScript : MonoBehaviour
     {
         if(aggro)
         {
-            frame.transform.rotation = Quaternion.Slerp(frame.transform.rotation, Quaternion.LookRotation(target.transform.position - frame.transform.position), 5 * Time.deltaTime);
+            Quaternion quat = Quaternion.Slerp(frame.transform.rotation, Quaternion.LookRotation(target.transform.position - frame.transform.position), 5 * Time.deltaTime);
+            Quaternion newRot = new Quaternion(0, quat.y, 0, quat.w);
+            frame.transform.rotation = newRot;
         }
     }
 

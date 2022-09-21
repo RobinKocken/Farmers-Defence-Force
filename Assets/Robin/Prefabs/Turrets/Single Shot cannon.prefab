@@ -175,6 +175,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7920098387197268035}
+  - component: {fileID: 1324415148}
+  - component: {fileID: 7812215166495080613}
   m_Layer: 0
   m_Name: Single Shot cannon
   m_TagString: Untagged
@@ -200,6 +202,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1324415148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784710582413980541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d877e5fe32a757b46a408691d1f75f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  target: {fileID: 0}
+  bullet: {fileID: 0}
+  frame: {fileID: 1120000071836552299}
+  cannon: {fileID: 6431375630227156961}
+  gearFrame: {fileID: 0}
+  gearMotor: {fileID: 1016113385943409260}
+--- !u!65 &7812215166495080613
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784710582413980541}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4021301, y: 2.4661047, z: 3.2025738}
+  m_Center: {x: 0, y: 1.2215351, z: 0.30616665}
 --- !u!1 &6382544107391271460
 GameObject:
   m_ObjectHideFlags: 0
