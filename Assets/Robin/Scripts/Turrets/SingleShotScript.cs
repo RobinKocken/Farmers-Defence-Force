@@ -15,6 +15,9 @@ public class SingleShotScript : MonoBehaviour
     public Transform gearFrame;
     public Transform gearMotor;
 
+    float startTime;
+    public float waitForSeconds;
+
     bool aggro;
 
     void Start()
@@ -26,9 +29,13 @@ public class SingleShotScript : MonoBehaviour
     {
         if(aggro)
         {
-            Quaternion quat = Quaternion.Slerp(frame.transform.rotation, Quaternion.LookRotation(target.transform.position - frame.transform.position), 5 * Time.deltaTime);
-            Quaternion newRot = new Quaternion(0, quat.y, 0, quat.w);
-            frame.transform.rotation = newRot;
+            Quaternion frameQuat = Quaternion.Slerp(frame.transform.rotation, Quaternion.LookRotation(target.transform.position - frame.transform.position), 5 * Time.deltaTime);
+            Quaternion newRotFrame = new Quaternion(0, frameQuat.y, 0, frameQuat.w);
+            frame.transform.localRotation = newRotFrame;
+
+            Quaternion cannonQuat = Quaternion.Slerp(cannon.transform.rotation, Quaternion.LookRotation(target.transform.position - cannon.transform.position), 5 * Time.deltaTime);
+            Quaternion newRotCannon = new Quaternion(cannonQuat.x, 0, 0, cannonQuat.w);
+            cannon.transform.localRotation = newRotCannon;
         }
     }
 
@@ -38,6 +45,15 @@ public class SingleShotScript : MonoBehaviour
         {
             aggro = true;
             target = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(aggro && other.CompareTag("Alien"))
+        {
+            aggro = false;
+            target = null;
         }
     }
 }
