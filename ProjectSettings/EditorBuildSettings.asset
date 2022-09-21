@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Stefan/Stefan Scene.unity
     guid: f2241a222c28b1b4abcf6877ef752015
   - enabled: 1
+    path: Assets/Main Scene.unity
+    guid: 7ae8fe8acfb57f140a2038ec70f6319a
+  - enabled: 1
     path: Assets/Stefan/VFX Wereldje.unity
     guid: 397c6b0dde00f5e4ba333d7735baba43
   - enabled: 1

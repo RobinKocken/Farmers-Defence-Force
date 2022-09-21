@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class BloodSplash : MonoBehaviour
 {
+    [Range(0,100)]
     public float health;
     public float pulseStrength;
     public float maxPulseSpeed,minPulseSpeed;
@@ -29,6 +30,8 @@ public class BloodSplash : MonoBehaviour
     public HPVolumeSettings motionBlurValues;
     public HPVolumeSettings dofValues;
     public HPVolumeSettings colorAdjustmentsValues;
+    public HPVolumeSettings lensDistortionIntensityValues;
+    public HPVolumeSettings lensDistortionScaleValues;
 
     Bloom bloom;
     Vignette vignette;
@@ -36,6 +39,7 @@ public class BloodSplash : MonoBehaviour
     MotionBlur motionBlur;
     DepthOfField depthOfField;
     ColorAdjustments colorAdjustments;
+    LensDistortion lensDistortion;
 
     public float hp { get
         {
@@ -54,6 +58,7 @@ public class BloodSplash : MonoBehaviour
         postProcessing.profile.TryGet(out depthOfField);
         postProcessing.profile.TryGet(out chromaticAberration);
         postProcessing.profile.TryGet(out colorAdjustments);
+        postProcessing.profile.TryGet(out lensDistortion);
     }
 
     // Update is called once per frame
@@ -82,7 +87,7 @@ public class BloodSplash : MonoBehaviour
         bloom.intensity.value = bloomValues.Evaluate(hp);
 
         //Vignette
-        vignette.intensity.value =vignetteValues.Evaluate(hp);
+        vignette.intensity.value = vignetteValues.Evaluate(hp);
 
         //Motion blur
         motionBlur.intensity.value = motionBlurValues.Evaluate(hp); 
@@ -95,6 +100,10 @@ public class BloodSplash : MonoBehaviour
 
         //Color Adjustments
         colorAdjustments.saturation.value = colorAdjustmentsValues.Evaluate(hp);
+
+        //Lens Distortion
+        lensDistortion.intensity.value = lensDistortionIntensityValues.Evaluate(hp);
+        lensDistortion.scale.value = lensDistortionScaleValues.Evaluate(hp);
     }
 
     [Serializable]

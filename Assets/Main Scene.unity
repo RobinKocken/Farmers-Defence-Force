@@ -2340,6 +2340,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &560997464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 560997465}
+  m_Layer: 5
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &560997465
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560997464}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1277041633}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &572757367
 GameObject:
   m_ObjectHideFlags: 0
@@ -5777,6 +5813,55 @@ MonoBehaviour:
   hoveredSize: {x: 1.2, y: 1.2, z: 1.2}
   hoveredColor: {r: 1, g: 0.38113207, b: 0.38113207, a: 1}
   clickedColor: {r: 0.5, g: 0.31320754, b: 0.31320754, a: 1}
+--- !u!1 &1253707919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1253707921}
+  - component: {fileID: 1253707920}
+  m_Layer: 0
+  m_Name: UI Blur volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1253707920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253707919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 1
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: aa887a1157cb0ff499cbb0fa8cab1daa, type: 2}
+--- !u!4 &1253707921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253707919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 923.9791, y: 979.0566, z: 13.914123}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1255802672
 GameObject:
   m_ObjectHideFlags: 0
@@ -6234,6 +6319,7 @@ RectTransform:
   - {fileID: 1926794576}
   - {fileID: 2082457077}
   - {fileID: 1944463002}
+  - {fileID: 560997465}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7751,6 +7837,14 @@ MonoBehaviour:
     fullHP: 10
     noHP: -60
     startHP: 50
+  lensDistortionIntensityValues:
+    fullHP: 0
+    noHP: -0.65
+    startHP: 30
+  lensDistortionScaleValues:
+    fullHP: 1
+    noHP: 0.88
+    startHP: 30
 --- !u!114 &1709250794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9430,6 +9524,7 @@ GameObject:
   - component: {fileID: 2007107858}
   - component: {fileID: 2007107859}
   - component: {fileID: 2007107860}
+  - component: {fileID: 2007107863}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -9539,6 +9634,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2007107863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007107857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ce64dfc13e563479d3773e9dc8518c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blurCam: {fileID: 0}
+  blurMat: {fileID: 2100000, guid: 1fdeb4e137ebf8b439777683a4405650, type: 2}
 --- !u!1 &2016354839
 GameObject:
   m_ObjectHideFlags: 0
