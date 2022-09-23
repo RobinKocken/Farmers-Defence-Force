@@ -206,11 +206,11 @@ GameObject:
   - component: {fileID: 608712773927440193}
   - component: {fileID: 608712773927440192}
   - component: {fileID: 608712773927440206}
-  - component: {fileID: 608712773927440207}
+  - component: {fileID: 1014094907}
   - component: {fileID: 608712773927440205}
-  - component: {fileID: 608712773927440204}
   - component: {fileID: 608712773927440195}
   - component: {fileID: 608712773927440194}
+  - component: {fileID: 1014094908}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -249,7 +249,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608712773927440201}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -305,7 +305,7 @@ MonoBehaviour:
   ammo: 5
   kanSchieten: 0
   cooldownActive: 0
---- !u!114 &608712773927440207
+--- !u!114 &1014094907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -314,20 +314,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 608712773927440201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22b7ee215aa1b2540990533d19dcf928, type: 3}
+  m_Script: {fileID: 11500000, guid: aa37b10ead5b29a49889a105f51d1500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v: {x: 0, y: 0, z: 0}
-  horizontal: 0
-  vertical: 0
-  z: 0
+  speed: 7.5
+  jumpSpeed: 8
+  gravity: 20
+  playerCamera: {fileID: 608712774076825410}
+  lookSpeed: 2
+  lookXLimit: 45
+  stamina: 100
   walkSpeed: 4
   runSpeed: 8
   boostSpeed: 12
-  speed: 0
-  stamina: 0
-  running: 0
   pickup: {fileID: 608712773927440205}
+  running: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  canMove: 1
 --- !u!114 &608712773927440205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 608712774076825411}
-  script: {fileID: 608712773927440207}
+  script: {fileID: 1014094907}
   code: {fileID: 608712773927440206}
   gun: {fileID: 0}
   gunPlayer: {fileID: 608712773822176384}
@@ -359,20 +362,6 @@ MonoBehaviour:
   axeIsActief: 0
   damageBoostIsActief: 0
   speedBoostIsActief: 0
---- !u!114 &608712773927440204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608712773927440201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7872a47f0e6819478fb136908b19598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGrounded: 0
-  jumpPower: {x: 0, y: 5, z: 0}
 --- !u!65 &608712773927440195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -402,6 +391,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!143 &1014094908
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608712773927440201}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &608712774076825423
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +421,7 @@ GameObject:
   - component: {fileID: 608712774076825410}
   - component: {fileID: 608712774076825421}
   - component: {fileID: 608712774076825420}
-  - component: {fileID: 608712774076825408}
+  - component: {fileID: 961739761}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -523,7 +530,7 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &608712774076825408
+--- !u!114 &961739761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -532,7 +539,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 608712774076825423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 660c41246750e184d94c5ecafaef527b, type: 3}
+  m_Script: {fileID: 11500000, guid: 472fa79ccf8261c488cb2d1365b1ddeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBody: {fileID: 608712773927440198}
+  walkingBobbingSpeed: 14
+  bobbingAmount: 0.05
+  controller: {fileID: 1014094907}
