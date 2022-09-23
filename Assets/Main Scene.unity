@@ -10367,6 +10367,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vuurpijlen Cannon
       objectReference: {fileID: 0}
+    - target: {fileID: 3585015584828739312, guid: 0a566c92a9095d04fb9d1e8cda7320fe,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.09200001
+      objectReference: {fileID: 0}
     - target: {fileID: 8709191801765164673, guid: 0a566c92a9095d04fb9d1e8cda7320fe,
         type: 3}
       propertyPath: m_RootOrder
@@ -10486,10 +10491,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1197063254931961882, guid: 8cb28b78b5e59e34b90cf6d9eef96101,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1400919340730659191, guid: 8cb28b78b5e59e34b90cf6d9eef96101,
         type: 3}
       propertyPath: m_Name
       value: Cabid Cannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123906408750636462, guid: 8cb28b78b5e59e34b90cf6d9eef96101,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123906408750636462, guid: 8cb28b78b5e59e34b90cf6d9eef96101,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.09200001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cb28b78b5e59e34b90cf6d9eef96101, type: 3}
@@ -10573,6 +10593,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Scrap Cannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 813895345051548351, guid: 7fb2c632f02ca9f4aba108bf52472199,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.09200001
       objectReference: {fileID: 0}
     - target: {fileID: 7876735609004483077, guid: 7fb2c632f02ca9f4aba108bf52472199,
         type: 3}
@@ -10697,6 +10722,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415559390895852678, guid: ef47612181f74e346bca63a80c0bf8b0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415559390895852678, guid: ef47612181f74e346bca63a80c0bf8b0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.092
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef47612181f74e346bca63a80c0bf8b0, type: 3}
