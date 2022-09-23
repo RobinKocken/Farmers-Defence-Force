@@ -35,6 +35,7 @@ public class Tree : MonoBehaviour
         {
             Hubert();
             canDamageTrunk = true;
+            trunk.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 

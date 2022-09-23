@@ -20,6 +20,7 @@ public class PickUp : MonoBehaviour
     public int plankTotal;
     public float timeUntilOver = 30;
     public float timeUntilOver2 = 30;
+    public float timeUntilOver3 = 30;
 
     public bool gunIsOpgepakt;
     public bool axeIsOpgepakt;
@@ -27,6 +28,7 @@ public class PickUp : MonoBehaviour
     public bool axeIsActief;
     public bool damageBoostIsActief;
     public bool speedBoostIsActief;
+    public bool jumpBoostIsActief;
 
 
     // Start is called before the first frame update
@@ -151,11 +153,18 @@ public class PickUp : MonoBehaviour
             speedBoostIsActief = true;
             Invoke("SetBoolBack", 30);
         }
+        if (collision.gameObject.tag == "JumpUp")
+        {
+            Destroy(collision.gameObject);
+            jumpBoostIsActief = true;
+            Invoke("SetBoolBack", 30);
+        }
     }
     private void SetBoolBack()
     {
         damageBoostIsActief = false;
         speedBoostIsActief = false;
+        jumpBoostIsActief = false;
         script.speed = script.walkSpeed;
     }
 }

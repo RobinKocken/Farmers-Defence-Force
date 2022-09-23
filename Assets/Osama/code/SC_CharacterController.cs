@@ -5,7 +5,7 @@ using UnityEngine;
 public class SC_CharacterController : MonoBehaviour
 {
     public float speed;
-    public float jumpSpeed = 8.0f;
+    public float jumpSpeed;
     public float gravity = 20.0f;
     public Camera playerCamera;
     public float lookSpeed = 2.0f;
@@ -32,6 +32,7 @@ public class SC_CharacterController : MonoBehaviour
         walkSpeed = 4;
         runSpeed = 8;
         boostSpeed = 12;
+        jumpSpeed = 8;
     }
 
     void Update()
@@ -113,6 +114,14 @@ public class SC_CharacterController : MonoBehaviour
         if (stamina == 0 || stamina < 0)
         {
             stamina = 0;
+        }
+        if (pickup.jumpBoostIsActief == true)
+        {
+            jumpSpeed = 20;
+        }
+        else if (pickup.jumpBoostIsActief == false)
+        {
+            jumpSpeed = 8;
         }
     }
     public void Stamina()

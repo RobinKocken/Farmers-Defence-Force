@@ -10,7 +10,18 @@ TagManager:
   - Axe
   - Turret
   - Alien
+<<<<<<< Updated upstream
   - CableEndPoint
+=======
+  - MetalScrap
+  - SpeedUp
+  - DamageUp
+  - Ufo
+  - Tree
+  - TreeTrunk
+  - Plank
+  - JumpUp
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
