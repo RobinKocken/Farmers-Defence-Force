@@ -6,7 +6,7 @@ public class PickUp : MonoBehaviour
 {
     public Transform cam;
     public RaycastHit hit;
-    public SC_CharacterController script;
+    public PlayerController script;
     public Shooting code;
 
     public GameObject gun;

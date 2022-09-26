@@ -6,7 +6,7 @@ public class SC_CharacterController : MonoBehaviour
 {
     public float speed;
     public float jumpSpeed;
-    public float gravity = 20.0f;
+    public float gravity;
     public Camera playerCamera;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
@@ -14,6 +14,9 @@ public class SC_CharacterController : MonoBehaviour
     public float walkSpeed, runSpeed, boostSpeed;
     public PickUp pickup;
     public bool running;
+    public RaycastHit hit;
+    public Transform cam;
+    public GameObject player;
 
     CharacterController characterController;
     [HideInInspector]
@@ -123,11 +126,32 @@ public class SC_CharacterController : MonoBehaviour
         {
             jumpSpeed = 8;
         }
+        Debug.DrawRay(cam.position, cam.forward*5, Color.black);
+        if (Physics.Raycast(cam.position, cam.forward, out hit, 5))
+        {
+            print(hit.transform.tag);
+            if (hit.transform.gameObject.tag == "Ladder")
+            {
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+
+                    player.transform.position += new Vector3(0, 5f, 0) * Time.deltaTime;
+                }
+            }
+        }
+        
     }
     public void Stamina()
     {
         stamina += 5 * Time.deltaTime;
     }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ladder")
+        {
+        
+        }
+    }
 }
-    
+
 

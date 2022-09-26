@@ -4,24 +4,19 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Manager
-  - Item
+  - CableEndPoint
+  - Alien
   - Gun
   - Axe
-  - Turret
-  - Alien
-<<<<<<< Updated upstream
-  - CableEndPoint
-=======
   - MetalScrap
   - SpeedUp
   - DamageUp
   - Ufo
+  - JumpUp
   - Tree
   - TreeTrunk
   - Plank
-  - JumpUp
->>>>>>> Stashed changes
+  - Ladder
   layers:
   - Default
   - TransparentFX
@@ -29,7 +24,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Placeble
+  - 
   - 
   - 
   - 
