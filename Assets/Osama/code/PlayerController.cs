@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Vector3 v;
+    public Vector3 moveDirection;
     public Vector3 jumpPower;
 
     public float horizontal;
@@ -31,24 +31,25 @@ public class PlayerController : MonoBehaviour
         walkSpeed = 4;
         runSpeed = 8;
         boostSpeed = 12;
-        jumpPower.y = 9f;
+        jumpPower.y = 15f;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (PauseManager.Paused) return;//Speler kan niks doen waneer de game gepauzeerd is
+        Vector3 previous = transform.position;
+        Vector3 velocity = (transform.position - previous) / Time.deltaTime;
 
         if (isGrounded == true)
         {
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
-            v.x = horizontal;
-            v.z = vertical;
-            transform.Translate(v * speed * Time.deltaTime);
+            moveDirection.x = horizontal;
+            moveDirection.z = vertical;
+            transform.Translate(moveDirection * speed * Time.deltaTime);
 
-            if (isGrounded == false)
-            {
+         
                 if (pickup.speedBoostIsActief == true)
                 {
                     speed = boostSpeed;
@@ -86,7 +87,7 @@ public class PlayerController : MonoBehaviour
                         Invoke("Stamina", 3);
                     }
                 }
-            }
+            
 
             //print(stamina);
             if (stamina == 100 || stamina > 100)
@@ -102,8 +103,9 @@ public class PlayerController : MonoBehaviour
                 if (isGrounded == true)
                 {
                     isGrounded = false;
-                    //playerBody.transform.position = jumpPower * Time.deltaTime;
+                    GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, 0, velocity.z);
                     GetComponent<Rigidbody>().velocity += jumpPower;
+                    isGrounded = true;
 
                 }
             }
@@ -113,7 +115,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (pickup.jumpBoostIsActief == false)
             {
-                jumpPower.y = 9f;
+                jumpPower.y = 15f;
             }
             
         }

@@ -23,7 +23,7 @@ public class CameraBob : MonoBehaviour
     {
         if (controller.isGrounded)
         {
-            if (Mathf.Abs(controller.v.x) > 0.1f || Mathf.Abs(controller.v.z) > 0.1f)
+            if (Mathf.Abs(controller.moveDirection.x) > 0.1f || Mathf.Abs(controller.moveDirection.z) > 0.1f)
             {
                 //Player is moving
                 timer += Time.deltaTime * walkingBobbingSpeed;
