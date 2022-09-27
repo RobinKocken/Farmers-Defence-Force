@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
-  m_FogDensity: 0.005
+  m_Fog: 1
+  m_FogColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
+  m_FogMode: 1
+  m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1.39
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.22067462, g: 0.23564921, b: 0.2735849, a: 1}
+  m_SubtractiveShadowColor: {r: 0, g: 0.28571415, b: 1, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: d08e61b8a8ff96b43b94528d5f582d05, type: 2}
   m_HaloStrength: 0.462
   m_FlareStrength: 1
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19557694, g: 0.23695657, b: 0.310541, a: 1}
+  m_IndirectSpecularColor: {r: 0.3083948, g: 0.3736436, b: 0.48967487, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,8 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 56e25cdbe2ab2914e97535a0dd4ced6c,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -266,16 +267,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v: {x: 0, y: 0, z: 0}
+  jumpPower: {x: 0, y: 0, z: 0}
   horizontal: 0
   vertical: 0
-  z: 0
   walkSpeed: 4
   runSpeed: 8
   boostSpeed: 0
   speed: 0.01
   stamina: 0
+  isGrounded: 0
   running: 0
   pickup: {fileID: 0}
+  playerBody: {fileID: 0}
+  playerCamera: {fileID: 0}
 --- !u!65 &47168579
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3806,8 +3810,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
+  m_RequiresDepthTextureOption: 1
+  m_RequiresOpaqueTextureOption: 1
   m_CameraType: 0
   m_Cameras: []
   m_RendererIndex: -1
@@ -3870,8 +3874,8 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
+  m_HDR: 0
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -4003,8 +4007,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.98607916, b: 0.9481132, a: 1}
-  m_Intensity: 2.65
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 3.74
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
