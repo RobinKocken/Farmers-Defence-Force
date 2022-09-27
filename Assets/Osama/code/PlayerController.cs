@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    Rigidbody rb;
+
     public Vector3 moveDirection;
     public Vector3 jumpPower;
 
@@ -28,10 +30,11 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         stamina = 100;
         speed = walkSpeed;
-        walkSpeed = 4;
-        runSpeed = 8;
-        boostSpeed = 12;
-        jumpPower.y = 15f;
+        walkSpeed = 10;
+        runSpeed = 20;
+        boostSpeed = 30;
+        jumpPower.y = 5f;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -43,14 +46,18 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded == true)
         {
-            horizontal = Input.GetAxis("Horizontal");
-            vertical = Input.GetAxis("Vertical");
+            horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
             moveDirection.x = horizontal;
             moveDirection.z = vertical;
-            transform.Translate(moveDirection * speed * Time.deltaTime);
+            //transform.Translate(moveDirection * speed * Time.deltaTime);
+            rb.AddForce(transform.forward.normalized * speed *vertical);
+            rb.AddForce(transform.right.normalized * speed * horizontal);
+            rb.drag = 5;
 
-         
-                if (pickup.speedBoostIsActief == true)
+
+
+            if (pickup.speedBoostIsActief == true)
                 {
                     speed = boostSpeed;
                     stamina = 100;
@@ -100,22 +107,21 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetButtonDown("Jump"))
             {
+                rb.drag = 0;
                 if (isGrounded == true)
                 {
                     isGrounded = false;
-                    GetComponent<Rigidbody>().velocity = new Vector3(velocity.x, 0, velocity.z);
+                    GetComponent<Rigidbody>().velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
                     GetComponent<Rigidbody>().velocity += jumpPower;
-                    isGrounded = true;
-
                 }
             }
             if (pickup.jumpBoostIsActief == true)
             {
-                jumpPower.y = 20f;
+                jumpPower.y = 10f;
             }
             else if (pickup.jumpBoostIsActief == false)
             {
-                jumpPower.y = 15f;
+                jumpPower.y = 5f;
             }
             
         }
