@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class Ufo : MonoBehaviour
+public class HouseScript : MonoBehaviour
 {
-    public float speed;
-    public GameObject target;
+    public float health;
     // Start is called before the first frame update
     void Start()
     {

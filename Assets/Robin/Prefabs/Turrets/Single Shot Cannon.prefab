@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 1340704671659080184}
   - component: {fileID: 3328570096730230899}
   - component: {fileID: 6510284151773717435}
+  - component: {fileID: 1738220291230659301}
   m_Layer: 0
   m_Name: Single Shot Cannon
   m_TagString: Untagged
@@ -113,17 +114,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
+  testObj: {fileID: 0}
   target: {fileID: 0}
   bullet: {fileID: 2916424273546831277, guid: 27457ee14a17b8a43a7b69a817584ed0, type: 3}
   frame: {fileID: 5415559390895852678}
   cannon: {fileID: 2730651678760601664}
   shootPoint: {fileID: 8743282445875109005}
+  aimingPoint: {fileID: 4592661780626741233}
   gearFrame: {fileID: 987898505896940458}
   gearMotor: {fileID: 1313454885479437353}
-  rotSpeed: 5
+  rotSpeed: 10
   rotGearFrame: 0
   rotGearMotor: 0
   waitForSeconds: 2
+  currentPosition: {x: 0, y: 0, z: 0}
+  currentVelocity: {x: 0, y: 0, z: 0}
+  prev: {x: 0, y: 0, z: 0}
+  targetDistance: 0
+  travelTime: 0
 --- !u!65 &3328570096730230899
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -148,8 +156,24 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 46.92
   m_Center: {x: 0, y: 1.1881405, z: 0}
+--- !u!208 &1738220291230659301
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2610457419378704108}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.75, y: 1.5, z: 1.9}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7348651254132809669
 GameObject:
   m_ObjectHideFlags: 0

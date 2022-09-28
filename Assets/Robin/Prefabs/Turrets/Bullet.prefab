@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7616d08f83ad9604c951af8b65da9c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5.62
+  speed: 10
 --- !u!33 &3312676474488118572
 MeshFilter:
   m_ObjectHideFlags: 0

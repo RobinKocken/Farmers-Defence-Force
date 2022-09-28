@@ -7,8 +7,6 @@ public class SingleShotScript : MonoBehaviour
 {
     public AlienManager manager;
 
-    public GameObject testObj;
-
     public GameObject target;
     public GameObject bullet;
 
@@ -49,24 +47,14 @@ public class SingleShotScript : MonoBehaviour
     void Update()
     {
         PredictMovement();
-        Test();
-        if(Time.time - startTime > waitForSeconds)
-        {
-            GameObject hello = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
-
-            hello.transform.SetParent(shootPoint.transform);
-            hello.transform.localRotation = shootPoint.transform.localRotation;
-            hello.transform.parent = null;
-
-            startTime = Time.time;
-        }
-
+        LookAtTarget();
+        Shooting();
     }
 
     void PredictMovement()
     {
-        //currentVelocity = (target.transform.position - prev) / Time.deltaTime;
-        currentVelocity = new Vector3(0, 0, 1);
+        currentVelocity = (target.transform.position - prev) / Time.deltaTime;
+        //currentVelocity = new Vector3(0, 0, 1);
         prev = target.transform.position;
 
         currentPosition = target.transform.position;
@@ -76,19 +64,19 @@ public class SingleShotScript : MonoBehaviour
 
         Vector3 predictedPosition = currentPosition + currentVelocity * travelTime;
 
-        testObj.transform.position = predictedPosition;
+        aimingPoint.position = predictedPosition;
     }    
 
-    void Test()
+    void LookAtTarget()
     {
         if(aggro)
         {
             //Frame Rot
-            Quaternion frameQuat = Quaternion.Slerp(frame.transform.localRotation, Quaternion.LookRotation(testObj.transform.position - frame.transform.position), rotSpeed * Time.deltaTime);
+            Quaternion frameQuat = Quaternion.Slerp(frame.transform.localRotation, Quaternion.LookRotation(aimingPoint.position - frame.transform.position), rotSpeed * Time.deltaTime);
             frame.transform.localEulerAngles = new Vector3(0, frameQuat.eulerAngles.y, 0);
 
             //Cannon Rot
-            Quaternion cannonQuat = Quaternion.Slerp(cannon.transform.localRotation, Quaternion.LookRotation(testObj.transform.position - cannon.transform.position), rotSpeed * Time.deltaTime);
+            Quaternion cannonQuat = Quaternion.Slerp(cannon.transform.localRotation, Quaternion.LookRotation(aimingPoint.position - cannon.transform.position), rotSpeed * Time.deltaTime);
             cannon.transform.localEulerAngles = new Vector3(cannonQuat.eulerAngles.x, -90, 0);
 
             //Gear Frame
@@ -106,6 +94,20 @@ public class SingleShotScript : MonoBehaviour
 
                 }
             }
+        }
+    }
+
+    void Shooting()
+    {
+        if(Time.time - startTime > waitForSeconds)
+        {
+            GameObject hello = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
+
+            hello.transform.SetParent(shootPoint.transform);
+            hello.transform.localRotation = shootPoint.transform.localRotation;
+            hello.transform.parent = null;
+
+            startTime = Time.time;
         }
     }
 

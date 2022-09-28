@@ -5,11 +5,13 @@ using UnityEngine;
 public class AlienManager : MonoBehaviour
 {
     public GameObject alien;
+    public Transform spawnPos;
+
     public List<GameObject> currentAliens;
 
     void Start()
     {
-        Instantiate(alien, transform.position = new Vector3(0, 0, 0), Quaternion.identity);
+        spawnPos = GameObject.FindGameObjectWithTag("SpawnAlien").transform;
     }
 
     void Update()
