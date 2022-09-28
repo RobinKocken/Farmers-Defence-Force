@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b7ee215aa1b2540990533d19dcf928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v: {x: 0, y: 0, z: 0}
+  moveDirection: {x: 0, y: 0, z: 0}
   jumpPower: {x: 0, y: 0, z: 0}
   horizontal: 0
   vertical: 0
