@@ -18,9 +18,14 @@ public class PlayerController : MonoBehaviour
     public bool running;
 
     public PickUp pickup;
+    public RaycastHit hit;
 
+    public Transform feet;
     public Transform playerBody;
+    public Transform cam;
     public Camera playerCamera;
+    public GameObject player;
+    
 
     float xRotation = 0f;
 
@@ -33,7 +38,7 @@ public class PlayerController : MonoBehaviour
         walkSpeed = 10;
         runSpeed = 20;
         boostSpeed = 30;
-        jumpPower.y = 5f;
+        jumpPower.y = 7f;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -50,7 +55,6 @@ public class PlayerController : MonoBehaviour
             vertical = Input.GetAxisRaw("Vertical");
             moveDirection.x = horizontal;
             moveDirection.z = vertical;
-            //transform.Translate(moveDirection * speed * Time.deltaTime);
             rb.AddForce(transform.forward.normalized * speed *vertical);
             rb.AddForce(transform.right.normalized * speed * horizontal);
             rb.drag = 5;
@@ -117,11 +121,11 @@ public class PlayerController : MonoBehaviour
             }
             if (pickup.jumpBoostIsActief == true)
             {
-                jumpPower.y = 10f;
+                jumpPower.y = 14f;
             }
             else if (pickup.jumpBoostIsActief == false)
             {
-                jumpPower.y = 5f;
+                jumpPower.y = 7f;
             }
             
         }
@@ -134,13 +138,25 @@ public class PlayerController : MonoBehaviour
 
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+
+        if (Physics.Raycast(feet.position, feet.forward, out hit, 1))
+        {
+            print(hit.transform.tag);
+            if (hit.transform.gameObject.tag == "Ladder")
+            {
+                if (Input.GetKey(KeyCode.W))
+                {
+
+                    player.transform.position += new Vector3(0, 5f, 0) * Time.deltaTime;
+                }
+            }
+        }
     }
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Untagged")
-        {
+        
             isGrounded = true;
-        }
+        
     }
     public void Stamina()
     {
