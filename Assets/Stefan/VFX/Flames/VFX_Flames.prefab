@@ -58,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5963629169821177505}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.42, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -82,13 +82,13 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 1.61
+      - m_Value: 1.9
         m_Name: Dissolve Speed 1
         m_Overridden: 1
-      - m_Value: 4.07
+      - m_Value: 13.05
         m_Name: Dissolve Speed
         m_Overridden: 1
-      - m_Value: 6
+      - m_Value: 5.42
         m_Name: Dissolve Scale
         m_Overridden: 1
       - m_Value: 0.02
@@ -127,7 +127,7 @@ VisualEffect:
         m_Overridden: 1
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 5.6338243, y: 0.74702644, z: 0, w: 1}
+      - m_Value: {x: 0.7903529, y: 7.3796806, z: 0.4455652, w: 1}
         m_Name: Fire Color
         m_Overridden: 1
     m_Uint:
