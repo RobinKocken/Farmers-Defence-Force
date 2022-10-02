@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 1738220291230659301}
   m_Layer: 0
   m_Name: Single Shot Cannon
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,13 +108,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2610457419378704108}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d877e5fe32a757b46a408691d1f75f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  testObj: {fileID: 0}
+  shotParticle: {fileID: 2458295751209035200}
   target: {fileID: 0}
   bullet: {fileID: 2916424273546831277, guid: 27457ee14a17b8a43a7b69a817584ed0, type: 3}
   frame: {fileID: 5415559390895852678}
@@ -126,6 +126,8 @@ MonoBehaviour:
   rotSpeed: 10
   rotGearFrame: 0
   rotGearMotor: 0
+  bulletDamage: 5
+  bulletSpeed: 10
   waitForSeconds: 2
   currentPosition: {x: 0, y: 0, z: 0}
   currentVelocity: {x: 0, y: 0, z: 0}
@@ -201,7 +203,8 @@ Transform:
   m_LocalPosition: {x: -0, y: 0.144, z: 1.885}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2458295751209035203}
   m_Father: {fileID: 2730651678760601664}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -279,6 +282,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 821944875299986455, guid: acade65c02edece46b34be8adfab239e,
     type: 3}
   m_PrefabInstance: {fileID: 494721918169321405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1857762665560950897
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8743282445875109005}
+    m_Modifications:
+    - target: {fileID: 4311501456144657842, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311501456144657842, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311501456144657842, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311501456144657842, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311501456144657842, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311501456144657842, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311501456144657842, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311501456144657842, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311501456144657842, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311501456144657842, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311501456144657842, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311501456144657847, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: m_Name
+      value: VFX_SingleShotCannon_Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311501456144657847, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 204cb4cac565980468d3bb69d021add9, type: 3}
+--- !u!198 &2458295751209035200 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4311501456144657841, guid: 204cb4cac565980468d3bb69d021add9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1857762665560950897}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2458295751209035203 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4311501456144657842, guid: 204cb4cac565980468d3bb69d021add9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1857762665560950897}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1914091184382131441
 PrefabInstance:

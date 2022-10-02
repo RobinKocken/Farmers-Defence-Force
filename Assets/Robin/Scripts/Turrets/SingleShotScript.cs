@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class SingleShotScript : MonoBehaviour
 {
-    public AlienManager manager;
+    public int health;
 
+    public AlienManager manager;
+    public ParticleSystem shotParticle;
     public GameObject target;
     public GameObject bullet;
 
@@ -25,7 +27,9 @@ public class SingleShotScript : MonoBehaviour
     public float rotGearFrame;
     public float rotGearMotor;
 
-    [Header("Other")]
+    [Header("Bullet")]
+    public int bulletDamage;
+    public float bulletSpeed;
     float startTime;
     public float waitForSeconds;
 
@@ -42,25 +46,28 @@ public class SingleShotScript : MonoBehaviour
     void Start()
     {
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<AlienManager>();
+
     }
 
     void Update()
     {
-        PredictMovement();
-        LookAtTarget();
-        Shooting();
+        if(aggro)
+        {
+            LookAtTarget();
+            PredictMovement();
+            Shooting();
+        }
     }
 
     void PredictMovement()
     {
         currentVelocity = (target.transform.position - prev) / Time.deltaTime;
-        //currentVelocity = new Vector3(0, 0, 1);
         prev = target.transform.position;
 
         currentPosition = target.transform.position;
 
         targetDistance = Vector3.Distance(shootPoint.transform.position, target.transform.position);
-        travelTime = targetDistance / bullet.GetComponent<BulletScript>().speed;
+        travelTime = targetDistance / bulletSpeed;
 
         Vector3 predictedPosition = currentPosition + currentVelocity * travelTime;
 
@@ -81,19 +88,19 @@ public class SingleShotScript : MonoBehaviour
 
             //Gear Frame
             //Work in Progress
-            Vector3 oldGearCannonAngles = cannon.transform.localEulerAngles;
+            //Vector3 oldGearCannonAngles = cannon.transform.localEulerAngles;
 
-            if(oldGearCannonAngles != cannon.transform.localEulerAngles)
-            {
-                if(oldGearCannonAngles.z > cannon.transform.localEulerAngles.z)
-                {
+            //if(oldGearCannonAngles != cannon.transform.localEulerAngles)
+            //{
+            //    if(oldGearCannonAngles.z > cannon.transform.localEulerAngles.z)
+            //    {
 
-                }
-                else if(oldGearCannonAngles.z < cannon.transform.localEulerAngles.z)
-                {
+            //    }
+            //    else if(oldGearCannonAngles.z < cannon.transform.localEulerAngles.z)
+            //    {
 
-                }
-            }
+            //    }
+            //}
         }
     }
 
@@ -101,14 +108,25 @@ public class SingleShotScript : MonoBehaviour
     {
         if(Time.time - startTime > waitForSeconds)
         {
+            shotParticle.Play();
+
             GameObject hello = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
 
             hello.transform.SetParent(shootPoint.transform);
             hello.transform.localRotation = shootPoint.transform.localRotation;
             hello.transform.parent = null;
 
+            hello.GetComponent<BulletScript>().parent = gameObject;
+            hello.GetComponent<BulletScript>().speed = bulletSpeed;
+            hello.GetComponent<BulletScript>().damage = bulletDamage;
+
             startTime = Time.time;
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33fc142749c9b8644b0997d5d9d7fd8b, type: 3}
-  m_Name: Gun
+  m_Name: Spijkers
   m_EditorClassIdentifier: 
-  iD: 3
-  itemName: Gun
-  icon: {fileID: 21300000, guid: b3b252b3515ab854cbf52f87c28925a3, type: 3}
-  rarity: 3
-  maxStack: 1
+  iD: 4
+  itemName: Spijkers
+  icon: {fileID: 21300000, guid: 85f22bc010f445147a989afb718b3712, type: 3}
+  rarity: 0
+  maxStack: 99

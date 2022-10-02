@@ -10,7 +10,7 @@ public class Blueprint : MonoBehaviour
     public KeyCode buildKey;
     public LayerMask placeble;
 
-    public GameObject prefab;
+    public Item prefab;
 
     public GameObject move;
 
@@ -19,6 +19,8 @@ public class Blueprint : MonoBehaviour
 
     public float mouseWheel;
 
+    int numberClicked;
+
     void Start()
     {
 
@@ -26,14 +28,15 @@ public class Blueprint : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(buildKey))
+        Raycast();
+
+        if(prefab != null && Input.GetButtonDown("Fire1"))
         {
-            move = Instantiate(prefab);
+            move = Instantiate(prefab.prefab);
+            prefab = null;
 
             move.transform.SetParent(this.gameObject.transform);
         }
-
-        Raycast();
     }
 
     void Raycast()
@@ -53,6 +56,7 @@ public class Blueprint : MonoBehaviour
                 if(Input.GetButtonDown("Fire1"))
                 {
                     move.transform.position = hit.point;
+                    move.GetComponent<SingleShotScript>().enabled = true;
 
                     move.transform.parent = null;
                     mouseWheel = 0;

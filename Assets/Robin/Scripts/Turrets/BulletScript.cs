@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    public GameObject parent;
+
+    public int damage;
     public float speed;
     Vector3 prevPos;
 
@@ -20,6 +23,8 @@ public class BulletScript : MonoBehaviour
         {
             if(hits[i].transform.CompareTag("Alien"))
             {
+                
+
                 Destroy(gameObject);
                 Debug.Log("Hit");
             }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class HouseScript : MonoBehaviour
 {
     public float health;
+    public GameObject hitPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +16,10 @@ public class HouseScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }

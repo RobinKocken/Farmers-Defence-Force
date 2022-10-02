@@ -10,6 +10,8 @@ public class InventoryManager : MonoBehaviour
     public KeyCode inv;
     bool bla;
 
+    public Blueprint blueprint;
+
     [Header("Inventory")]
     public GameObject inventory;
 
@@ -28,14 +30,15 @@ public class InventoryManager : MonoBehaviour
     public TMP_Text itemAmountText;
 
     [Header("Lists")]
-    //public List<bool> isFull;
     public List<Transform> slots;
     public List<Transform> hotbarSlots;
 
     [Header("Other")]
     public int currentSlot;
+    public float mouseWheel;
 
     public Color[] rarityColors;
+    public Color hotBarSelected;
     public Color defaultColor;
 
     void Start()
@@ -84,6 +87,8 @@ public class InventoryManager : MonoBehaviour
         }
 
         itemAmountText.text = itemAmount.ToString();
+
+        HotbarFunction();
     }
 
     void InitializeInventory()
@@ -108,6 +113,33 @@ public class InventoryManager : MonoBehaviour
             if(slots[i].GetComponent<Slot>() != null)
             {
                 slots[i].GetComponent<Slot>().iD = i;
+            }
+        }
+    }
+
+    void HotbarFunction()
+    {
+        mouseWheel += Input.mouseScrollDelta.y;
+
+        if(mouseWheel < 0)
+        {
+            mouseWheel = 0;
+        }
+        else if(mouseWheel > hotbarSlots.Count - 1)
+        {
+            mouseWheel = hotbarSlots.Count - 1;
+        }
+
+        hotbarSlots[(int)mouseWheel].GetComponent<Image>().color = hotBarSelected;
+
+        if(hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData != null)
+        {
+            if(hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData.placeable == true && bla == false && Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Debug.Log("Kkr");
+                blueprint.prefab = hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData;
+                hotbarSlots[(int)mouseWheel].GetComponent<Slot>().amount -= 1;
+                hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData = null;
             }
         }
     }

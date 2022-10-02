@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Manager
+  - Item
+  - Alien
+  - Gun
+  - Axe
+  - House
+  - Ground
+  - AlienManager
+  - Bullet
+  - Turret
   layers:
   - Default
   - TransparentFX
@@ -11,7 +21,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
