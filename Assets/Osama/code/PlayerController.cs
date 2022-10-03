@@ -39,8 +39,8 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         stamina = 100;
         speed = walkSpeed;
-        walkSpeed = 15;
-        runSpeed = 20;
+        walkSpeed = 10;
+        runSpeed = 15;
         boostSpeed = 30;
         jumpPower.y = 7f;
         rb = GetComponent<Rigidbody>();
