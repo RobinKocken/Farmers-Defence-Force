@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Unity.VisualScripting;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -37,6 +36,8 @@ public class InventoryManager : MonoBehaviour
     public int currentSlot;
     public float mouseWheel;
 
+    //public List<Image> kkrImage;
+
     public Color[] rarityColors;
     public Color hotBarSelected;
     public Color defaultColor;
@@ -48,6 +49,11 @@ public class InventoryManager : MonoBehaviour
 
         boxCursor = boxCursor.GetComponent<Image>();
         iconHolder = iconHolder.GetComponent<Image>();
+
+        //for(int i = 0; i < hotbarSlots.Count; i++)
+        //{
+        //    kkrImage[i] = hotbarSlots[i].GetComponent<Image>();
+        //}
     }
 
     void Update()
@@ -130,7 +136,7 @@ public class InventoryManager : MonoBehaviour
             mouseWheel = hotbarSlots.Count - 1;
         }
 
-        hotbarSlots[(int)mouseWheel].GetComponent<Image>().color = hotBarSelected;
+        hotbarSlots[(int)mouseWheel].transform.GetComponent<Image>().color = hotBarSelected;
 
         if(hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData != null)
         {
