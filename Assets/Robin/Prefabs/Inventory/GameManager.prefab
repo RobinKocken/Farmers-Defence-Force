@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6131612106565755066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6131612106565755064}
+  - component: {fileID: 6131612106565755063}
+  - component: {fileID: 6131612106565755065}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Manager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6131612106565755064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6131612106565755066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6131612106565755063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6131612106565755066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0509ddf19459bfa429d9595bed28ed12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseKey: 105
+  visible: 0
+  cam: {fileID: 0}
+  sensDefault: 0
+--- !u!114 &6131612106565755065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6131612106565755066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9774f787c623a7646b35c37fba9d350d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inv: 105
+  blueprint: {fileID: 0}
+  inventory: {fileID: 0}
+  inventorySlotHolder: {fileID: 0}
+  inventoryHotbarSlotHolder: {fileID: 0}
+  cursor: {fileID: 0}
+  boxCursor: {fileID: 0}
+  offset: {x: -35, y: 35, z: 0}
+  iconHolder: {fileID: 0}
+  itemAmountText: {fileID: 0}
+  slots: []
+  hotbarSlots: []
+  currentSlot: 0
+  mouseWheel: 0
+  rarityColors:
+  - {r: 0, g: 1, b: 0, a: 0.60784316}
+  - {r: 0, g: 0, b: 1, a: 0.60784316}
+  - {r: 1, g: 0, b: 1, a: 0.60784316}
+  - {r: 1, g: 1, b: 0, a: 0.60784316}
+  hotBarSelected: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0.5882353}
+  defaultColor: {r: 1, g: 1, b: 1, a: 0.5882353}
