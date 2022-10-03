@@ -8,6 +8,8 @@ using UnityEditor;
 
 public class CameraShake : MonoBehaviour
 {
+    public static CameraShake camShake;
+
     public float posMultiplier, rotMultiplier;
 
     public float minExplosionRadius;
@@ -15,17 +17,26 @@ public class CameraShake : MonoBehaviour
 
     public float testDuration, testStrength;
 
-    public Transform explosion;
-
+    private void Awake()
+    {
+        if(camShake == null)
+        {
+            camShake = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
     private void Start()
     {
         InvokeRepeating(nameof(Explode),0,4);
     }
-    public void Explode()
+    public void Explode(Vector3 origin)
     {
         float strength = testStrength;
 
-        float dst = Vector3.Distance(transform.position, explosion.position);
+        float dst = Vector3.Distance(transform.position, origin);
 
         strength *= Mathf.InverseLerp(minExplosionRadius, closestExplosionRadius, dst);
 
@@ -57,8 +68,8 @@ public class CameraShake : MonoBehaviour
                 y = (Random.value - 0.5f) * 2 * rotMultiplier * strength * Mathf.Min(duration * duration, 1),
                 z = (Random.value - 0.5f) * 2 * rotMultiplier * strength * Mathf.Min(duration * duration, 1)
             };
-
             transform.localEulerAngles = newRot * Options.cameraShakeAmount;
+
             yield return null;
             duration -= Time.deltaTime;
         }
@@ -67,6 +78,7 @@ public class CameraShake : MonoBehaviour
         transform.localEulerAngles = Vector3.zero;
     }
 }
+
 #if UNITY_EDITOR
 [CustomEditor(typeof(CameraShake))]
 [CanEditMultipleObjects]
