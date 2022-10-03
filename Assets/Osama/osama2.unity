@@ -352,6 +352,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &329216428 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1899596440, guid: de41b6208fbc40840b23515cdc011ab1,
+    type: 3}
+  m_PrefabInstance: {fileID: 608712773123540138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &330182614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,6 +1676,11 @@ PrefabInstance:
       propertyPath: gun
       value: 
       objectReference: {fileID: 1609667486}
+    - target: {fileID: 608712773927440206, guid: de41b6208fbc40840b23515cdc011ab1,
+        type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 329216428}
     - target: {fileID: 608712773927440206, guid: de41b6208fbc40840b23515cdc011ab1,
         type: 3}
       propertyPath: ufObject
