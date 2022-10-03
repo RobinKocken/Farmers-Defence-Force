@@ -36,6 +36,8 @@ public class MainMenuButton : MonoBehaviour
 
     public static bool startingGame = false;
 
+    public static MainMenuButton currentSelected;
+
     //True whenever the mouse is hovering over the button
     public bool Hovered
     {
@@ -106,6 +108,8 @@ public class MainMenuButton : MonoBehaviour
 
     void Update()
     {
+
+        if (!(currentSelected == this) || !(currentSelected == null)) return;
         //Check if button is clicked on
 
         if (Released) OnClick();
@@ -118,11 +122,16 @@ public class MainMenuButton : MonoBehaviour
         //Check if button is hovered
         else if (Hovered)
         {
+            currentSelected = this;
             Debug.Log("Hover");
             ButtonHovered();
         }
         else
         {
+            if (previousHovered)
+            {
+                currentSelected = null;
+            }
             previousHovered = false;
 
             targetColor = defaultColor;
