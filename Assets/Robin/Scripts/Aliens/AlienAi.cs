@@ -6,9 +6,12 @@ using UnityEngine.AI;
 
 public class AlienAi : MonoBehaviour
 {
-    NavMeshAgent alienAgent;
+    public NavMeshAgent alienAgent;
+    public GameObject shootPoint;
     public int health;
+
     public GameObject house;
+    public GameObject aimPoint;
     public GameObject target;
 
     public float distance;
@@ -28,19 +31,22 @@ public class AlienAi : MonoBehaviour
         alienAgent = GetComponent<NavMeshAgent>();
         alienAgent.enabled = false;
 
-        house = GameObject.FindGameObjectWithTag("House").GetComponent<HouseScript>().hitPoint;
+        house = GameObject.FindGameObjectWithTag("House");
+        aimPoint = GameObject.FindGameObjectWithTag("House").GetComponent<HouseScript>().hitPoint;
         target = house;
     }
 
     void Update()
     {
         distance = Vector3.Distance(transform.position, target.transform.position);
-
+        Aiming();
         if(alienAgent.enabled == true)
         {
             Path();
             Attack();
         }
+
+        Death();
     }
 
     void Path()
@@ -49,7 +55,7 @@ public class AlienAi : MonoBehaviour
         {
             alienAgent.SetDestination(target.transform.position);
         }
-        else if(distance < 30)
+        else if(distance < 29)
         {
             alienAgent.SetDestination(transform.position);
         }
@@ -71,7 +77,11 @@ public class AlienAi : MonoBehaviour
     {
         if(Time.time - startTime > waitForSeconds)
         {
-            GameObject b = Instantiate(bullet, transform.position, Quaternion.identity);
+            GameObject b = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
+
+            b.transform.SetParent(shootPoint.transform);
+            b.transform.eulerAngles = shootPoint.transform.eulerAngles;
+            b.transform.parent = null;
 
             b.GetComponent<AlienBulletScript>().target = target;
             b.GetComponent<AlienBulletScript>().speed = bulletSpeed;
@@ -81,9 +91,29 @@ public class AlienAi : MonoBehaviour
         }
     }
 
-    void isHit(GameObject turretHit)
+    void Aiming()
+    {
+        Quaternion quatShoot = Quaternion.Slerp(shootPoint.transform.localRotation, Quaternion.LookRotation(aimPoint.transform.position - shootPoint.transform.position), 100);
+        shootPoint.transform.eulerAngles = new Vector3(quatShoot.eulerAngles.x, quatShoot.eulerAngles.y, quatShoot.eulerAngles.z);
+    }
+
+    void IsHit(GameObject turretHit)
     {
         target = turretHit;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
+
+    void Death()
+    {
+        if(health <= 0)
+        {
+            Debug.Log("Dead");
+            Destroy(gameObject);
+        }
     }
 
     public IEnumerator Lerping(Vector3 goTo)

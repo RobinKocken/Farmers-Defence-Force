@@ -113,10 +113,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d877e5fe32a757b46a408691d1f75f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
   manager: {fileID: 0}
   shotParticle: {fileID: 2458295751209035200}
   target: {fileID: 0}
   bullet: {fileID: 2916424273546831277, guid: 27457ee14a17b8a43a7b69a817584ed0, type: 3}
+  radius: 30
   frame: {fileID: 5415559390895852678}
   cannon: {fileID: 2730651678760601664}
   shootPoint: {fileID: 8743282445875109005}
@@ -127,7 +129,7 @@ MonoBehaviour:
   rotGearFrame: 0
   rotGearMotor: 0
   bulletDamage: 5
-  bulletSpeed: 10
+  bulletSpeed: 25
   waitForSeconds: 2
   currentPosition: {x: 0, y: 0, z: 0}
   currentVelocity: {x: 0, y: 0, z: 0}
@@ -200,7 +202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7348651254132809669}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.144, z: 1.885}
+  m_LocalPosition: {x: 0.01, y: 0.172, z: 1.794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -13,6 +13,7 @@ public class SingleShotScript : MonoBehaviour
     public GameObject bullet;
 
     Rigidbody rbTarget;
+    public float radius;
 
     [Header("Components")]
     public Transform frame;
@@ -47,15 +48,33 @@ public class SingleShotScript : MonoBehaviour
     {
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<AlienManager>();
 
+        shotParticle.Stop();
     }
 
     void Update()
     {
+        Target();
+        OverlapSphere();
+
         if(aggro)
         {
             LookAtTarget();
             PredictMovement();
             Shooting();
+        }
+
+        Death();
+    }
+
+    void Target()
+    {
+        if(target == null)
+        {
+            aggro = false;
+        }
+        else if(target != null)
+        {
+            aggro = true;
         }
     }
 
@@ -113,7 +132,7 @@ public class SingleShotScript : MonoBehaviour
             GameObject hello = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
 
             hello.transform.SetParent(shootPoint.transform);
-            hello.transform.localRotation = shootPoint.transform.localRotation;
+            hello.transform.eulerAngles = shootPoint.transform.eulerAngles;
             hello.transform.parent = null;
 
             hello.GetComponent<BulletScript>().parent = gameObject;
@@ -129,16 +148,47 @@ public class SingleShotScript : MonoBehaviour
         health -= damage;
     }
 
-    private void OnTriggerEnter(Collider other)
+    void Death()
     {
-        if(!aggro && other.CompareTag("Alien"))
+        if(health <= 0)
         {
-            aggro = true;
-            target = other.gameObject;
-
-            rbTarget = target.GetComponent<Rigidbody>();
+            Destroy(gameObject);
         }
     }
+
+    void OverlapSphere()
+    {
+        if(!aggro)
+        {
+            Collider[] collider = Physics.OverlapSphere(transform.position, radius);
+
+            foreach(var hitCollider in collider)
+            {
+                if(hitCollider.transform.CompareTag("Alien"))
+                {
+                    target = hitCollider.gameObject;
+                }
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(!aggro && other.CompareTag("Alien"))
+    //    {
+    //        aggro = true;
+    //        target = other.gameObject;
+
+    //        rbTarget = target.GetComponent<Rigidbody>();
+    //    }
+    //}
 
     //private void OnTriggerExit(Collider other)
     //{

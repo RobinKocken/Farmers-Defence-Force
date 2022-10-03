@@ -23,10 +23,8 @@ public class BulletScript : MonoBehaviour
         {
             if(hits[i].transform.CompareTag("Alien"))
             {
-                
-
+                hits[i].transform.GetComponent<AlienAi>().TakeDamage(damage);
                 Destroy(gameObject);
-                Debug.Log("Hit");
             }
         }
     }
