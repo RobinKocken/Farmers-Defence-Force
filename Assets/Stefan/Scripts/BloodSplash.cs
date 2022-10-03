@@ -84,26 +84,35 @@ public class BloodSplash : MonoBehaviour
     void UpdatePostProcessing()
     {
         //Bloom
+        if(bloom)
         bloom.intensity.value = bloomValues.Evaluate(hp);
 
         //Vignette
+        if(vignette)
         vignette.intensity.value = vignetteValues.Evaluate(hp);
 
         //Motion blur
+        if(motionBlur)
         motionBlur.intensity.value = motionBlurValues.Evaluate(hp); 
 
         //Chromatic Abberation
+        if(chromaticAberration)
         chromaticAberration.intensity.value = chromaticAberrationValues.Evaluate(hp);
 
         //Depth of field
+        if(depthOfField)
         depthOfField.gaussianStart.value = dofValues.Evaluate(hp);
 
         //Color Adjustments
+        if(colorAdjustments)
         colorAdjustments.saturation.value = colorAdjustmentsValues.Evaluate(hp);
 
         //Lens Distortion
-        lensDistortion.intensity.value = lensDistortionIntensityValues.Evaluate(hp);
-        lensDistortion.scale.value = lensDistortionScaleValues.Evaluate(hp);
+        if (lensDistortion)
+        {
+            lensDistortion.intensity.value = lensDistortionIntensityValues.Evaluate(hp);
+            lensDistortion.scale.value = lensDistortionScaleValues.Evaluate(hp);
+        }
     }
 
     [Serializable]

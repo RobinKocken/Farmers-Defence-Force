@@ -36,7 +36,7 @@ public class MainMenuButton : MonoBehaviour
 
     public static bool startingGame = false;
 
-    public static MainMenuButton currentSelected;
+    CanvasScaler canvasScaler;
 
     //True whenever the mouse is hovering over the button
     public bool Hovered
@@ -50,7 +50,7 @@ public class MainMenuButton : MonoBehaviour
             {
                 var checkPos = transform.position + new Vector3(interactZones[i].x, interactZones[i].y);
 
-                if (Vector3.Distance(checkPos, mousePos) < minInteractDst)
+                if (Vector3.Distance(checkPos, mousePos) < minInteractDst * canvasScaler.scaleFactor )
                 {
                     return true;
                 }
@@ -93,6 +93,8 @@ public class MainMenuButton : MonoBehaviour
 
     void Start()
     {
+        canvasScaler = FindObjectOfType<CanvasScaler>();
+
         if(buttonText != null) 
         {
             defaultColor = buttonText.color;
@@ -108,8 +110,6 @@ public class MainMenuButton : MonoBehaviour
 
     void Update()
     {
-
-        if (!(currentSelected == this) || !(currentSelected == null)) return;
         //Check if button is clicked on
 
         if (Released) OnClick();
@@ -122,16 +122,11 @@ public class MainMenuButton : MonoBehaviour
         //Check if button is hovered
         else if (Hovered)
         {
-            currentSelected = this;
             Debug.Log("Hover");
             ButtonHovered();
         }
         else
         {
-            if (previousHovered)
-            {
-                currentSelected = null;
-            }
             previousHovered = false;
 
             targetColor = defaultColor;
@@ -176,9 +171,11 @@ public class MainMenuButton : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (canvasScaler == null)
+            canvasScaler = FindObjectOfType<CanvasScaler>();
         for (int i = 0; i < interactZones.Length; i++)
         {
-            Gizmos.DrawWireSphere(transform.position + new Vector3(interactZones[i].x,interactZones[i].y) ,minInteractDst);
+            Gizmos.DrawWireSphere(transform.position + new Vector3(interactZones[i].x,interactZones[i].y) ,minInteractDst * canvasScaler.scaleFactor);
         }
     }
 }
