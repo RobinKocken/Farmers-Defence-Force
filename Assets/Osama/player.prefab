@@ -600,10 +600,11 @@ MonoBehaviour:
   boostSpeed: 30
   speed: 0
   stamina: 0
+  weaponBobSpeed: 1
+  weaponBobAmount: 0.01
   isGrounded: 0
   running: 0
   pickup: {fileID: 608712773927440205}
-  bob: {fileID: 0}
   feet: {fileID: 1315245036}
   playerBody: {fileID: 608712773927440198}
   cam: {fileID: 608712774076825411}

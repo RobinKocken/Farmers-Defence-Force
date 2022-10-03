@@ -1588,6 +1588,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1390687700, guid: de41b6208fbc40840b23515cdc011ab1, type: 3}
+      propertyPath: xGun
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390687700, guid: de41b6208fbc40840b23515cdc011ab1, type: 3}
+      propertyPath: weaponBobSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390687700, guid: de41b6208fbc40840b23515cdc011ab1, type: 3}
+      propertyPath: weaponBobAmount
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 608712773927440198, guid: de41b6208fbc40840b23515cdc011ab1,
         type: 3}
       propertyPath: m_RootOrder

@@ -14,11 +14,13 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed, runSpeed, boostSpeed, speed;
     public float stamina;
 
+    public float weaponBobSpeed;
+    public float weaponBobAmount;
+
     public bool isGrounded;
     public bool running;
 
     public PickUp pickup;
-    public WeaponSwayAndBob bob;
     public RaycastHit hit;
 
     public Transform feet;
@@ -51,10 +53,10 @@ public class PlayerController : MonoBehaviour
         Vector3 previous = transform.position;
         Vector3 velocity = (transform.position - previous) / Time.deltaTime;
 
-        if (Input.GetAxisRaw("Horizontal") == 0)
+        //gunbob
+        if (Input.GetAxisRaw("Horizontal") == 0 || Input.GetAxisRaw("Vertical") == 0)
         {
-            gun.transform.position += new Vector3(0, 0f, 1) * Time.deltaTime;
-            gun.transform.position += new Vector3(0, 0f, -1) * Time.deltaTime;
+            gun.transform.localPosition += new Vector3(Mathf.Cos(Time.time * weaponBobSpeed) * weaponBobAmount, Mathf.Cos(Time.time * weaponBobSpeed) * weaponBobAmount, 0) * Time.deltaTime;
         }
 
         if (isGrounded == true)
