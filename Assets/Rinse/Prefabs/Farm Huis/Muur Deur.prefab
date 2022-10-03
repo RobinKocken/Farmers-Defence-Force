@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3250144451209403541}
   - component: {fileID: 1924460624121959216}
   - component: {fileID: 4418587536450185210}
+  - component: {fileID: -5271556964345588487}
   m_Layer: 0
   m_Name: Muur Deur
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-5271556964345588487
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2760994111346132527}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.14783427, y: 3, z: 2.08}
+  m_Center: {x: -0.036153547, y: 1.4999874, z: 0}

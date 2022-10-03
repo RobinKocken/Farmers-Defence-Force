@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3275984051198842236}
   - component: {fileID: 1934711339595487961}
   - component: {fileID: 4412840438203067923}
+  - component: {fileID: 9113635495945196322}
   m_Layer: 0
   m_Name: Muur Steen
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9113635495945196322
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2755484508332298182}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0000006067771, y: 0.8999854, z: 1.8621857}
+  m_Center: {x: 4.2632564e-14, y: 0.44999257, z: -0.00000011920929}

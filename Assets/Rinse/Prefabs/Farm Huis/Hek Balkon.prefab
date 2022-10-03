@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9030743262638990695}
   - component: {fileID: 5403332963512773314}
   - component: {fileID: 7861184857203187208}
+  - component: {fileID: 3863686134727780081}
   m_Layer: 0
   m_Name: Hek Balkon
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3863686134727780081
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8509680731917205469}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13676113, y: 0.96441686, z: 1.8631713}
+  m_Center: {x: -0.00012813509, y: 0.48220843, z: -0.0002927184}
