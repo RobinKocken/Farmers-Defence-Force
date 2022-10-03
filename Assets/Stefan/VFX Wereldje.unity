@@ -520,14 +520,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11311707}
-  m_LocalRotation: {x: 0.96094066, y: -0.21294023, z: -0.11021642, w: 0.1382098}
+  m_LocalRotation: {x: 0.96310455, y: -0.21912296, z: -0.119735196, w: 0.10039136}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 12.632, y: -163.895, z: -153.217}
+  m_LocalEulerAnglesHint: {x: 8.1, y: -163.895, z: -153.217}
 --- !u!1 &24635883
 GameObject:
   m_ObjectHideFlags: 0
@@ -30378,6 +30378,21 @@ PrefabInstance:
       propertyPath: moveWithTransform
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5743588612411943591, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743588612411943591, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743588612411943591, guid: 204cb4cac565980468d3bb69d021add9,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 7052766252451342025, guid: 204cb4cac565980468d3bb69d021add9,
         type: 3}
       propertyPath: looping
@@ -30476,6 +30491,16 @@ PrefabInstance:
         type: 3}
       propertyPath: startDelay.scalar
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 769504742736699691, guid: b168fa558e607614eaf7f0b602235197,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 769504742736699691, guid: b168fa558e607614eaf7f0b602235197,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 769504742750746956, guid: b168fa558e607614eaf7f0b602235197,
         type: 3}
@@ -30597,6 +30622,36 @@ PrefabInstance:
         type: 3}
       propertyPath: lengthInSec
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 769504744250204705, guid: b168fa558e607614eaf7f0b602235197,
+        type: 3}
+      propertyPath: RotationModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 769504744250204705, guid: b168fa558e607614eaf7f0b602235197,
+        type: 3}
+      propertyPath: RotationModule.curve.scalar
+      value: 0.7853981
+      objectReference: {fileID: 0}
+    - target: {fileID: 769504744250204705, guid: b168fa558e607614eaf7f0b602235197,
+        type: 3}
+      propertyPath: RotationModule.x.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 769504744250204705, guid: b168fa558e607614eaf7f0b602235197,
+        type: 3}
+      propertyPath: RotationModule.y.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 769504744250204705, guid: b168fa558e607614eaf7f0b602235197,
+        type: 3}
+      propertyPath: RotationModule.curve.minScalar
+      value: -0.7853981
+      objectReference: {fileID: 0}
+    - target: {fileID: 769504744250204705, guid: b168fa558e607614eaf7f0b602235197,
+        type: 3}
+      propertyPath: RotationModule.curve.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b168fa558e607614eaf7f0b602235197, type: 3}
