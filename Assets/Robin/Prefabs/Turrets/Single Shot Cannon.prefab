@@ -74,7 +74,6 @@ GameObject:
   - component: {fileID: 4080760331801220600}
   - component: {fileID: 1340704671659080184}
   - component: {fileID: 3328570096730230899}
-  - component: {fileID: 6510284151773717435}
   - component: {fileID: 1738220291230659301}
   m_Layer: 0
   m_Name: Single Shot Cannon
@@ -149,19 +148,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3819904, y: 2.4285002, z: 3.1783524}
   m_Center: {x: -0.0033502579, y: 1.1968668, z: 0.30284882}
---- !u!135 &6510284151773717435
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2610457419378704108}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 46.92
-  m_Center: {x: 0, y: 1.1881405, z: 0}
 --- !u!208 &1738220291230659301
 NavMeshObstacle:
   m_ObjectHideFlags: 0
