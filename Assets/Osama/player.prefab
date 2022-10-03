@@ -367,7 +367,7 @@ Transform:
   m_GameObject: {fileID: 608712773122136267}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.7199998, y: -0.44000006, z: 1.6400003}
-  m_LocalScale: {x: 0.5, y: 0.25, z: 0.5}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 608712774076825411}
@@ -538,6 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 608712774076825411}
+  gun: {fileID: 1899596440}
   ufObject: {fileID: 0}
   metalScrap: {fileID: 0}
   pickup: {fileID: 608712773927440205}
@@ -546,6 +547,7 @@ MonoBehaviour:
   ammo: 5
   kanSchieten: 0
   cooldownActive: 0
+  recoil: 0
 --- !u!114 &608712773927440205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,7 +597,7 @@ MonoBehaviour:
   jumpPower: {x: 0, y: 5, z: 0}
   horizontal: 0
   vertical: 0
-  walkSpeed: 10
+  walkSpeed: 15
   runSpeed: 20
   boostSpeed: 30
   speed: 0

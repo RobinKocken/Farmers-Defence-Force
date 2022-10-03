@@ -77,7 +77,7 @@ public class Shooting : MonoBehaviour
                             if (pickup.damageBoostIsActief == true && ammo > 0)
                             {
                                 ufo -= 20;
-                                if (ufo == 0)
+                                if (ufo <= 0)
                                 {
                                     ufObject.SetActive(false);
                                     metalScrap.SetActive(true);
@@ -87,7 +87,7 @@ public class Shooting : MonoBehaviour
                             else if (ammo > 0)
                             {
                                 ufo -= 10;
-                                if (ufo == 0)
+                                if (ufo <= 0)
                                 {
                                     ufObject.SetActive(false);
                                     metalScrap.SetActive(true);
@@ -97,10 +97,7 @@ public class Shooting : MonoBehaviour
                     }
                 }
             }
-        }
-        if (Physics.Raycast(cam.position, cam.forward, out hit, 20))
-        {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            else if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 if (pickup.gunIsActief == true)
                 {

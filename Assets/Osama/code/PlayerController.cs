@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         stamina = 100;
         speed = walkSpeed;
-        walkSpeed = 10;
+        walkSpeed = 15;
         runSpeed = 20;
         boostSpeed = 30;
         jumpPower.y = 7f;
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
             moveDirection.z = vertical;
             rb.AddForce(transform.forward.normalized * speed *vertical);
             rb.AddForce(transform.right.normalized * speed * horizontal);
-            rb.drag = 5;
+            rb.drag = 2;
 
             if (pickup.speedBoostIsActief == true)
                 {
