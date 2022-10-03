@@ -136,7 +136,6 @@ public class InventoryManager : MonoBehaviour
         {
             if(hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData.placeable == true && bla == false && Input.GetKeyDown(KeyCode.Mouse0))
             {
-                Debug.Log("Kkr");
                 blueprint.prefab = hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData;
                 hotbarSlots[(int)mouseWheel].GetComponent<Slot>().amount -= 1;
                 hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData = null;

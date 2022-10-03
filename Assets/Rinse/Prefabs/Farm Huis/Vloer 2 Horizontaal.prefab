@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5341587762515392470}
   - component: {fileID: 9047443930039367795}
   - component: {fileID: 6515034208972459193}
+  - component: {fileID: -5784558847895788229}
   m_Layer: 0
   m_Name: Vloer 2 Horizontaal
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-5784558847895788229
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4713845391055777132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8621869, y: 0.000007249415, z: 2.3999991}
+  m_Center: {x: -0.00000008940697, y: -0.0000000037252903, z: -0.00000023841858}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 111518267856376100}
   - component: {fileID: 3901219895593197185}
   - component: {fileID: 1281025169385859659}
+  - component: {fileID: 1381358188289324240}
   m_Layer: 0
   m_Name: Pilaar 1
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1381358188289324240
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776837858286341022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5378138, y: 3.0001535, z: 0.53781796}
+  m_Center: {x: 0, y: 1.5000768, z: 0.0000030696392}
