@@ -18,11 +18,13 @@ public class PlayerController : MonoBehaviour
     public bool running;
 
     public PickUp pickup;
+    public WeaponSwayAndBob bob;
     public RaycastHit hit;
 
     public Transform feet;
     public Transform playerBody;
     public Transform cam;
+    public Transform gun;
     public Camera playerCamera;
     public GameObject player;
     
@@ -49,6 +51,12 @@ public class PlayerController : MonoBehaviour
         Vector3 previous = transform.position;
         Vector3 velocity = (transform.position - previous) / Time.deltaTime;
 
+        if (Input.GetAxisRaw("Horizontal") == 0)
+        {
+            gun.transform.position += new Vector3(0, 0f, 1) * Time.deltaTime;
+            gun.transform.position += new Vector3(0, 0f, -1) * Time.deltaTime;
+        }
+
         if (isGrounded == true)
         {
             horizontal = Input.GetAxisRaw("Horizontal");
@@ -58,8 +66,6 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(transform.forward.normalized * speed *vertical);
             rb.AddForce(transform.right.normalized * speed * horizontal);
             rb.drag = 5;
-
-
 
             if (pickup.speedBoostIsActief == true)
                 {
@@ -98,9 +104,7 @@ public class PlayerController : MonoBehaviour
                         Invoke("Stamina", 3);
                     }
                 }
-            
 
-            //print(stamina);
             if (stamina == 100 || stamina > 100)
             {
                 stamina = 100;
@@ -127,9 +131,9 @@ public class PlayerController : MonoBehaviour
             {
                 jumpPower.y = 7f;
             }
-            
         }
 
+        //mouse options
         float mouseX = Input.GetAxis("Mouse X") * Options.xSens * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * Options.ySens * Time.deltaTime;
 
@@ -139,6 +143,8 @@ public class PlayerController : MonoBehaviour
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
 
+
+        //ladder physics
         if (Physics.Raycast(feet.position, feet.forward, out hit, 1))
         {
             print(hit.transform.tag);
@@ -146,18 +152,19 @@ public class PlayerController : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.W))
                 {
-
                     player.transform.position += new Vector3(0, 5f, 0) * Time.deltaTime;
                 }
             }
         }
     }
+
+    //jump
     void OnCollisionEnter(Collision collision)
     {
-        
-            isGrounded = true;
-        
+        isGrounded = true;
     }
+
+    //stamina
     public void Stamina()
     {
         stamina += 5 * Time.deltaTime;
