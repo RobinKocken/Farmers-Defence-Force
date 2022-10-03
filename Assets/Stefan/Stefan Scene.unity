@@ -1523,9 +1523,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Stefan - Scrum & UI/UX
+  m_text: 'Stefan | Scrum(1e helft) & UI/UX
 
-'
+    Rinse | Scrum(2e helft)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7fe43e45135c49e4cabf8bd132d9e9b8, type: 2}
   m_sharedMaterial: {fileID: 5543358851125121513, guid: 7fe43e45135c49e4cabf8bd132d9e9b8,
@@ -5753,11 +5753,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Osama - Programmer
+  m_text: 'Osama | Programmer
 
-    Robin - Programmer
-
-    Stefan - Programmer
+    Robin | Programmer
 
 '
   m_isRightToLeft: 0
@@ -7865,8 +7863,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.3797}
+  m_SizeDelta: {x: 0, y: 0.7595}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1332888267
 MonoBehaviour:
@@ -8654,9 +8652,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Rinse - Artist
+  m_text: 'Rinse | Artist
 
-    Nathan - Artist
+    Nathan | Artist
 
 '
   m_isRightToLeft: 0
@@ -11109,7 +11107,7 @@ MonoBehaviour:
   volume: {fileID: 799425812}
   xsens: {fileID: 1396600141}
   ysens: {fileID: 1678106880}
-  cameraShake: {fileID: 0}
+  cameraShake: {fileID: 1054273223}
   hud: {fileID: 0}
   optionsMenu:
   - {fileID: 1478630995}

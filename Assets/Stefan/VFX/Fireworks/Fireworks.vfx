@@ -5277,7 +5277,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614965}
   m_OutputSlots: []
   m_Disabled: 0
-  repeat: 0
+  repeat: 1
   spawnMode: 0
   delayMode: 0
 --- !u!114 &8926484042661614964
@@ -5339,7 +5339,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0
+      m_SerializableObject: 4
     m_Space: 2147483647
   m_Property:
     name: Delay
