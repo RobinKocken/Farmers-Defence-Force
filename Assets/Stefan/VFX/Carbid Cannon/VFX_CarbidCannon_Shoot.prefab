@@ -976,9 +976,9 @@ ParticleSystem:
       time: 0
       countCurve:
         serializedVersion: 2
-        minMaxState: 0
-        scalar: 6
-        minScalar: 30
+        minMaxState: 3
+        scalar: 0
+        minScalar: 6
         maxCurve:
           serializedVersion: 2
           m_Curve:
@@ -1029,7 +1029,7 @@ ParticleSystem:
           m_RotationOrder: 4
       cycleCount: 3
       repeatInterval: 0.05
-      probability: 1
+      probability: 0.3
   SizeModule:
     enabled: 1
     curve:
