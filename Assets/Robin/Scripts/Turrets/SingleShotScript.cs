@@ -103,13 +103,12 @@ public class SingleShotScript : MonoBehaviour
         if(aggro)
         {
             //Frame Rot
-            Quaternion frameQuat = Quaternion.Slerp(frame.transform.localRotation, Quaternion.LookRotation(aimingPoint.position - frame.transform.position), rotSpeed * Time.deltaTime);
+            Quaternion frameQuat = Quaternion.Slerp(frame.transform.localRotation, Quaternion.LookRotation(transform.InverseTransformPoint(aimingPoint.position) - frame.transform.localPosition), rotSpeed * Time.deltaTime);
             frame.transform.localEulerAngles = new Vector3(0, frameQuat.eulerAngles.y, 0);
 
             //Cannon Rot
-            Quaternion cannonQuat = Quaternion.Slerp(cannon.transform.localRotation, Quaternion.LookRotation(aimingPoint.position - cannon.transform.position), rotSpeed * Time.deltaTime);
+            Quaternion cannonQuat = Quaternion.Slerp(cannon.transform.localRotation, Quaternion.LookRotation(transform.InverseTransformPoint(aimingPoint.position) - cannon.transform.localPosition), rotSpeed * Time.deltaTime);
             cannon.transform.localEulerAngles = new Vector3(cannonQuat.eulerAngles.x, -90, 0);
-
 
 
 

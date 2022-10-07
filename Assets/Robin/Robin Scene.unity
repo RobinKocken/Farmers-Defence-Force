@@ -3308,6 +3308,7 @@ MonoBehaviour:
   SelectedColour: {r: 1, g: 0, b: 0, a: 1}
   maxGas: 0
   currentGas: 0
+  notificationManager: {fileID: 0}
 --- !u!4 &609596551
 Transform:
   m_ObjectHideFlags: 0
@@ -12308,25 +12309,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2458295751209035200, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2458295751209035200, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2610457419378704108, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
         type: 3}
       propertyPath: m_Name
       value: Single Shot Cannon
-      objectReference: {fileID: 0}
-    - target: {fileID: 2610457419378704108, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4080760331801220600, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
         type: 3}
@@ -12381,36 +12367,6 @@ PrefabInstance:
     - target: {fileID: 4080760331801220600, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264108064919158216, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264108064919158216, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6232218980773569238, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6232218980773569238, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8658289886455393976, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8658289886455393976, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
-        type: 3}
-      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
