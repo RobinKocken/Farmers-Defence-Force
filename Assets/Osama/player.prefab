@@ -576,6 +576,7 @@ MonoBehaviour:
   timeUntilOver: 30
   timeUntilOver2: 30
   timeUntilOver3: 30
+  cooldown: 2
   gunIsOpgepakt: 0
   axeIsOpgepakt: 0
   gunIsActief: 0
@@ -583,6 +584,8 @@ MonoBehaviour:
   damageBoostIsActief: 0
   speedBoostIsActief: 0
   jumpBoostIsActief: 0
+  cooldownActive: 0
+  kanHakken: 0
 --- !u!114 &1390687700
 MonoBehaviour:
   m_ObjectHideFlags: 0

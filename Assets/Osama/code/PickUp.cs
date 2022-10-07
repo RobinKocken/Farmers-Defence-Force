@@ -21,6 +21,7 @@ public class PickUp : MonoBehaviour
     public float timeUntilOver = 30;
     public float timeUntilOver2 = 30;
     public float timeUntilOver3 = 30;
+    public float cooldown;
 
     public bool gunIsOpgepakt;
     public bool axeIsOpgepakt;
@@ -29,6 +30,8 @@ public class PickUp : MonoBehaviour
     public bool damageBoostIsActief;
     public bool speedBoostIsActief;
     public bool jumpBoostIsActief;
+    public bool cooldownActive;
+    public bool kanHakken;
 
 
     // Start is called before the first frame update
@@ -40,6 +43,18 @@ public class PickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (cooldownActive == true)
+        {
+            cooldown -= 1f * Time.deltaTime;
+            kanHakken = false;
+            if (cooldown < 0 || cooldown == 0)
+            {
+                kanHakken = true;
+                cooldownActive = false;
+                cooldown = 2f;
+            }
+        }
+
         if (Physics.Raycast(cam.position, cam.forward, out hit, 3))
         {
             Tree tree = hit.transform.root.GetComponent<Tree>();
@@ -49,13 +64,17 @@ public class PickUp : MonoBehaviour
                 {
                     if(axeIsActief == true)
                     {
-                        if (tree.canDamageTrunk == false)
+                        if (kanHakken == true)
                         {
-                            tree.ChopTree(1);
-                        }
-                        else if(hit.transform.gameObject.CompareTag("TreeTrunk"))
-                        {
-                            tree.ChopTrunk(1);
+                            cooldownActive = true;
+                            if (tree.canDamageTrunk == false)
+                            {
+                                tree.ChopTree(1);
+                            }
+                            else if (hit.transform.gameObject.CompareTag("TreeTrunk"))
+                            {
+                                tree.ChopTrunk(1);
+                            }
                         }
                     } 
                 }
@@ -95,6 +114,7 @@ public class PickUp : MonoBehaviour
                 axeIsActief = false;
                 gunIsActief = true;
                 code.kanSchieten = true;
+                kanHakken = false;
             }
         }
         if (axeIsOpgepakt == true)
@@ -106,6 +126,7 @@ public class PickUp : MonoBehaviour
                 axeIsActief = true;
                 gunIsActief = false;
                 code.kanSchieten = false;
+                kanHakken = true;
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha0))
@@ -115,6 +136,7 @@ public class PickUp : MonoBehaviour
             gunIsActief = false;
             axeIsActief = false;
             code.kanSchieten = false;
+            kanHakken = false;
         }
         if (damageBoostIsActief)
         {
