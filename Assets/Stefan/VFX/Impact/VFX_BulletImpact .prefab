@@ -50,10 +50,10 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 2
+      - m_Value: 12
         m_Name: Decal Size
         m_Overridden: 1
-      - m_Value: 2.8
+      - m_Value: 7
         m_Name: Decal light Size
         m_Overridden: 1
     m_Vector2f:
@@ -118,7 +118,7 @@ VFXRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
 --- !u!1 &2792527309035814993
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2792527309035814993}
   serializedVersion: 8
-  lengthInSec: 7
+  lengthInSec: 1.6
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -169,7 +169,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -781,7 +781,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 25
+    angle: 60
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -1095,9 +1095,9 @@ ParticleSystem:
       time: 0
       countCurve:
         serializedVersion: 2
-        minMaxState: 0
-        scalar: 30
-        minScalar: 30
+        minMaxState: 3
+        scalar: 12
+        minScalar: 0
         maxCurve:
           serializedVersion: 2
           m_Curve:
@@ -1148,7 +1148,7 @@ ParticleSystem:
           m_RotationOrder: 4
       cycleCount: 3
       repeatInterval: 0.05
-      probability: 1
+      probability: 0.6
   SizeModule:
     enabled: 1
     curve:
