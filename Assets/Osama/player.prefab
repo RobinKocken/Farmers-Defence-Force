@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4c3c4f5c4633546b36dba1ad7ec923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smooth: 20
+  smooth: 1
   multiplier: 10
 --- !u!1 &1960690417
 GameObject:
@@ -545,6 +545,7 @@ MonoBehaviour:
   ufo: 100
   cooldown: 2
   ammo: 5
+  recoilGun: 50
   kanSchieten: 0
   cooldownActive: 0
   recoil: 0
@@ -776,8 +777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472fa79ccf8261c488cb2d1365b1ddeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingBobbingSpeed: 5
-  bobbingAmount: 0.05
+  walkingBobbingSpeed: 10
+  bobbingAmount: 0.1
   controller: {fileID: 1390687700}
 --- !u!1 &6790078552912318739
 GameObject:

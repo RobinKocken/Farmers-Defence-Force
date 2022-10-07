@@ -14,6 +14,7 @@ public class Shooting : MonoBehaviour
     public int ufo;
     public float cooldown = 2f;
     public float ammo = 5;
+    public float recoilGun;
 
     public bool kanSchieten;
     public bool cooldownActive;
@@ -41,7 +42,7 @@ public class Shooting : MonoBehaviour
         }
         if (recoil == true)
         {
-            gun.transform.position += new Vector3(0, 5f, 0) * Time.deltaTime;
+            gun.transform.Rotate(1f*recoilGun, 0f, 0f);
             recoil = false;
         }
 

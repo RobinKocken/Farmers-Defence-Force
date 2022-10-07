@@ -1825,14 +1825,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 961739761, guid: de41b6208fbc40840b23515cdc011ab1, type: 3}
-      propertyPath: bobbingAmount
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 961739761, guid: de41b6208fbc40840b23515cdc011ab1, type: 3}
-      propertyPath: walkingBobbingSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 608712773927440198, guid: de41b6208fbc40840b23515cdc011ab1,
         type: 3}
       propertyPath: m_RootOrder
