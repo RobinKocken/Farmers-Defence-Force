@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.UIElements;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -44,6 +45,9 @@ public class InventoryManager : MonoBehaviour
     [Header("Gas")]
     public float maxGas;
     public float currentGas;
+
+    [Header("Pickup Notification")]
+    public PickUpManager notificationManager;
 
     void Start()
     {
@@ -205,6 +209,11 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItem(Item item, int itemAmount)
     {
+        if(notificationManager != null)
+        {
+            notificationManager.AddNotification(item.itemName, itemAmount, item.icon);
+        }
+
         for(int i = 0; i < slots.Count; i++)
         {
             if(slots[i].GetComponent<Slot>().itemData != null)

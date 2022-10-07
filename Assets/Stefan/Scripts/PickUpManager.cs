@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -67,13 +68,14 @@ public class PickUpManager : MonoBehaviour
         }
     }
 
-    public void AddNotification(string name, int amount)
+    public void AddNotification(string name, int amount, Sprite sprite)
     {
         var obj = Instantiate(messagePrefab, spawnPos.position, Quaternion.identity, spawnPos).transform;
         var notification = new NotificationData(obj, amount, name);
         activeNotifications.Insert(0, notification);
 
-        obj.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"+{amount} {name}";
+        obj.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"   +{amount} {name}";
+        obj.GetChild(1).GetComponent<Image>().sprite = sprite;
     }
 
     [System.Serializable]
@@ -114,7 +116,7 @@ public class NotificationEditor : Editor
         manager = target as PickUpManager;
         if (GUILayout.Button("Test"))
         {
-            manager.AddNotification("Wood", 3);
+            manager.AddNotification("Wood", 3, null);
         }
     }
 }
