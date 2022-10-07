@@ -539,13 +539,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 608712774076825411}
   gun: {fileID: 1899596440}
+  player: {fileID: 608712773927440198}
   ufObject: {fileID: 0}
   metalScrap: {fileID: 0}
   pickup: {fileID: 608712773927440205}
   ufo: 100
   cooldown: 2
   ammo: 5
-  recoilGun: 50
+  recoilGun: -50
   kanSchieten: 0
   cooldownActive: 0
   recoil: 0

@@ -6,6 +6,7 @@ public class Shooting : MonoBehaviour
 {
     public Transform cam;
     public Transform gun;
+    public Transform player;
     public RaycastHit hit;
     public GameObject ufObject;
     public GameObject metalScrap;
@@ -43,6 +44,7 @@ public class Shooting : MonoBehaviour
         if (recoil == true)
         {
             gun.transform.Rotate(1f*recoilGun, 0f, 0f);
+            player.transform.position -= player.transform.forward*0.5f;
             recoil = false;
         }
 
