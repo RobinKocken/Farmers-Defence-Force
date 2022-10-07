@@ -12,7 +12,6 @@ public class SingleShotScript : MonoBehaviour
     public GameObject target;
     public GameObject bullet;
 
-    Rigidbody rbTarget;
     public float radius;
 
     [Header("Components")]
@@ -36,6 +35,12 @@ public class SingleShotScript : MonoBehaviour
 
     bool aggro;
 
+    [Header("Ammo")]
+    public int currentAmmo;
+    public int maxAmmo;
+    public float currentGas;
+    public float maxGas;
+    public float gasPerShot;
 
     [Header("Prediction")]
     public Vector3 currentPosition;
@@ -105,6 +110,11 @@ public class SingleShotScript : MonoBehaviour
             Quaternion cannonQuat = Quaternion.Slerp(cannon.transform.localRotation, Quaternion.LookRotation(aimingPoint.position - cannon.transform.position), rotSpeed * Time.deltaTime);
             cannon.transform.localEulerAngles = new Vector3(cannonQuat.eulerAngles.x, -90, 0);
 
+
+
+
+
+
             //Gear Frame
             //Work in Progress
             //Vector3 oldGearCannonAngles = cannon.transform.localEulerAngles;
@@ -125,11 +135,14 @@ public class SingleShotScript : MonoBehaviour
 
     void Shooting()
     {
-        if(Time.time - startTime > waitForSeconds)
+        if(Time.time - startTime > waitForSeconds && currentAmmo > 0)
         {
             shotParticle.Play();
 
             GameObject hello = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
+
+            currentAmmo--;
+            currentGas -= gasPerShot;
 
             hello.transform.SetParent(shootPoint.transform);
             hello.transform.eulerAngles = shootPoint.transform.eulerAngles;
@@ -141,6 +154,11 @@ public class SingleShotScript : MonoBehaviour
 
             startTime = Time.time;
         }
+    }
+
+    public void Reload(int ammo, float gas)
+    {
+
     }
 
     public void TakeDamage(int damage)
@@ -178,24 +196,4 @@ public class SingleShotScript : MonoBehaviour
 
         Gizmos.DrawWireSphere(transform.position, radius);
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(!aggro && other.CompareTag("Alien"))
-    //    {
-    //        aggro = true;
-    //        target = other.gameObject;
-
-    //        rbTarget = target.GetComponent<Rigidbody>();
-    //    }
-    //}
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if(aggro && other.CompareTag("Alien"))
-    //    {
-    //        aggro = false;
-    //        target = null;
-    //    }
-    //}
 }

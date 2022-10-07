@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3932789438127329985}
   - component: {fileID: 3932789438127329986}
   - component: {fileID: 3932789438127329987}
-  - component: {fileID: 3932789438127329988}
   - component: {fileID: 3932789438127329984}
   - component: {fileID: 3932789438127329999}
   - component: {fileID: 3932789438127329998}
@@ -66,18 +65,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interact: 101
   distance: 10
---- !u!114 &3932789438127329988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3932789438127329997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93d06097caeb46f4ca70e60a113aa646, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   cam: {fileID: 3932789438127329997}
   buildKey: 121
   placeble:
@@ -85,7 +72,7 @@ MonoBehaviour:
     m_Bits: 64
   prefab: {fileID: 0}
   move: {fileID: 0}
-  distance: 50
+  distanceBuild: 50
   mouseWheel: 0
 --- !u!20 &3932789438127329984
 Camera:

@@ -35,14 +35,14 @@ public class Slot : MonoBehaviour
             iconRenderer.enabled = true;
             iconRenderer.sprite = itemData.icon;
 
-            boxImage.color = manager.rarityColors[itemData.rarity];
+            boxImage.color = manager.defaultColour;
         }
         else
         {
             iconRenderer.sprite = null;
             iconRenderer.enabled = false;
 
-            boxImage.color = manager.defaultColor;
+            boxImage.color = manager.defaultColour;
         }
 
         if(amount <= 0)

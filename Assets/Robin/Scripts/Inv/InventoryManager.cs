@@ -9,10 +9,11 @@ public class InventoryManager : MonoBehaviour
     public KeyCode inv;
     bool bla;
 
-    public Blueprint blueprint;
+    public RaycastPlayer blueprint;
 
     [Header("Inventory")]
     public GameObject inventory;
+    public GameObject backEffects;
 
     public Transform inventorySlotHolder;
     public Transform inventoryHotbarSlotHolder;
@@ -36,11 +37,13 @@ public class InventoryManager : MonoBehaviour
     public int currentSlot;
     public float mouseWheel;
 
-    //public List<Image> kkrImage;
+    [Header("Colour")]
+    public Color defaultColour;
+    public Color SelectedColour;
 
-    public Color[] rarityColors;
-    public Color hotBarSelected;
-    public Color defaultColor;
+    [Header("Gas")]
+    public float maxGas;
+    public float currentGas;
 
     void Start()
     {
@@ -60,7 +63,10 @@ public class InventoryManager : MonoBehaviour
     {
         if(Input.GetKeyDown(inv))
         {
-            inventory.SetActive(bla = !bla);
+            bla = !bla;
+
+            inventory.SetActive(bla);
+            backEffects.SetActive(bla);
         }
 
         if(inventory.activeSelf == true)
@@ -72,12 +78,10 @@ public class InventoryManager : MonoBehaviour
         {
             cursor.gameObject.SetActive(true);
 
-            boxCursor.color = rarityColors[itemHolder.rarity];
             iconHolder.sprite = itemHolder.icon;
         }
         else
         {
-            boxCursor.color = defaultColor;
             iconHolder.sprite = null;
 
             cursor.gameObject.SetActive(false);
@@ -123,30 +127,43 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    void Gas()
+    {
+
+    }
+
     void HotbarFunction()
     {
-        mouseWheel += Input.mouseScrollDelta.y;
-
-        if(mouseWheel < 0)
+        if(!inventory.activeSelf)
         {
-            mouseWheel = 0;
-        }
-        else if(mouseWheel > hotbarSlots.Count - 1)
-        {
-            mouseWheel = hotbarSlots.Count - 1;
-        }
+            mouseWheel += Input.mouseScrollDelta.y;
 
-        hotbarSlots[(int)mouseWheel].transform.GetComponent<Image>().color = hotBarSelected;
-
-        if(hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData != null)
-        {
-            if(hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData.placeable == true && bla == false && Input.GetKeyDown(KeyCode.Mouse0))
+            if(mouseWheel < 0)
             {
-                blueprint.prefab = hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData;
-                hotbarSlots[(int)mouseWheel].GetComponent<Slot>().amount -= 1;
-                hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData = null;
+                mouseWheel = 0;
+            }
+            else if(mouseWheel > hotbarSlots.Count - 1)
+            {
+                mouseWheel = hotbarSlots.Count - 1;
+            }
+
+            hotbarSlots[(int)mouseWheel].GetComponent<Image>().color = SelectedColour;
+
+            if(hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData != null)
+            {
+                if(hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData.placeable == true && bla == false && Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    blueprint.prefab = hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData;
+                    hotbarSlots[(int)mouseWheel].GetComponent<Slot>().amount -= 1;
+                    hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData = null;
+                }
             }
         }
+        else
+        {
+            hotbarSlots[(int)mouseWheel].GetComponent<Image>().color = defaultColour;
+        }
+
     }
 
     public void CraftItem(Requirements[] reqs, Item outcome, int outcomeAmount)

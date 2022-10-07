@@ -64,5 +64,13 @@ public class Blueprint : MonoBehaviour
                 }
             }
         }
+
+        if(prefab != null && Input.GetButtonDown("Fire1"))
+        {
+            move = Instantiate(prefab.prefab);
+            prefab = null;
+
+            move.transform.SetParent(this.gameObject.transform);
+        }
     }
 }
