@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class GasManager : MonoBehaviour
 {
-    public static float GasPercentage;
+    public static float gasPercentage;
 
     public static int GasSliderValue
     {
         get 
         {
-            return Mathf.RoundToInt(GasPercentage);
+            return Mathf.RoundToInt(gasPercentage);
         }
     }
 
@@ -28,7 +28,7 @@ public class GasManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        GasPercentage = testGas;
+        gasPercentage = testGas;
 
         text.text = GasSliderValue.ToString() + "%";
         slider.value = GasSliderValue;
