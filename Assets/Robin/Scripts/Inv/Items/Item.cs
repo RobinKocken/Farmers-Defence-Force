@@ -8,7 +8,6 @@ public class Item : ScriptableObject
     public int iD;
     public string itemName;
     public Sprite icon;
-    public int rarity;
     public int maxStack;
 
     public bool placeable;

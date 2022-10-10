@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RaycastPlayer : MonoBehaviour
@@ -23,29 +24,54 @@ public class RaycastPlayer : MonoBehaviour
 
     public float mouseWheel;
 
+    [Header("Gas")]
+    public InventoryManager inventory;
+
+
+    int bulletSlot;
+
     void Update()
     {
-        PickUpRay();
+        Ray();
         Blueprint();
     }
 
-    void ReloadTurrets()
-    {
-
-    }
-
-    void PickUpRay()
+    void Ray()
     {
         Ray ray = new Ray(transform.position, transform.forward);
         Debug.DrawRay(transform.position, transform.forward * distance, Color.red);
         if(Physics.Raycast(ray, out hit, distance))
         {
-            if(Input.GetKeyDown(interact))
+            if(Input.GetKeyDown(interact) && hit.transform.CompareTag("Item"))
             {
-                if(hit.transform.CompareTag("Item") && hit.transform.GetComponent<PickupItem>())
+                if(hit.transform.GetComponent<PickupItem>())
                 {
                     hit.transform.GetComponent<PickupItem>().PickUp();
                 }
+            }
+            else if(Input.GetKeyDown(interact) && hit.transform.CompareTag("Turret"))
+            {
+                if(hit.transform.GetComponent<SingleShotScript>())
+                {
+                    bulletSlot = inventory.CheckForItem(hit.transform.GetComponent<SingleShotScript>().iDBullet, bulletSlot);
+
+                    if(bulletSlot != -1)
+                    {
+                        if(inventory.slots[bulletSlot].GetComponent<Slot>().itemData != null)
+                        {
+                            inventory.slots[bulletSlot].GetComponent<Slot>().amount = hit.transform.GetComponent<SingleShotScript>().ReloadAmmo(inventory.slots[bulletSlot].GetComponent<Slot>().amount);
+                        }
+                    }
+
+                    if(inventory.currentGas > 0)
+                    {
+                        inventory.currentGas = hit.transform.GetComponent<SingleShotScript>().ReloadGas(inventory.currentGas);
+                    }
+                }
+            }
+            else if(Input.GetKey(interact) && hit.transform.CompareTag("Gas"))
+            {
+                inventory.AddGas();
             }
         }
     }

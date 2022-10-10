@@ -43,8 +43,13 @@ public class InventoryManager : MonoBehaviour
     public Color SelectedColour;
 
     [Header("Gas")]
+    public Slider sliderGas;
     public float maxGas;
     public float currentGas;
+    public float gasPerSecond;
+    public float waitForSeconds;
+    float startTime;
+    public TMP_Text gasText;
 
     [Header("Pickup Notification")]
     public PickUpManager notificationManager;
@@ -57,10 +62,8 @@ public class InventoryManager : MonoBehaviour
         boxCursor = boxCursor.GetComponent<Image>();
         iconHolder = iconHolder.GetComponent<Image>();
 
-        //for(int i = 0; i < hotbarSlots.Count; i++)
-        //{
-        //    kkrImage[i] = hotbarSlots[i].GetComponent<Image>();
-        //}
+        sliderGas.maxValue = maxGas;
+        sliderGas.value = currentGas;
     }
 
     void Update()
@@ -103,6 +106,7 @@ public class InventoryManager : MonoBehaviour
         itemAmountText.text = itemAmount.ToString();
 
         HotbarFunction();
+        Gas();
     }
 
     void InitializeInventory()
@@ -133,7 +137,23 @@ public class InventoryManager : MonoBehaviour
 
     void Gas()
     {
+        if(currentGas >= maxGas)
+        {
+            currentGas = maxGas;
+        }
 
+        gasText.text = sliderGas.value.ToString();
+        sliderGas.value = currentGas;
+    }
+
+    public void AddGas()
+    {
+        if(Time.time - startTime > waitForSeconds)
+        {
+            currentGas += gasPerSecond;
+
+            startTime = Time.time;
+        }
     }
 
     void HotbarFunction()
@@ -241,6 +261,29 @@ public class InventoryManager : MonoBehaviour
         }
 
         Debug.Log("All Slots are full");
+    }
+
+    public int CheckForItem(Item item, int slotNumber)
+    {
+        for(int i = 0; i < slots.Count; i++)
+        {
+            if(slots[i].GetComponent<Slot>().itemData != null)
+            {
+                if(slots[i].GetComponent<Slot>().itemData.iD == item.iD)
+                {
+                    slotNumber = i;
+
+                    return slotNumber;
+                }
+            }
+        }
+
+        return slotNumber = -1;
+    }
+
+    public void RemoveItem()
+    {
+
     }
 
     public void PickupDropInventory()

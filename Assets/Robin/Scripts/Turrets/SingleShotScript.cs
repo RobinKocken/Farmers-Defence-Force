@@ -11,6 +11,7 @@ public class SingleShotScript : MonoBehaviour
     public ParticleSystem shotParticle;
     public GameObject target;
     public GameObject bullet;
+    public Item iDBullet;
 
     public float radius;
 
@@ -134,30 +135,77 @@ public class SingleShotScript : MonoBehaviour
 
     void Shooting()
     {
-        if(Time.time - startTime > waitForSeconds && currentAmmo > 0)
+        if(Time.time - startTime > waitForSeconds && currentAmmo > 0 && currentGas > 0)
         {
             shotParticle.Play();
 
-            GameObject hello = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
+            GameObject currentBullet = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
 
             currentAmmo--;
             currentGas -= gasPerShot;
 
-            hello.transform.SetParent(shootPoint.transform);
-            hello.transform.eulerAngles = shootPoint.transform.eulerAngles;
-            hello.transform.parent = null;
+            currentBullet.transform.SetParent(shootPoint.transform);
+            currentBullet.transform.eulerAngles = shootPoint.transform.eulerAngles;
+            currentBullet.transform.parent = null;
 
-            hello.GetComponent<BulletScript>().parent = gameObject;
-            hello.GetComponent<BulletScript>().speed = bulletSpeed;
-            hello.GetComponent<BulletScript>().damage = bulletDamage;
+            currentBullet.GetComponent<BulletScript>().parent = gameObject;
+            currentBullet.GetComponent<BulletScript>().speed = bulletSpeed;
+            currentBullet.GetComponent<BulletScript>().damage = bulletDamage;
 
             startTime = Time.time;
         }
     }
 
-    public void Reload(int ammo, float gas)
+    public int ReloadAmmo(int ammoAmount)
     {
+        if(maxAmmo - currentAmmo < maxAmmo)
+        {
+            int needAmmo = maxAmmo - currentAmmo;
 
+            if(ammoAmount - needAmmo >= 0)
+            {
+                currentAmmo += needAmmo;
+                ammoAmount -= needAmmo;
+                
+                return ammoAmount;
+            }
+            else if(ammoAmount - needAmmo < 0)
+            {
+                needAmmo = ammoAmount;
+                currentAmmo += needAmmo;
+
+                ammoAmount = 0;
+                return ammoAmount;
+            }
+        }
+
+        return ammoAmount;
+    }
+
+    public float ReloadGas(float gasAmount)
+    {
+        if(maxGas - currentGas < maxGas)
+        {
+            float needGas = maxGas - currentGas;
+
+            if(gasAmount - needGas >= 0)
+            {
+                currentGas += needGas;
+                gasAmount -= needGas;
+
+                return gasAmount;
+            }
+            else if(gasAmount - needGas < 0)
+            {
+                needGas = gasAmount;
+                currentGas += needGas;
+
+                gasAmount = 0;
+                return gasAmount;
+            }
+        }
+
+        return gasAmount;
     }
 
     public void TakeDamage(int damage)
