@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
             moveDirection.z = vertical;
             rb.AddForce(transform.forward.normalized * speed *vertical);
             rb.AddForce(transform.right.normalized * speed * horizontal);
-            rb.drag = 2;
+            rb.drag = 1;
 
             if (pickup.speedBoostIsActief == true)
                 {
@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
                         if (Input.GetKeyDown(KeyCode.LeftShift))
                         {
                             running = true;
-                            speed = runSpeed;
+                            speed = runSpeed+ GetComponent<Rigidbody>().velocity.z;
 
 
                         }
