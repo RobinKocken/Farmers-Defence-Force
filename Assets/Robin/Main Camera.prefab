@@ -74,6 +74,7 @@ MonoBehaviour:
   move: {fileID: 0}
   distanceBuild: 50
   mouseWheel: 0
+  inventory: {fileID: 0}
 --- !u!20 &3932789438127329984
 Camera:
   m_ObjectHideFlags: 0
