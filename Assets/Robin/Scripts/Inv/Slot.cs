@@ -36,6 +36,11 @@ public class Slot : MonoBehaviour
             iconRenderer.sprite = itemData.icon;
 
             boxImage.color = manager.defaultColour;
+
+            if(amount > itemData.maxStack)
+            {
+                amount = itemData.maxStack;
+            }
         }
         else
         {

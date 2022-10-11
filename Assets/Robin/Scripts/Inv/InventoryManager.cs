@@ -179,11 +179,11 @@ public class InventoryManager : MonoBehaviour
                 {
                     blueprint.prefab = hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData;
                     hotbarSlots[(int)mouseWheel].GetComponent<Slot>().amount -= 1;
-                    hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData = null;
+                    //hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData = null;
                 }
             }
         }
-        else
+        else if(inventory.activeSelf)
         {
             hotbarSlots[(int)mouseWheel].GetComponent<Image>().color = defaultColour;
         }
