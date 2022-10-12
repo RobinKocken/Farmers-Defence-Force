@@ -39,8 +39,8 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         stamina = 100;
-        speed = walkSpeed;
         walkSpeed = 3;
+        speed = walkSpeed;
         runSpeed = 6;
         boostSpeed = 12;
         jumpPower = 7f;
@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
             gun.transform.localPosition += new Vector3(Mathf.Cos(Time.time * weaponBobSpeed) * weaponBobAmount, Mathf.Cos(Time.time * weaponBobSpeed) * weaponBobAmount, 0) * Time.deltaTime;
         }
 
+        //movement
         if (isGrounded == true)
         {
             horizontal = Input.GetAxisRaw("Horizontal");
@@ -115,6 +116,8 @@ public class PlayerController : MonoBehaviour
             {
                 stamina = 0;
             }
+
+           //jump
             if (Input.GetButtonDown("Jump"))
             {
                 rb.drag = 0;
