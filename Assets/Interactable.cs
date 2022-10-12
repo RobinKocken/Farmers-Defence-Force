@@ -3,14 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum InteractionMethod
-{
-    PickUp,
-    Interact,
-    RefilGas,
-    Reload,
-}
-
 [RequireComponent(typeof(BoxCollider))]
 public class Interactable : MonoBehaviour
 {
@@ -24,7 +16,7 @@ public class Interactable : MonoBehaviour
     public float minCircleDst = 12;
     public float minInteractDst = 3;
 
-    public InteractionMethod interactionMethod = InteractionMethod.PickUp;
+    public string interactionMethod = "Pickup";
     public KeyCode interactionKey = KeyCode.E;
     InteractionCircle activeCircles;
 
@@ -47,7 +39,7 @@ public class Interactable : MonoBehaviour
 
     private void Awake()
     {
-        canvas = FindObjectOfType<Canvas>();
+        canvas = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<Canvas>();
         circlesPrefab = Resources.Load("Circle Interactable",typeof(GameObject)) as GameObject;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
@@ -88,7 +80,7 @@ public class Interactable : MonoBehaviour
             activeCircles.transform.position = Camera.main.WorldToScreenPoint(transform.position);
         }
 
-        activeCircles.SetState(value,canPickup,interactionKey,interactionMethod.ToString());
+        activeCircles.SetState(value, canPickup, interactionKey, interactionMethod);
 
     }
 
