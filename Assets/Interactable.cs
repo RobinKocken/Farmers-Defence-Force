@@ -3,21 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum InteractionMethod
+{
+    PickUp,
+    Interact,
+    RefilGas,
+    Reload,
+}
+
+[RequireComponent(typeof(BoxCollider))]
 public class Interactable : MonoBehaviour
 {
+    [Header("References")]
     public Canvas canvas;
 
     public GameObject circlesPrefab;
     public Transform player,cam;
 
-    public float value;
-    public float minCircleDst;
+    [Header("Interaction Settings")]
+    public float minCircleDst = 12;
+    public float minInteractDst = 3;
+
+    public InteractionMethod interactionMethod = InteractionMethod.PickUp;
+    public KeyCode interactionKey = KeyCode.E;
     InteractionCircle activeCircles;
 
-    public Vector2 clampValues;
-    public float constrainValue;
-
-    List<Animator> animators = new();
+    Vector2 clampValues;
+    public float constrainValue = 10;
 
     public bool Clamped
     {
@@ -33,24 +45,41 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        canvas = FindObjectOfType<Canvas>();
+        circlesPrefab = Resources.Load("Circle Interactable",typeof(GameObject)) as GameObject;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
+    }
     // Update is called once per frame
     void Update()
     {
         float dst = Vector3.Distance(transform.position, player.position);
-        if(dst < minCircleDst)
+
+        bool canSee = false;
+        if(dst <= minInteractDst)
         {
-            EnableCircles(true);
+            if(Physics.Raycast(cam.position,cam.forward,out RaycastHit hit, minInteractDst)) 
+            {
+                if (hit.transform == transform)
+                    canSee = true;
+            }
+        }
+        if (dst < minCircleDst)
+        {
+            EnableCircles(true, canSee);
         }
         else
         {
-            EnableCircles(false);
+            EnableCircles(false,false);
         }
 
         if(activeCircles != null)
             UpdateCircle();
     }
 
-    void EnableCircles(bool value)
+    void EnableCircles(bool value, bool canPickup)
     {
         if(activeCircles == null && value)
         {
@@ -58,11 +87,9 @@ public class Interactable : MonoBehaviour
 
             activeCircles.transform.position = Camera.main.WorldToScreenPoint(transform.position);
         }
-        
-        for (int i = 0; i < animators.Count; i++)
-        {
-            animators[i].SetBool("Active", value);
-        }
+
+        activeCircles.SetState(value,canPickup,interactionKey,interactionMethod.ToString());
+
     }
 
     void UpdateCircle()
