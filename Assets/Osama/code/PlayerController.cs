@@ -7,10 +7,11 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
 
     public Vector3 moveDirection;
-    public Vector3 jumpPower;
 
+    public float jumpPower;
     public float horizontal;
     public float vertical;
+    public float moveVertical;
     public float walkSpeed, runSpeed, boostSpeed, speed;
     public float stamina;
 
@@ -39,10 +40,10 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         stamina = 100;
         speed = walkSpeed;
-        walkSpeed = 10;
-        runSpeed = 15;
-        boostSpeed = 30;
-        jumpPower.y = 7f;
+        walkSpeed = 3;
+        runSpeed = 6;
+        boostSpeed = 12;
+        jumpPower = 7f;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -65,8 +66,7 @@ public class PlayerController : MonoBehaviour
             vertical = Input.GetAxisRaw("Vertical");
             moveDirection.x = horizontal;
             moveDirection.z = vertical;
-            rb.AddForce(transform.forward.normalized * speed *vertical);
-            rb.AddForce(transform.right.normalized * speed * horizontal);
+            transform.Translate(moveDirection*Time.deltaTime*speed);
             rb.drag = 1;
 
             if (pickup.speedBoostIsActief == true)
@@ -121,17 +121,18 @@ public class PlayerController : MonoBehaviour
                 if (isGrounded == true)
                 {
                     isGrounded = false;
-                    GetComponent<Rigidbody>().velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-                    GetComponent<Rigidbody>().velocity += jumpPower;
+                    player.transform.position += new Vector3(velocity.x, 5f, velocity.z) * Time.deltaTime*jumpPower;
+                    //GetComponent<Rigidbody>().velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+                    //GetComponent<Rigidbody>().velocity += jumpPower;
                 }
             }
             if (pickup.jumpBoostIsActief == true)
             {
-                jumpPower.y = 14f;
+                jumpPower = 14f;
             }
             else if (pickup.jumpBoostIsActief == false)
             {
-                jumpPower.y = 7f;
+                jumpPower = 7f;
             }
         }
 

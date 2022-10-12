@@ -6929,8 +6929,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1390687700, guid: de41b6208fbc40840b23515cdc011ab1, type: 3}
+      propertyPath: stamina
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390687700, guid: de41b6208fbc40840b23515cdc011ab1, type: 3}
+      propertyPath: runSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390687700, guid: de41b6208fbc40840b23515cdc011ab1, type: 3}
       propertyPath: walkSpeed
-      value: 50
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390687700, guid: de41b6208fbc40840b23515cdc011ab1, type: 3}
+      propertyPath: boostSpeed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1899596436, guid: de41b6208fbc40840b23515cdc011ab1, type: 3}
       propertyPath: m_IsActive
@@ -18707,7 +18719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5, y: -6.9999695}
+  m_AnchoredPosition: {x: -5, y: -7}
   m_SizeDelta: {x: 1600, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2088624920 stripped
