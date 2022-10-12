@@ -4,12 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class MainMenuButton : MonoBehaviour
+public class MainMenuButton : BaseButton
 {
-    public float minInteractDst;
-
-    public Vector2[] interactZones;
-
     private Vector3 defaultSize;
     private Color defaultColor;
 
@@ -36,65 +32,41 @@ public class MainMenuButton : MonoBehaviour
 
     public static bool startingGame = false;
 
-    CanvasScaler canvasScaler;
-
     //True whenever the mouse is hovering over the button
-    public bool Hovered
+    public override bool Hovered
     {
         get
         {
             if (startingGame) return false;
 
-            var mousePos = Input.mousePosition;
-            for (int i = 0; i < interactZones.Length; i++)
-            {
-                var checkPos = transform.position + new Vector3(interactZones[i].x, interactZones[i].y);
-
-                if (Vector3.Distance(checkPos, mousePos) < minInteractDst * canvasScaler.scaleFactor )
-                {
-                    return true;
-                }
-            }
-            return false;
+            return base.Hovered;
         }
     }
 
     //True whenever the player holds the LMB while hovering over the button
-    public bool Clicked
+    public override bool Clicked
     {
         get
         {
             if (startingGame) return false;
 
-            if (Hovered)
-            {
-                if (Input.GetMouseButton(0)) return true;
-            }
-            return false;
+            return base.Clicked;
         }
-
     }
 
     //True whenever the player releases the LMB while hovering over the button
-    public bool Released
+    public override bool Released
     {
         get
         {
             if (startingGame) return false;
 
-            bool clicked = Clicked;
-
-            if (clicked == false && previousClicked != clicked && Hovered) return true;
-            return false;
+            return base.Released;
         }
     }
 
-    bool previousClicked;
-
     void Start()
     {
-        canvasScaler = FindObjectOfType<CanvasScaler>();
-
         if(buttonText != null) 
         {
             defaultColor = buttonText.color;
@@ -108,7 +80,7 @@ public class MainMenuButton : MonoBehaviour
     }
 
 
-    void Update()
+    protected override void Update()
     {
         //Check if button is clicked on
 
@@ -144,6 +116,8 @@ public class MainMenuButton : MonoBehaviour
         currentColorTimer += Options.deltaTime * colorChangeRate;
 
         transform.localScale = Vector3.SmoothDamp(transform.localScale,targetSize, ref sizeVelocity, sizeSmoothTime,Mathf.Infinity, Options.deltaTime);
+
+        base.Update();
     }
 
     public virtual void OnClick()
@@ -168,14 +142,4 @@ public class MainMenuButton : MonoBehaviour
     /// Called as soon as the mouse started hovering over the button
     /// </summary>
     void OnHover() => currentColorTimer = 0;
-
-    private void OnDrawGizmos()
-    {
-        if (canvasScaler == null)
-            canvasScaler = FindObjectOfType<CanvasScaler>();
-        for (int i = 0; i < interactZones.Length; i++)
-        {
-            Gizmos.DrawWireSphere(transform.position + new Vector3(interactZones[i].x,interactZones[i].y) ,minInteractDst * canvasScaler.scaleFactor);
-        }
-    }
 }
