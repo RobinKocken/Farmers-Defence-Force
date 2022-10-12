@@ -117,7 +117,7 @@ MonoBehaviour:
   shotParticle: {fileID: 2458295751209035200}
   target: {fileID: 0}
   bullet: {fileID: 2916424273546831277, guid: 27457ee14a17b8a43a7b69a817584ed0, type: 3}
-  iDBullet: {fileID: 11400000, guid: f20ac07944d5b1e4eb2e5fd9018522a9, type: 2}
+  iDBullet: {fileID: 11400000, guid: c61f2f93ff61acf49a4597e9672688db, type: 2}
   radius: 30
   frame: {fileID: 5415559390895852678}
   cannon: {fileID: 2730651678760601664}

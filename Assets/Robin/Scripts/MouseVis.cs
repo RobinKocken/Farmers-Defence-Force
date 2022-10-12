@@ -6,13 +6,12 @@ public class MouseVis : MonoBehaviour
 {
     public KeyCode mouseKey;
     public bool visible;
-    public TempMouse cam;
     public float sensDefault;
 
     // Start is called before the first frame update
     void Start()
     {
-        sensDefault = cam.mouseSens;
+        sensDefault = Options.xSens;
         MouseMode(visible);
     }
 
@@ -34,14 +33,16 @@ public class MouseVis : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            cam.mouseSens = sensDefault;
+            Options.xSens = sensDefault;
+            Options.ySens = sensDefault;
         }
         else if(mouseSwitch)
         {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
 
-            cam.mouseSens = 0;
+            Options.xSens = 0;
+            Options.ySens = 0;
         }
     }
 }

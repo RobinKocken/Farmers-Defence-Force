@@ -37,6 +37,8 @@ public class InventoryManager : MonoBehaviour
     [Header("Other")]
     public int currentSlot;
     public float mouseWheel;
+    float oldMouse;
+    public bool canScroll;
 
     [Header("Colour")]
     public Color defaultColour;
@@ -64,6 +66,8 @@ public class InventoryManager : MonoBehaviour
 
         sliderGas.maxValue = maxGas;
         sliderGas.value = currentGas;
+
+        canScroll = true;
     }
 
     void Update()
@@ -160,8 +164,11 @@ public class InventoryManager : MonoBehaviour
     {
         if(!inventory.activeSelf)
         {
-            mouseWheel += Input.mouseScrollDelta.y;
-
+            if(canScroll)
+            {
+                mouseWheel += Input.mouseScrollDelta.y;
+            }
+            
             if(mouseWheel < 0)
             {
                 mouseWheel = 0;
@@ -171,7 +178,15 @@ public class InventoryManager : MonoBehaviour
                 mouseWheel = hotbarSlots.Count - 1;
             }
 
-            hotbarSlots[(int)mouseWheel].GetComponent<Image>().color = SelectedColour;
+            if(oldMouse != mouseWheel)
+            {
+                hotbarSlots[(int)oldMouse].GetComponent<Image>().color = defaultColour;
+                oldMouse = mouseWheel;
+            }
+            else if(oldMouse == mouseWheel)
+            {
+                hotbarSlots[(int)mouseWheel].GetComponent<Image>().color = SelectedColour;
+            }
 
             if(hotbarSlots[(int)mouseWheel].GetComponent<Slot>().itemData != null)
             {

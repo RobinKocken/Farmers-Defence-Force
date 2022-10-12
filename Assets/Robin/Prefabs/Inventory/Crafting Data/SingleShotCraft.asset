@@ -10,18 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 404b9a3d642d58044bd1eac0ce97f97c, type: 3}
-  m_Name: SingelShotCraft
+  m_Name: SingleShotCraft
   m_EditorClassIdentifier: 
-  requirements:
-  - id: 0
-    amount: 8
-  - id: 1
-    amount: 1
-  - id: 2
-    amount: 5
-  - id: 3
-    amount: 8
-  - id: 4
-    amount: 8
+  requirements: []
   outcome: {fileID: 11400000, guid: 8f35ac3f15a54874eba2b168065a1422, type: 2}
   outcomeAmount: 1

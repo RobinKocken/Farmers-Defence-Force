@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33fc142749c9b8644b0997d5d9d7fd8b, type: 3}
-  m_Name: Metal Scrap
+  m_Name: Olie Vat
   m_EditorClassIdentifier: 
-  iD: 2
-  itemName: Metal Scrap
-  icon: {fileID: 21300000, guid: 2a372a9bb41d9834e86cae18da47e27d, type: 3}
-  rarity: 0
-  maxStack: 99
+  iD: 7
+  itemName: Olie Vat
+  icon: {fileID: 0}
+  maxStack: 5
+  placeable: 0
+  prefab: {fileID: 0}

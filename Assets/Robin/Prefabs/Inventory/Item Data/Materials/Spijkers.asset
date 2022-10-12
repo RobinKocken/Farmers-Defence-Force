@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33fc142749c9b8644b0997d5d9d7fd8b, type: 3}
   m_Name: Spijkers
   m_EditorClassIdentifier: 
-  iD: 4
+  iD: 2
   itemName: Spijkers
-  icon: {fileID: 21300000, guid: 85f22bc010f445147a989afb718b3712, type: 3}
-  rarity: 0
-  maxStack: 99
+  icon: {fileID: 21300000, guid: 9d1a22a5fc7f78647bcdb07b5239c3e3, type: 3}
+  maxStack: 90
+  placeable: 0
+  prefab: {fileID: 0}

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33fc142749c9b8644b0997d5d9d7fd8b, type: 3}
-  m_Name: SingleShot
+  m_Name: Elektro Motor
   m_EditorClassIdentifier: 
-  iD: 9
-  itemName: Single Shot
-  icon: {fileID: 21300000, guid: c785799b74a42874493aaa80e2d777dd, type: 3}
-  maxStack: 1
-  placeable: 1
-  prefab: {fileID: 2610457419378704108, guid: a0c9b332852fcd44fa4ed79c7f1566e6, type: 3}
+  iD: 8
+  itemName: Elektro Motor
+  icon: {fileID: 0}
+  maxStack: 5
+  placeable: 0
+  prefab: {fileID: 0}

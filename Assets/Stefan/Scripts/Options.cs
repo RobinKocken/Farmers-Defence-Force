@@ -6,7 +6,7 @@ using UnityEngine;
 public class Options : MonoBehaviour
 {
     public static float xSens = 300;
-    public static float ySens = 350;
+    public static float ySens = 300;
     public static float volume { get { return AudioListener.volume; } }
 
     public static float cameraShakeAmount = 1;

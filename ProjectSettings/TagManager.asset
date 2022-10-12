@@ -15,7 +15,11 @@ TagManager:
   - Bullet
   - Turret
   - Gas
+<<<<<<< Updated upstream
   - MainCanvas
+=======
+  - Shop
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

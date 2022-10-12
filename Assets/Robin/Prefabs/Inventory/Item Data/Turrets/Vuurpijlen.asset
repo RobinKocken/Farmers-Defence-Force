@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33fc142749c9b8644b0997d5d9d7fd8b, type: 3}
-  m_Name: Buizen
+  m_Name: Vuurpijlen
   m_EditorClassIdentifier: 
-  iD: 3
-  itemName: Buizen
-  icon: {fileID: 21300000, guid: ddb2bade9a96b8e4f8e6cc8e9a483314, type: 3}
-  rarity: 0
-  maxStack: 99
+  iD: 11
+  itemName: Vuurpijlen
+  icon: {fileID: 0}
+  maxStack: 1
+  placeable: 1
+  prefab: {fileID: 0}

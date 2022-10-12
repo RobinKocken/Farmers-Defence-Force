@@ -12,7 +12,6 @@ public class Slot : MonoBehaviour
     public int amount;
 
     public Image iconRenderer;
-    public Image boxImage;
 
     public TMP_Text amountText;
 
@@ -22,7 +21,6 @@ public class Slot : MonoBehaviour
     {
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<InventoryManager>();
 
-        boxImage = gameObject.GetComponent<Image>();
         iconRenderer = iconRenderer.GetComponent<Image>();
 
         iconRenderer.enabled = false;
@@ -35,8 +33,6 @@ public class Slot : MonoBehaviour
             iconRenderer.enabled = true;
             iconRenderer.sprite = itemData.icon;
 
-            boxImage.color = manager.defaultColour;
-
             if(amount > itemData.maxStack)
             {
                 amount = itemData.maxStack;
@@ -46,8 +42,6 @@ public class Slot : MonoBehaviour
         {
             iconRenderer.sprite = null;
             iconRenderer.enabled = false;
-
-            boxImage.color = manager.defaultColour;
         }
 
         if(amount <= 0)

@@ -12,7 +12,6 @@ public class RaycastPlayer : MonoBehaviour
 
     [Header("Blueprint")]
     public GameObject cam;
-    public KeyCode buildKey;
     public LayerMask placeble;
 
     public Item prefab;
@@ -95,19 +94,23 @@ public class RaycastPlayer : MonoBehaviour
                     move.transform.position = hitBuild.point;
                     move.GetComponent<SingleShotScript>().enabled = true;
 
-                    move.transform.parent = null;
+                    //move.transform.parent = null;
                     mouseWheel = 0;
                     move = null;
+
+                    inventory.canScroll = true;
                 }
             }
         }
 
         if(prefab != null)
         {
+            inventory.canScroll = false;
+
             move = Instantiate(prefab.prefab);
             prefab = null;
 
-            move.transform.SetParent(this.gameObject.transform);
+            //move.transform.SetParent(this.gameObject.transform);
         }
     }
 }
