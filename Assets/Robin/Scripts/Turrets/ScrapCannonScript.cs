@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class SingleShotScript : MonoBehaviour
+public class ScrapCannonScript : MonoBehaviour
 {
     public int health;
 
@@ -97,7 +96,7 @@ public class SingleShotScript : MonoBehaviour
         Vector3 predictedPosition = currentPosition + currentVelocity * travelTime;
 
         aimingPoint.position = predictedPosition;
-    }    
+    }
 
     void LookAtTarget()
     {
@@ -159,7 +158,7 @@ public class SingleShotScript : MonoBehaviour
             {
                 currentAmmo += needAmmo;
                 ammoAmount -= needAmmo;
-                
+
                 return ammoAmount;
             }
             else if(ammoAmount - needAmmo < 0)

@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class SingleShotScript : MonoBehaviour
+public class CarbidCannonScript : MonoBehaviour
 {
     public int health;
 
@@ -20,6 +19,7 @@ public class SingleShotScript : MonoBehaviour
     public Transform cannon;
     public Transform shootPoint;
     public Transform aimingPoint;
+    public Transform melkBussen;
     public Transform gearFrame;
     public Transform gearMotor;
 
@@ -97,7 +97,7 @@ public class SingleShotScript : MonoBehaviour
         Vector3 predictedPosition = currentPosition + currentVelocity * travelTime;
 
         aimingPoint.position = predictedPosition;
-    }    
+    }
 
     void LookAtTarget()
     {
@@ -145,6 +145,8 @@ public class SingleShotScript : MonoBehaviour
             currentBullet.GetComponent<BulletScript>().speed = bulletSpeed;
             currentBullet.GetComponent<BulletScript>().damage = bulletDamage;
 
+            melkBussen.rotation *= Quaternion.Euler(0, 0, 22.5f);
+
             startTime = Time.time;
         }
     }
@@ -159,7 +161,7 @@ public class SingleShotScript : MonoBehaviour
             {
                 currentAmmo += needAmmo;
                 ammoAmount -= needAmmo;
-                
+
                 return ammoAmount;
             }
             else if(ammoAmount - needAmmo < 0)

@@ -14,9 +14,12 @@ public class TempMove : MonoBehaviour
     float moveZ;
     float moveX;
 
+    public bool moving;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        moving = true;
     }
 
     void Update()
@@ -31,8 +34,11 @@ public class TempMove : MonoBehaviour
 
     void Movement()
     {
-        moveZ = Input.GetAxisRaw("Vertical");
-        moveX = Input.GetAxisRaw("Horizontal");
+        if(moving)
+        {
+            moveZ = Input.GetAxisRaw("Vertical");
+            moveX = Input.GetAxisRaw("Horizontal");
+        }
 
         rb.AddForce(orientation.forward.normalized * moveZ * speed * 10, ForceMode.Force);
         rb.AddForce(orientation.right.normalized * moveX * speed * 10, ForceMode.Force);

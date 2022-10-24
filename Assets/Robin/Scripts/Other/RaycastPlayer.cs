@@ -26,6 +26,8 @@ public class RaycastPlayer : MonoBehaviour
     [Header("Gas")]
     public InventoryManager inventory;
 
+    [Header("Gas")]
+    bool shopping;
 
     int bulletSlot;
 
@@ -71,6 +73,16 @@ public class RaycastPlayer : MonoBehaviour
             else if(Input.GetKey(interact) && hit.transform.CompareTag("Gas"))
             {
                 inventory.AddGas();
+            }
+            else if(Input.GetKeyDown(interact) && hit.transform.CompareTag("Shop") && hit.transform.GetComponent<ShopScript>().shopping == false)
+            {
+                hit.transform.GetComponent<ShopScript>().shopping = true;
+                hit.transform.GetComponent<ShopScript>().ShoppingOn();
+            }
+            else if(Input.GetKeyDown(interact) && hit.transform.CompareTag("Shop") && hit.transform.GetComponent<ShopScript>().shopping == true)
+            {
+                hit.transform.GetComponent<ShopScript>().shopping = false;
+                hit.transform.GetComponent<ShopScript>().ShoppingOff();
             }
         }
     }

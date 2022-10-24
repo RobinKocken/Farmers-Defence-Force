@@ -1,28 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopScript : MonoBehaviour
 {
-    public InventoryManager inventory;
-    public Item currency;
-    public Buy[] buy;
-    // Start is called before the first frame update
-    void Start()
+    public TempMove move;
+    public MouseVis mouse;
+    public TempMouse temp;
+    public GameObject shop;
+
+    bool bla;
+
+    public bool shopping;
+
+    public void ShoppingOn()
     {
-        
+        mouse.visible = true;
+        temp.mouseSens = 0;
+        move.moving = false;
+
+        bla = !bla;
+        shop.SetActive(bla);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ShoppingOff()
     {
-        
-    }
-}
+        mouse.visible = false;
+        temp.mouseSens = mouse.sensDefault;
+        move.moving = true;
 
-[System.Serializable]
-public class Buy
-{
-    public Item itemToBuy;
-    public int price;
+        bla = !bla;
+        shop.SetActive(bla);
+    }
 }

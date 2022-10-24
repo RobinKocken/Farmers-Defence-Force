@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &414044912935961056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1896642415813754344}
+  m_Layer: 0
+  m_Name: Aiming Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1896642415813754344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414044912935961056}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 209204178899842381}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2236505320403751958
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,6 +40,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8709191801765164673}
+  - component: {fileID: 494639056}
+  - component: {fileID: 918370234124292270}
+  - component: {fileID: 5196146359166722324}
   m_Layer: 0
   m_Name: Vuurpijlen Cannon
   m_TagString: Untagged
@@ -23,7 +57,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2236505320403751958}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.088545, y: -1.6260508, z: 0.8382663}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -34,6 +68,76 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &494639056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2236505320403751958}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1304068f7e55942bc190b732904dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  manager: {fileID: 0}
+  shotParticle: {fileID: 0}
+  target: {fileID: 0}
+  bullet: {fileID: 0}
+  iDBullet: {fileID: 11400000, guid: a09aa0faafacb4a489753355dadd7514, type: 2}
+  radius: 25
+  frame: {fileID: 3585015584828739312}
+  cannon: {fileID: 2170544703255932168}
+  shootPoint: {fileID: 0}
+  aimingPoint: {fileID: 1896642415813754344}
+  gearFrame: {fileID: 0}
+  gearMotor: {fileID: 0}
+  rotSpeed: 0
+  rotGearFrame: 0
+  rotGearMotor: 0
+  bulletDamage: 0
+  bulletSpeed: 0
+  waitForSeconds: 0
+  currentAmmo: 0
+  maxAmmo: 0
+  currentGas: 0
+  maxGas: 0
+  gasPerShot: 0
+  currentPosition: {x: 0, y: 0, z: 0}
+  currentVelocity: {x: 0, y: 0, z: 0}
+  prev: {x: 0, y: 0, z: 0}
+  targetDistance: 0
+  travelTime: 0
+--- !u!65 &918370234124292270
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2236505320403751958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3959732, y: 1.6948211, z: 2.2999954}
+  m_Center: {x: -0.0037355423, y: 0.8255669, z: -0.12701035}
+--- !u!208 &5196146359166722324
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2236505320403751958}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.6979865, y: 0.8474105, z: 1.1499975}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.003735542, y: 0.8255669, z: -0.1270103}
+  m_TimeToStationary: 0.5
 --- !u!1 &6263112207097834428
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +308,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b70f2d23ef674e948912f9e5e934fdba, type: 3}
+--- !u!4 &2170544703255932168 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 674380953323375245, guid: b70f2d23ef674e948912f9e5e934fdba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1676661839243372421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4503327198756774217
 PrefabInstance:
   m_ObjectHideFlags: 0

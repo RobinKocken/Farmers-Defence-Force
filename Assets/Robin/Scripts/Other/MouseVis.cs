@@ -12,6 +12,7 @@ public class MouseVis : MonoBehaviour
     void Start()
     {
         sensDefault = Options.xSens;
+        visible = false;
         MouseMode(visible);
     }
 
@@ -20,10 +21,10 @@ public class MouseVis : MonoBehaviour
     {
         if(Input.GetKeyDown(mouseKey))
         {
-            MouseMode(visible = !visible);
+            visible = !visible;
         }
 
-        //MouseMode(visible);
+        MouseMode(visible);
     }
 
     public void MouseMode(bool mouseSwitch)

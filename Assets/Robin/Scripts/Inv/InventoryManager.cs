@@ -296,9 +296,22 @@ public class InventoryManager : MonoBehaviour
         return slotNumber = -1;
     }
 
-    public void RemoveItem()
+    public void RemoveItem(Item item, int itemAmount)
     {
-
+        for(int i = 0; i < slots.Count; i++)
+        {
+            if(slots[i].GetComponent<Slot>().itemData != null)
+            {
+                if(slots[i].GetComponent<Slot>().itemData.iD == item.iD)
+                {
+                    if(itemAmount <= slots[i].GetComponent<Slot>().itemData.maxStack - slots[i].GetComponent<Slot>().amount)
+                    {
+                        slots[i].GetComponent<Slot>().amount -= itemAmount;
+                        return;
+                    }
+                }
+            }
+        }
     }
 
     public void PickupDropInventory()
