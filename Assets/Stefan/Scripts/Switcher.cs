@@ -7,8 +7,10 @@ public class Switcher : MonoBehaviour
 {
     public OptionsMainMenu optionsMenu;
     public MainMenuButton leftButton, rightButton;
-    public TextMeshProUGUI switchedText;
-    public Vector2Int[] resolutions;
+    public TextMeshProUGUI switchedText, aspectRatio;
+    public MainMenuButton applyButton;
+
+    public Resolution[] resolutions;
     int currentResolutionIndex;
 
     // Start is called before the first frame update
@@ -16,6 +18,7 @@ public class Switcher : MonoBehaviour
     {
         leftButton.onButtonClicked = OnLeftClick;
         rightButton.onButtonClicked = OnRightClick;
+        applyButton.onButtonClicked = Apply;
     }
 
     void OnLeftClick()
@@ -23,9 +26,9 @@ public class Switcher : MonoBehaviour
         currentResolutionIndex--;
         if (currentResolutionIndex < 0) currentResolutionIndex = resolutions.Length - 1;
 
-        Screen.SetResolution(resolutions[currentResolutionIndex].x, resolutions[currentResolutionIndex].y, optionsMenu.Fullscreen);
-
         switchedText.text = $"{resolutions[currentResolutionIndex].x}  x  {resolutions[currentResolutionIndex].y}";
+        aspectRatio.text = resolutions[currentResolutionIndex].aspectRatio;
+        applyButton.gameObject.SetActive(true);
     }
 
     void OnRightClick()
@@ -33,8 +36,24 @@ public class Switcher : MonoBehaviour
         currentResolutionIndex++;
         if (currentResolutionIndex >= resolutions.Length) currentResolutionIndex = 0;
 
-        Screen.SetResolution(resolutions[currentResolutionIndex].x, resolutions[currentResolutionIndex].y, optionsMenu.Fullscreen);
         switchedText.text = $"{resolutions[currentResolutionIndex].x}  x  {resolutions[currentResolutionIndex].y}";
+        aspectRatio.text = resolutions[currentResolutionIndex].aspectRatio;
+        applyButton.gameObject.SetActive(true);
+    }
+
+    void Apply()
+    {
+        Screen.SetResolution(resolutions[currentResolutionIndex].x, resolutions[currentResolutionIndex].y, optionsMenu.Fullscreen);
+        applyButton.gameObject.SetActive(false);
+    }
+
+    [System.Serializable]
+    public struct Resolution
+    {
+        public string aspectRatio;
+
+        public int x;
+        public int y;
 
     }
 }
