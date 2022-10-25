@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour
 {
     [Header("References")]
     public Canvas canvas;
+    public Transform parent;
 
     public GameObject circlesPrefab;
     public Transform player,cam;
@@ -40,6 +41,7 @@ public class Interactable : MonoBehaviour
     private void Awake()
     {
         canvas = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<Canvas>();
+        parent = GameObject.FindGameObjectWithTag("Interaction").transform;
         circlesPrefab = Resources.Load("Circle Interactable",typeof(GameObject)) as GameObject;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
@@ -75,10 +77,11 @@ public class Interactable : MonoBehaviour
     {
         if(activeCircles == null && value)
         {
-            activeCircles = Instantiate(circlesPrefab, Vector3.zero, Quaternion.identity, canvas.transform).GetComponent<InteractionCircle>();
+            activeCircles = Instantiate(circlesPrefab, Vector3.zero, Quaternion.identity, parent).GetComponent<InteractionCircle>();
 
             activeCircles.transform.position = Camera.main.WorldToScreenPoint(transform.position);
         }
+        if (activeCircles == null) return;
 
         activeCircles.SetState(value, canPickup, interactionKey, interactionMethod);
 
