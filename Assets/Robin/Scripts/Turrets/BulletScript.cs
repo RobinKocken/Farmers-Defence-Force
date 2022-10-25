@@ -6,6 +6,7 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     public GameObject parent;
+    public ParticleSystem particle;
     public GameObject explosion;
 
     public int damage;
@@ -32,11 +33,15 @@ public class BulletScript : MonoBehaviour
                 {
                     Instantiate(explosion, transform.position, Quaternion.identity);
                 }
-                
+
+
+                Destroy(transform.GetChild(0).gameObject, 10f);
+                transform.DetachChildren();
                 Destroy(gameObject);
             }
         }
 
+        Destroy(transform.GetChild(0).gameObject, 10f);
         Destroy(gameObject, timeToLive);
     }
 }
