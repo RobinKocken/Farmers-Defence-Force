@@ -35,5 +35,7 @@ public class AlienBulletScript : MonoBehaviour
 
 
         }
+
+        Destroy(gameObject, timeToLive);
     }
 }

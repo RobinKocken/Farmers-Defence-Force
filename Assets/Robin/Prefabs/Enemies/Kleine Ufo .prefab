@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alienAgent: {fileID: 0}
   shootPoint: {fileID: 4031472299705189617}
-  health: 100
+  health: 100000
   house: {fileID: 0}
   aimPoint: {fileID: 0}
   target: {fileID: 0}

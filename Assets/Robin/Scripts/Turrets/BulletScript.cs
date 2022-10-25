@@ -6,10 +6,13 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     public GameObject parent;
+    public GameObject explosion;
 
     public int damage;
     public float speed;
     Vector3 prevPos;
+
+    public float timeToLive;
 
     void Update()
     {
@@ -24,8 +27,16 @@ public class BulletScript : MonoBehaviour
             if(hits[i].transform.CompareTag("Alien"))
             {
                 hits[i].transform.GetComponent<AlienAi>().TakeDamage(damage);
+
+                if(explosion != null)
+                {
+                    Instantiate(explosion, transform.position, Quaternion.identity);
+                }
+                
                 Destroy(gameObject);
             }
         }
+
+        Destroy(gameObject, timeToLive);
     }
 }

@@ -48,8 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
+  explosion: {fileID: 2421314443417843807, guid: 5f84e6c9556fe1b4880dcf2e46214eb4,
+    type: 3}
   damage: 0
   speed: 0
+  timeToLive: 5
 --- !u!33 &1504966757799030966
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -180,6 +183,11 @@ PrefabInstance:
     - target: {fileID: 6244655957207296161, guid: 87432f2db3b202d499a91623c13aac13,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608609140661058605, guid: 87432f2db3b202d499a91623c13aac13,
+        type: 3}
+      propertyPath: CollisionModule.enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

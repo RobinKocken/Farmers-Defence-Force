@@ -947,6 +947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+  parent: {fileID: 0}
   circlesPrefab: {fileID: 0}
   player: {fileID: 0}
   cam: {fileID: 0}
@@ -2312,7 +2313,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &316142620 stripped
 RectTransform:
@@ -4441,6 +4442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+  parent: {fileID: 0}
   circlesPrefab: {fileID: 0}
   player: {fileID: 0}
   cam: {fileID: 0}
@@ -7091,6 +7093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+  parent: {fileID: 0}
   circlesPrefab: {fileID: 0}
   player: {fileID: 0}
   cam: {fileID: 0}
@@ -11059,6 +11062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+  parent: {fileID: 0}
   circlesPrefab: {fileID: 0}
   player: {fileID: 0}
   cam: {fileID: 0}
@@ -13138,7 +13142,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!208 &1821722076
 NavMeshObstacle:
@@ -13169,6 +13173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+  parent: {fileID: 0}
   circlesPrefab: {fileID: 0}
   player: {fileID: 0}
   cam: {fileID: 0}
@@ -15412,15 +15417,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 141436624346115708, guid: e2159239abafb874f93c8fe4d2cffb4a,
-        type: 3}
-      propertyPath: health
-      value: 100000
-      objectReference: {fileID: 0}
     - target: {fileID: 1607725343762264938, guid: e2159239abafb874f93c8fe4d2cffb4a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1607725343762264938, guid: e2159239abafb874f93c8fe4d2cffb4a,
         type: 3}
@@ -15578,7 +15578,7 @@ PrefabInstance:
     - target: {fileID: 5266099237905826023, guid: 0a05cd9686c47d846bbb723adc56696b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5266099237905826023, guid: 0a05cd9686c47d846bbb723adc56696b,
         type: 3}
