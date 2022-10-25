@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Axe
   - Gun
+  - Turret
+  - Bullet
+  - Manager
+  - AlienManager
+  - House
+  - Ground
+  - Alien
   layers:
   - Default
   - TransparentFX
@@ -14,7 +21,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Shadow
   - 
   - 
   - 
