@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class VuurpijlenScript : MonoBehaviour
@@ -7,7 +8,7 @@ public class VuurpijlenScript : MonoBehaviour
     public int health;
 
     public AlienManager manager;
-    public ParticleSystem shotParticle;
+    public List<ParticleSystem> shotParticles;
     public GameObject target;
     public GameObject bullet;
     public Item iDBullet;
@@ -17,10 +18,13 @@ public class VuurpijlenScript : MonoBehaviour
     [Header("Components")]
     public Transform frame;
     public Transform cannon;
-    public Transform shootPoint;
+    public Transform shootHolder;
     public Transform aimingPoint;
     public Transform gearFrame;
     public Transform gearMotor;
+
+    public List<Transform> shootPoints;
+    public int number;
 
     [Header("Rotation Speed")]
     public float rotSpeed;
@@ -53,7 +57,12 @@ public class VuurpijlenScript : MonoBehaviour
     {
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<AlienManager>();
 
-        shotParticle.Stop();
+        Initialize();
+        
+        for(int i = 0; i < shotParticles.Count; i++)
+        {
+            shotParticles[i].Stop();
+        }
     }
 
     void Update()
@@ -69,6 +78,19 @@ public class VuurpijlenScript : MonoBehaviour
         }
 
         Death();
+    }
+
+    void Initialize()
+    {
+        for(int i = 0; i < shootHolder.childCount; i++)
+        {
+            shootPoints.Add(shootHolder.GetChild(i));
+        }
+
+        for(int i = 0; i < shootPoints.Count; i++)
+        {
+            shotParticles.Add(shootPoints[i].GetComponentInChildren<ParticleSystem>());
+        }
     }
 
     void Target()
@@ -90,7 +112,7 @@ public class VuurpijlenScript : MonoBehaviour
 
         currentPosition = target.transform.position;
 
-        targetDistance = Vector3.Distance(shootPoint.transform.position, target.transform.position);
+        targetDistance = Vector3.Distance(shootHolder.transform.position, target.transform.position);
         travelTime = targetDistance / bulletSpeed;
 
         Vector3 predictedPosition = currentPosition + currentVelocity * travelTime;
@@ -129,21 +151,26 @@ public class VuurpijlenScript : MonoBehaviour
     {
         if(Time.time - startTime > waitForSeconds && currentAmmo > 0 && currentGas > 0)
         {
-            shotParticle.Play();
+            shotParticles[number].Play();
 
-            GameObject currentBullet = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
+            GameObject currentBullet = Instantiate(bullet, shootPoints[number].transform.position, Quaternion.identity);
 
             currentAmmo--;
             currentGas -= gasPerShot;
 
-            currentBullet.transform.SetParent(shootPoint.transform);
-            currentBullet.transform.eulerAngles = shootPoint.transform.eulerAngles;
+            currentBullet.transform.SetParent(shootPoints[number].transform);
+            currentBullet.transform.eulerAngles = shootPoints[number].transform.eulerAngles;
             currentBullet.transform.parent = null;
 
             currentBullet.GetComponent<BulletScript>().parent = gameObject;
             currentBullet.GetComponent<BulletScript>().speed = bulletSpeed;
             currentBullet.GetComponent<BulletScript>().damage = bulletDamage;
 
+            number++;
+            if(number == shootPoints.Count)
+            {
+                number = 0;
+            }
             startTime = Time.time;
         }
     }

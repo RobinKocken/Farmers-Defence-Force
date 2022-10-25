@@ -202,7 +202,6 @@ public class InventoryManager : MonoBehaviour
         {
             hotbarSlots[(int)mouseWheel].GetComponent<Image>().color = defaultColour;
         }
-
     }
 
     public void CraftItem(Requirements[] reqs, Item outcome, int outcomeAmount)
