@@ -4,15 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< Updated upstream
   - Axe
   - Gun
-  - Turret
-  - Bullet
-  - Manager
-  - AlienManager
+=======
+  - Item
+  - MainCanvas
   - House
-  - Ground
-  - Alien
+  - Bullet
+  - Interaction
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - Shadow
+  - 
   - 
   - 
   - 

@@ -28,20 +28,20 @@ public class BulletScript : MonoBehaviour
             if(hits[i].transform.CompareTag("Alien"))
             {
                 hits[i].transform.GetComponent<AlienAi>().TakeDamage(damage);
-
-                if(explosion != null)
-                {
-                    Instantiate(explosion, transform.position, Quaternion.identity);
-                }
-
-
+                
                 Destroy(transform.GetChild(0).gameObject, 10f);
                 transform.DetachChildren();
                 Destroy(gameObject);
             }
         }
 
-        Destroy(transform.GetChild(0).gameObject, 10f);
         Destroy(gameObject, timeToLive);
+    }
+
+    private void OnDestroy()
+    {
+        transform.DetachChildren();
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        Destroy(transform.GetChild(0).gameObject, 10f);
     }
 }
