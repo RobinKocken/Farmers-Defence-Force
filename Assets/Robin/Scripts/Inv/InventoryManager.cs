@@ -8,9 +8,13 @@ using UnityEditor.UIElements;
 public class InventoryManager : MonoBehaviour
 {
     public KeyCode inv;
-    bool bla;
+    public bool bla;
 
+    public MouseVis mouse;
     public RaycastPlayer blueprint;
+    public ShopScript shop;
+
+    public bool shopActive;
 
     [Header("Inventory")]
     public GameObject inventory;
@@ -76,9 +80,19 @@ public class InventoryManager : MonoBehaviour
         {
             bla = !bla;
 
-            inventory.SetActive(bla);
-            backEffects.SetActive(bla);
+            if(shop.shop.activeSelf == true)
+            {
+                shop.bla = false;
+                mouse.visible = true;
+            }
+            else
+            {
+                mouse.visible = bla;
+            }
         }
+
+        inventory.SetActive(bla);
+        backEffects.SetActive(bla);
 
         if(inventory.activeSelf == true)
         {
@@ -162,7 +176,7 @@ public class InventoryManager : MonoBehaviour
 
     void HotbarFunction()
     {
-        if(!inventory.activeSelf)
+        if(!inventory.activeSelf && !shopActive)
         {
             if(canScroll)
             {
@@ -198,7 +212,7 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
-        else if(inventory.activeSelf)
+        else if(inventory.activeSelf || shopActive)
         {
             hotbarSlots[(int)mouseWheel].GetComponent<Image>().color = defaultColour;
         }

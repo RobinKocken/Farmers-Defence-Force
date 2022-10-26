@@ -4,26 +4,20 @@ using UnityEngine;
 
 public class MouseVis : MonoBehaviour
 {
-    public KeyCode mouseKey;
     public bool visible;
-    public float sensDefault;
+    public float sensDefaultX;
+    public float sensDefaultY;
 
-    // Start is called before the first frame update
     void Start()
     {
-        sensDefault = Options.xSens;
+        sensDefaultX = Options.xSens;
+        sensDefaultY = Options.ySens;
         visible = false;
         MouseMode(visible);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(mouseKey))
-        {
-            visible = !visible;
-        }
-
         MouseMode(visible);
     }
 
@@ -34,8 +28,8 @@ public class MouseVis : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            Options.xSens = sensDefault;
-            Options.ySens = sensDefault;
+            Options.xSens = sensDefaultX;
+            Options.ySens = sensDefaultY;
         }
         else if(mouseSwitch)
         {

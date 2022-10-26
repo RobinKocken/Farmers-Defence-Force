@@ -16,11 +16,36 @@ public class ShopScript : MonoBehaviour
     //public bool shopping;
 
     public InventoryManager inventory;
+    public MouseVis mouse;
+    public KeyCode openShop;
     public GameObject shop;
+
+    public bool bla;
+
+    void Update()
+    {
+        if(Input.GetKeyDown(openShop))
+        {
+            bla = !bla;
+
+            if(inventory.inventory.activeSelf == true)
+            {
+                inventory.bla = false;
+            }
+            else
+            {
+                mouse.visible = bla;
+            }
+        }
+
+        shop.SetActive(bla);
+        inventory.shopActive = bla;
+        Shopping();
+    }
 
     public void Shopping()
     {
-        shop.SetActive(true);
+        
     }
 
     //public void ShoppingOn()
@@ -32,15 +57,5 @@ public class ShopScript : MonoBehaviour
     //    bla = !bla;
     //    shop.SetActive(bla);
 
-    //}
-
-    //public void ShoppingOff()
-    //{
-    //    mouse.visible = false;
-    //    temp.mouseSens = mouse.sensDefault;
-    //    move.moving = true;
-
-    //    bla = !bla;
-    //    shop.SetActive(bla);
     //}
 }

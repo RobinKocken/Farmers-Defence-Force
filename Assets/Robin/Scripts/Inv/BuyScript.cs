@@ -5,6 +5,7 @@ using UnityEngine;
 public class BuyScript : MonoBehaviour
 {
     public InventoryManager inventory;
+    public KeyCode openShop;
 
     public Item item;
     public int amount;
