@@ -2838,11 +2838,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e069476a3cb4b4449a7f1ec1bd7ac6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: {fileID: 1091445043}
-  mouse: {fileID: 609596552}
-  temp: {fileID: 1989061752}
+  inventory: {fileID: 0}
   shop: {fileID: 1088716154}
-  shopping: 0
 --- !u!1 &430677951
 GameObject:
   m_ObjectHideFlags: 0
@@ -8041,18 +8038,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1091445043 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2591603325843408112, guid: b3a05bdb7307c6544b81a2a42e1366ff,
-    type: 3}
-  m_PrefabInstance: {fileID: 2591603325960897823}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebf73e31afc68a549bce6fed5e9db5b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1098874071
 GameObject:
   m_ObjectHideFlags: 0
@@ -14316,18 +14301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1fdba44ec5b9041a5c772eb0995d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1989061752 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3932789438127329986, guid: fa1f60be8d1cf0f4cb0fecdeba658d22,
-    type: 3}
-  m_PrefabInstance: {fileID: 3932789437165873448}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c835f8ac2a284847aee24847eaaf0ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1990126536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15738,9 +15711,25 @@ PrefabInstance:
       objectReference: {fileID: 407202295}
     - target: {fileID: 3932789438127329987, guid: fa1f60be8d1cf0f4cb0fecdeba658d22,
         type: 3}
+      propertyPath: canPlace
+      value: 
+      objectReference: {fileID: 2100000, guid: c7bfb98b95d229041896edf534dc05a8, type: 2}
+    - target: {fileID: 3932789438127329987, guid: fa1f60be8d1cf0f4cb0fecdeba658d22,
+        type: 3}
+      propertyPath: cantPlace
+      value: 
+      objectReference: {fileID: 2100000, guid: 6fd6e9f2691c0544eb087b72d6ff8696, type: 2}
+    - target: {fileID: 3932789438127329987, guid: fa1f60be8d1cf0f4cb0fecdeba658d22,
+        type: 3}
       propertyPath: inventory
       value: 
       objectReference: {fileID: 609596550}
+    - target: {fileID: 3932789438127329987, guid: fa1f60be8d1cf0f4cb0fecdeba658d22,
+        type: 3}
+      propertyPath: placeParticlePrefab
+      value: 
+      objectReference: {fileID: 4035952868548892550, guid: 37ca0b9f43805194881641bbe903f6e6,
+        type: 3}
     - target: {fileID: 3932789438127329997, guid: fa1f60be8d1cf0f4cb0fecdeba658d22,
         type: 3}
       propertyPath: m_Name

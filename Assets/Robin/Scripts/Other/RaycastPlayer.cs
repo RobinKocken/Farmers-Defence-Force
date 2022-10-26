@@ -15,6 +15,8 @@ public class RaycastPlayer : MonoBehaviour
     public LayerMask placeble;
 
     public Item prefab;
+    MeshRenderer[] currentPrefabMeshRenderers;
+    Material[] currentPrefabDefaultMaterials;
 
     public GameObject move;
 
@@ -22,6 +24,9 @@ public class RaycastPlayer : MonoBehaviour
     RaycastHit hitBuild;
 
     public float mouseWheel;
+
+    public Material canPlace, cantPlace;
+    public GameObject placeParticlePrefab;
 
     [Header("Gas")]
     public InventoryManager inventory;
@@ -101,6 +106,11 @@ public class RaycastPlayer : MonoBehaviour
                     move.transform.position = hitBuild.point;
                     move.GetComponent<SingleShotScript>().enabled = true;
 
+                    for (int i = 0; i < currentPrefabMeshRenderers.Length; i++)
+                    {
+                        currentPrefabMeshRenderers[i].sharedMaterial = currentPrefabDefaultMaterials[i];
+                    }
+                    Destroy(Instantiate(placeParticlePrefab, hitBuild.point, placeParticlePrefab.transform.rotation), 2.3f);
                     //move.transform.parent = null;
                     mouseWheel = 0;
                     move = null;
@@ -115,6 +125,16 @@ public class RaycastPlayer : MonoBehaviour
             inventory.canScroll = false;
 
             move = Instantiate(prefab.prefab);
+
+            currentPrefabMeshRenderers = move.GetComponentsInChildren<MeshRenderer>();
+            currentPrefabDefaultMaterials = new Material[currentPrefabMeshRenderers.Length];
+
+            for (int i = 0; i < currentPrefabDefaultMaterials.Length; i++)
+            {
+                currentPrefabDefaultMaterials[i] = currentPrefabMeshRenderers[i].sharedMaterial;
+                currentPrefabMeshRenderers[i].sharedMaterial = canPlace;
+            }
+
             prefab = null;
 
             //move.transform.SetParent(this.gameObject.transform);
