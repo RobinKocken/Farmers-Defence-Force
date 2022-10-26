@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HouseScript : MonoBehaviour
 {
-    public float health;
+    public int health;
     public GameObject hitPoint;
     // Start is called before the first frame update
     void Start()
