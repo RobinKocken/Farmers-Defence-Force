@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8106120136495050540
 Transform:
@@ -116,6 +116,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d16a2c4a0b81ad4ab82870010c4cd7f, type: 3}
+--- !u!1 &3895081128751250611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d16a2c4a0b81ad4ab82870010c4cd7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4237731632733651426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6660372141462417410
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895081128751250611}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2137494, y: 2.1778738, z: 0.30375648}
+  m_Center: {x: 1.4090533, y: 1.0874234, z: 0.051878244}
+--- !u!65 &3351952553061450110
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895081128751250611}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.179023, y: 2.1776223, z: 0.30375648}
+  m_Center: {x: -1.4176985, y: 1.0872977, z: 0.051878244}
+--- !u!65 &1320196063677209094
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895081128751250611}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.007417, y: 0.8235464, z: 0.30375648}
+  m_Center: {x: -0.003709495, y: 2.5882273, z: 0.051878244}
 --- !u!4 &4415158257010337289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2d16a2c4a0b81ad4ab82870010c4cd7f,
