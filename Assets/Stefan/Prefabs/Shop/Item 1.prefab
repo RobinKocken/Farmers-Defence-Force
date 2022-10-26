@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 214801184513625856}
   - component: {fileID: 214801184513625857}
   - component: {fileID: 214801184513625862}
-  - component: {fileID: 2127846237929894393}
   m_Layer: 5
   m_Name: Item 1
   m_TagString: Untagged
@@ -124,42 +123,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 214801184513625857}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2127846237929894393}
-        m_TargetAssemblyTypeName: ShopItem, Assembly-CSharp
-        m_MethodName: SetSelectedItem
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2127846237929894393}
-          m_ObjectArgumentAssemblyTypeName: ShopItem, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2127846237929894393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 214801184513625860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e81d627fbb15953429b79824e8cafdc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 214801186429043656}
-  itemNameText: {fileID: 214801184707511187}
-  priceText: {fileID: 214801186126352946}
-  allTexts:
-  - {fileID: 214801184707511187}
-  - {fileID: 214801186126352946}
-  allImages:
-  - {fileID: 214801185484031206}
-  - {fileID: 214801186429043656}
-  - {fileID: 214801186206331040}
-  - {fileID: 214801184513625857}
+      m_Calls: []
 --- !u!1 &214801184707511185
 GameObject:
   m_ObjectHideFlags: 0
