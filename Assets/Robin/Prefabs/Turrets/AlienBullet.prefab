@@ -50,6 +50,8 @@ MonoBehaviour:
   damage: 0
   speed: 0
   timeToLive: 5
+  particle: {fileID: 2792527309794970839, guid: a4b59c6ca77e2604e9aef5afc86194ce,
+    type: 3}
 --- !u!33 &9177889494310167115
 MeshFilter:
   m_ObjectHideFlags: 0

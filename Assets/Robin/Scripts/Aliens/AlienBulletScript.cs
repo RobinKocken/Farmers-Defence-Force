@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class AlienBulletScript : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class AlienBulletScript : MonoBehaviour
     public float speed;
     Vector3 prevPos;
     public float timeToLive;
+    public GameObject particle;
 
     void Update()
     {
@@ -24,12 +26,14 @@ public class AlienBulletScript : MonoBehaviour
             {
                 hits[i].transform.GetComponent<SingleShotScript>().TakeDamage(damage);
 
+                SpawnImpact(hits[i].normal);
                 Destroy(gameObject);
             }
             else if(hits[i].transform.CompareTag("House"))
             {
                 hits[i].transform.GetComponent<HouseScript>().TakeDamage(damage);
 
+                SpawnImpact(hits[i].normal);
                 Destroy(gameObject);
             }
 
@@ -37,5 +41,16 @@ public class AlienBulletScript : MonoBehaviour
         }
 
         Destroy(gameObject, timeToLive);
+    }
+    
+    private void SpawnImpact(Vector3 normal)
+    {
+        var obj = Instantiate(particle, transform.position, Quaternion.identity).transform;
+
+        obj.rotation = Quaternion.LookRotation(normal);
+
+        obj.SendMessage("Play", SendMessageOptions.DontRequireReceiver);
+
+        Destroy(obj.gameObject, 10f);
     }
 }

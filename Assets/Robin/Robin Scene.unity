@@ -13392,8 +13392,9 @@ MonoBehaviour:
   waveManager:
   - numberOfUfos: 5
     timeToSpawn: 2
-  alien: {fileID: 0}
-  spawnPos: []
+  alien: {fileID: 7979957138090914757, guid: e2159239abafb874f93c8fe4d2cffb4a, type: 3}
+  spawnPos:
+  - {fileID: 1860192163}
   currentAliens: []
 --- !u!1 &1923001261
 GameObject:
@@ -15471,6 +15472,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2345210368170780671, guid: e2159239abafb874f93c8fe4d2cffb4a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7979957138090914757, guid: e2159239abafb874f93c8fe4d2cffb4a,
         type: 3}
