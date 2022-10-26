@@ -6,33 +6,41 @@ using UnityEngine.UI;
 
 public class ShopScript : MonoBehaviour
 {
-    public TempMove move;
-    public MouseVis mouse;
-    public TempMouse temp;
+    //public TempMove move;
+    //public MouseVis mouse;
+    //public TempMouse temp;
+    //public GameObject shop;
+
+    //bool bla;
+
+    //public bool shopping;
+
+    public InventoryManager inventory;
     public GameObject shop;
 
-    bool bla;
-
-    public bool shopping;
-
-    public void ShoppingOn()
+    public void Shopping()
     {
-        mouse.visible = true;
-        temp.mouseSens = 0;
-        move.moving = false;
-
-        bla = !bla;
-        shop.SetActive(bla);
-
+        shop.SetActive(true);
     }
 
-    public void ShoppingOff()
-    {
-        mouse.visible = false;
-        temp.mouseSens = mouse.sensDefault;
-        move.moving = true;
+    //public void ShoppingOn()
+    //{
+    //    mouse.visible = true;
+    //    temp.mouseSens = 0;
+    //    move.moving = false;
 
-        bla = !bla;
-        shop.SetActive(bla);
-    }
+    //    bla = !bla;
+    //    shop.SetActive(bla);
+
+    //}
+
+    //public void ShoppingOff()
+    //{
+    //    mouse.visible = false;
+    //    temp.mouseSens = mouse.sensDefault;
+    //    move.moving = true;
+
+    //    bla = !bla;
+    //    shop.SetActive(bla);
+    //}
 }

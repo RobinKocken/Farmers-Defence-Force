@@ -74,15 +74,10 @@ public class RaycastPlayer : MonoBehaviour
             {
                 inventory.AddGas();
             }
-            else if(Input.GetKeyDown(interact) && hit.transform.CompareTag("Shop") && hit.transform.GetComponent<ShopScript>().shopping == false)
+            else if(Input.GetKeyDown(interact) && hit.transform.CompareTag("Shop"))
             {
-                hit.transform.GetComponent<ShopScript>().shopping = true;
-                hit.transform.GetComponent<ShopScript>().ShoppingOn();
-            }
-            else if(Input.GetKeyDown(interact) && hit.transform.CompareTag("Shop") && hit.transform.GetComponent<ShopScript>().shopping == true)
-            {
-                hit.transform.GetComponent<ShopScript>().shopping = false;
-                hit.transform.GetComponent<ShopScript>().ShoppingOff();
+                hit.transform.GetComponent<ShopScript>().Shopping();
+                
             }
         }
     }

@@ -4,16 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< Updated upstream
-  - Axe
-  - Gun
-=======
-  - Item
-  - MainCanvas
-  - House
+  - Manager
+  - Turret
   - Bullet
-  - Interaction
->>>>>>> Stashed changes
+  - Item
+  - Gas
+  - Shop
+  - Alien
+  - AlienManager
   layers:
   - Default
   - TransparentFX
