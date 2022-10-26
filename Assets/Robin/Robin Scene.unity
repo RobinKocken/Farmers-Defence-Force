@@ -199,6 +199,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5562755}
   m_CullTransparentMesh: 1
+--- !u!1 &10538610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7979957138090914757, guid: e2159239abafb874f93c8fe4d2cffb4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2061465819629643224}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &28676109
 GameObject:
   m_ObjectHideFlags: 0
@@ -13390,12 +13396,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveManager:
-  - numberOfUfos: 5
-    timeToSpawn: 2
+  - isWave: 0
+    time: 0
+    description: 
+    numberOfUfos: 5
+    intervalsToSpawn: 0
+  alienSpawner: {fileID: 0}
   alien: {fileID: 7979957138090914757, guid: e2159239abafb874f93c8fe4d2cffb4a, type: 3}
   spawnPos:
   - {fileID: 1860192163}
   currentAliens: []
+  house: {fileID: 0}
+  healthbarHouse: {fileID: 0}
+  rounds: {fileID: 0}
+  timer: {fileID: 0}
 --- !u!1 &1923001261
 GameObject:
   m_ObjectHideFlags: 0
@@ -14804,8 +14818,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 494639056, guid: 355810006c15fa9448ac38c24d35b43b, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 10538610}
+    - target: {fileID: 494639056, guid: 355810006c15fa9448ac38c24d35b43b, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 494639056, guid: 355810006c15fa9448ac38c24d35b43b, type: 3}
+      propertyPath: gasPerShot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 494639056, guid: 355810006c15fa9448ac38c24d35b43b, type: 3}
+      propertyPath: currentAmmo
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 2236505320403751958, guid: 355810006c15fa9448ac38c24d35b43b,
         type: 3}
@@ -15426,7 +15452,7 @@ PrefabInstance:
     - target: {fileID: 1607725343762264938, guid: e2159239abafb874f93c8fe4d2cffb4a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.4236145
+      value: 95.3
       objectReference: {fileID: 0}
     - target: {fileID: 1607725343762264938, guid: e2159239abafb874f93c8fe4d2cffb4a,
         type: 3}
@@ -15436,7 +15462,7 @@ PrefabInstance:
     - target: {fileID: 1607725343762264938, guid: e2159239abafb874f93c8fe4d2cffb4a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 93.67164
+      value: 42.6
       objectReference: {fileID: 0}
     - target: {fileID: 1607725343762264938, guid: e2159239abafb874f93c8fe4d2cffb4a,
         type: 3}
