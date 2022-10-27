@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iD: 14
   itemName: Carbid Ammo
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 936aaf567e1d23947bfb52075d07dae5, type: 3}
   maxStack: 32
+  price: 0
   placeable: 0
   prefab: {fileID: 0}

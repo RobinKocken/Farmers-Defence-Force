@@ -1,21 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class BuyScript : MonoBehaviour
 {
     public InventoryManager inventory;
-    public KeyCode openShop;
 
+    [Header("Options")]
     public Item item;
     public int amount;
     public Item currency;
     public int price;
 
+    public Image icon;
+    public TMP_Text itemName;
+    public TMP_Text priceText;
+
     int slotNumber;
     void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Manager").GetComponent<InventoryManager>();
+
+        icon.sprite = item.icon;
+        itemName.text = icon.name;
+        priceText.text = price.ToString();
+
     }
 
     public void Buy()

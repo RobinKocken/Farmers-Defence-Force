@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iD: 3
   itemName: Tandwielen
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 10c1cbcb9c52c424d99527a623ecbc8f, type: 3}
   maxStack: 10
+  price: 0
   placeable: 0
   prefab: {fileID: 0}

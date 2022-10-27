@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iD: 10
   itemName: 'Metal Scrap '
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: dccb45e4173a6e24dbb914cb633605af, type: 3}
   maxStack: 1
+  price: 0
   placeable: 1
-  prefab: {fileID: 0}
+  prefab: {fileID: 319181059806971573, guid: 5a3d5233bd389d5418f92753527a2cca, type: 3}

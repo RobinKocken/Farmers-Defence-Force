@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iD: 16
   itemName: Voetbal Ammo
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1c094362bbc2e4a43a7d1a1b38d53100, type: 3}
   maxStack: 32
+  price: 0
   placeable: 0
   prefab: {fileID: 0}

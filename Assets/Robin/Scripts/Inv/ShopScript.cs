@@ -6,15 +6,6 @@ using UnityEngine.UI;
 
 public class ShopScript : MonoBehaviour
 {
-    //public TempMove move;
-    //public MouseVis mouse;
-    //public TempMouse temp;
-    //public GameObject shop;
-
-    //bool bla;
-
-    //public bool shopping;
-
     public InventoryManager inventory;
     public MouseVis mouse;
     public KeyCode openShop;
@@ -47,15 +38,4 @@ public class ShopScript : MonoBehaviour
     {
         
     }
-
-    //public void ShoppingOn()
-    //{
-    //    mouse.visible = true;
-    //    temp.mouseSens = 0;
-    //    move.moving = false;
-
-    //    bla = !bla;
-    //    shop.SetActive(bla);
-
-    //}
 }

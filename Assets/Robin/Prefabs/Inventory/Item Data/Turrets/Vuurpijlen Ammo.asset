@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iD: 13
   itemName: Vuurpijlen Ammo
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 039c1c64aaf876f4daeace156827e4ec, type: 3}
   maxStack: 32
+  price: 0
   placeable: 0
   prefab: {fileID: 0}

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iD: 15
   itemName: Bowlingbal Ammo
-  icon: {fileID: 21300000, guid: 3219604a86eb717438fb8b79c58cad54, type: 3}
+  icon: {fileID: 21300000, guid: 91531c124aaaad744840c0fc5907d15c, type: 3}
   maxStack: 32
+  price: 0
   placeable: 0
   prefab: {fileID: 0}

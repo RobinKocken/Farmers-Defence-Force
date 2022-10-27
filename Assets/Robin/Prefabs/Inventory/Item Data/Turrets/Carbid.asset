@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iD: 12
   itemName: 'Carbid '
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: c141fea6c95463a4f9417a16448f4d32, type: 3}
   maxStack: 1
+  price: 0
   placeable: 1
-  prefab: {fileID: 0}
+  prefab: {fileID: 1400919340730659191, guid: dda0cbddc9866cb43b920bb84f1ef7a7, type: 3}

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Planken
   m_EditorClassIdentifier: 
   iD: 0
-  itemName: Planken
+  itemName: Houd
   icon: {fileID: 21300000, guid: 0f54c412338fa61469956cc0aa602b0c, type: 3}
   maxStack: 90
+  price: 0
   placeable: 0
   prefab: {fileID: 0}

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iD: 11
   itemName: Vuurpijlen
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: e37ff5606aff4ae4687dd785a445d892, type: 3}
   maxStack: 1
+  price: 0
   placeable: 1
-  prefab: {fileID: 0}
+  prefab: {fileID: 2236505320403751958, guid: 355810006c15fa9448ac38c24d35b43b, type: 3}
