@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3742977454971386552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5355179018912883344}
+  - component: {fileID: 7274354691718585745}
+  - component: {fileID: 5463702803528219336}
+  - component: {fileID: 254529578676201784}
+  - component: {fileID: 9051057924519639291}
+  - component: {fileID: 1268253214126099574}
+  m_Layer: 0
+  m_Name: Managers (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5355179018912883344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3742977454971386552}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2086.8542, y: 1100.9426, z: -1187.4749}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7274354691718585745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3742977454971386552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f0aa6bb8604d34e91994810a282d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messagePrefab: {fileID: 6329304326575972843, guid: 12c0f31da53b8e84699208d7d4ecc0e2,
+    type: 3}
+  maxLifeTime: 3
+  smoothTime: 0.1
+  minDstToFirstPos: 10
+  sizeSmoothTime: 0.1
+  minSizeToDestroy: 0.1
+  activeNotifications: []
+  spawnPos: {fileID: 0}
+  possiblePositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &5463702803528219336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3742977454971386552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4afa9a1951193d44e93cda8a14e79933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hud: {fileID: 0}
+  menu: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  continue: {fileID: 0}
+  options: {fileID: 0}
+  quitmenu: {fileID: 0}
+  quitgame: {fileID: 0}
+  optionsHolder: {fileID: 0}
+  areUSure: {fileID: 0}
+  AUScontinue: {fileID: 0}
+  AUScancel: {fileID: 0}
+--- !u!114 &254529578676201784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3742977454971386552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24efd55d6696e9747ab26b34b4cbfad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9051057924519639291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3742977454971386552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3296910a46a7274c858e4b1e49a02a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 874597738092458074, guid: 2755cc01019964345a1a157fe2bf8334, type: 3}
+  spawnPos: {fileID: 0}
+  HUD: {fileID: 0}
+  testSprite: {fileID: 21300000, guid: 819d6d0ed2428ca46a9e1a8e9bebd9f3, type: 3}
+  testColor: {r: 0.33631182, g: 0.42098138, b: 0.6320754, a: 1}
+  testTime: 180
+  yDstBetween: -150
+  smoothSpeed: 0.15
+  activeNotifications: []
+--- !u!114 &1268253214126099574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3742977454971386552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4da85f2a57b594594c3fc5778f76c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead: 0
+  deathCam: {fileID: 0}
+  fadeAnimator: {fileID: 0}
+  gameOverCanvas: {fileID: 0}
+  player: {fileID: 0}
+  loading: {fileID: 0}
+  retry: {fileID: 0}
+  toMenu: {fileID: 0}
+  survivedTime: {fileID: 0}
+  rounds: {fileID: 0}
+  towersPlaced: {fileID: 0}
+  metalScrapSpend: {fileID: 0}
+  ufosShotdown: {fileID: 0}
+  destroyOnGameOver:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fadeWaitTime: 0.8

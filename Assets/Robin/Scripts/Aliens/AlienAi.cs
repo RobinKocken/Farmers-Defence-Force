@@ -112,6 +112,7 @@ public class AlienAi : MonoBehaviour
         if(health <= 0)
         {
             Debug.Log("Dead");
+            GameStats.ufosShotDown++;
             Destroy(gameObject);
         }
     }

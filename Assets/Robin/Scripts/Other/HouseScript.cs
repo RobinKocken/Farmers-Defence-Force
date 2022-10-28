@@ -6,6 +6,8 @@ public class HouseScript : MonoBehaviour
 {
     public int health;
     public GameObject hitPoint;
+
+    public GameOverManager gameOverManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +17,8 @@ public class HouseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (health <= 0) StartCoroutine(gameOverManager.GameOver());
     }
 
     public void TakeDamage(int damage)

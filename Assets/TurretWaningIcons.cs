@@ -33,6 +33,7 @@ public class TurretWaningIcons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (mainCam == null) return;
         if (ShowIcons)
         {
             activeGasWarning.gameObject.SetActive(true);

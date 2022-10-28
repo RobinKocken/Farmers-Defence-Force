@@ -111,6 +111,8 @@ public class RaycastPlayer : MonoBehaviour
                     move = null;
 
                     inventory.canScroll = true;
+
+                    GameStats.towersPlaced++;
                 }
             }
         }

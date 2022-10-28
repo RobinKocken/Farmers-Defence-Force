@@ -365,7 +365,7 @@ MonoBehaviour:
   key: {fileID: 1785897503084660605}
   keyText: {fileID: 5123191680035043032}
   interactionText: {fileID: 7213437113784520845}
-  interactableColor: {r: 0.7924528, g: 0.11512991, b: 0.11512991, a: 1}
+  interactableColor: {r: 1, g: 0.8069083, b: 0.07924521, a: 1}
   fadeSpeed: 3
 --- !u!1 &3331730790916617218
 GameObject:

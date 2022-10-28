@@ -49,6 +49,8 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null) { Destroy(gameObject); return; }
+
         float dst = Vector3.Distance(transform.position, player.position);
 
         bool canSee = false;
@@ -90,7 +92,6 @@ public class Interactable : MonoBehaviour
     void UpdateCircle()
     {
         clampValues = new(canvas.pixelRect.xMax,canvas.pixelRect.yMax);
-        print(Clamped);
 
         Vector3 previousPos = activeCircles.transform.position;
         activeCircles.transform.position = Camera.main.WorldToScreenPoint(transform.position);

@@ -37,6 +37,8 @@ public class BuyScript : MonoBehaviour
         {
             if(price >= price - inventory.slots[slotNumber].GetComponent<Slot>().amount)
             {
+                GameStats.scrapUsed += price;
+
                 inventory.RemoveItem(currency, price);
                 inventory.AddItem(item, amount);
             }

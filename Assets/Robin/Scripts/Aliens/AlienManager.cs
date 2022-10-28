@@ -88,6 +88,7 @@ public class AlienManager : MonoBehaviour
 
             if(waveManager[i].isWave)
             {
+                GameStats.rounds = i;
                 for(int x = 0; x < waveManager[i].numberOfUfos; x++)
                 {
                     GameObject currentAlien = Instantiate(alien, transform.position, Quaternion.identity);

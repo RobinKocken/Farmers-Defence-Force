@@ -28,10 +28,6 @@ public class CameraShake : MonoBehaviour
             Destroy(this);
         }
     }
-    private void Start()
-    {
-        InvokeRepeating(nameof(Explode),0,4);
-    }
     public void Explode(Vector3 origin)
     {
         float strength = testStrength;
