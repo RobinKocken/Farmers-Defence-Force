@@ -63,12 +63,7 @@ public class PlayerController : MonoBehaviour
         //movement
         if (isGrounded == true)
         {
-            horizontal = Input.GetAxisRaw("Horizontal");
-            vertical = Input.GetAxisRaw("Vertical");
-            moveDirection.x = horizontal;
-            moveDirection.z = vertical;
-            transform.Translate(moveDirection*Time.deltaTime*speed);
-            rb.drag = 1;
+            
 
             if (pickup.speedBoostIsActief == true)
                 {
@@ -174,5 +169,15 @@ public class PlayerController : MonoBehaviour
     public void Stamina()
     {
         stamina += 5 * Time.deltaTime;
+    }
+
+    public void FixedUpdate()
+    {
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+        moveDirection.x = horizontal;
+        moveDirection.z = vertical;
+        transform.Translate(moveDirection * Time.deltaTime * speed);
+        rb.drag = 1;
     }
 }

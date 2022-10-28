@@ -12,6 +12,7 @@ public class Tree : MonoBehaviour
     public GameObject trunk;
     public Transform toRotate;
     public GameObject planksFromTree;
+    public GameObject rotatestammetje;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,8 @@ public class Tree : MonoBehaviour
     {
         Destroy(middle);
         stump.SetActive(true);
+        trunk.SetActive(true);
+        rotatestammetje.SetActive(true);
     }
     public void ChopTree(int damage)
     {
