@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ public class ShopScript : MonoBehaviour
     public MouseVis mouse;
     public KeyCode openShop;
     public GameObject shop;
+    public GameObject res;
+    public GameObject ammo;
 
     public bool bla;
 
@@ -31,11 +34,17 @@ public class ShopScript : MonoBehaviour
 
         shop.SetActive(bla);
         inventory.shopActive = bla;
-        Shopping();
     }
 
-    public void Shopping()
+    public void Resources()
     {
-        
+        res.SetActive(true);
+        ammo.SetActive(false);
+    }
+
+    public void Ammo()
+    {
+        ammo.SetActive(true);
+        res.SetActive(false);
     }
 }

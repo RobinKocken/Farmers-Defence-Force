@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 9091405750330095689}
   - component: {fileID: 5297626010409334764}
   - component: {fileID: 7953362990277952294}
+  - component: {fileID: 857076647516462646}
+  - component: {fileID: -1789916653362850652}
+  - component: {fileID: -7696077399528150681}
   m_Layer: 0
   m_Name: Planken
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,3 +86,53 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &857076647516462646
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8458034909589414643}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6333756, y: 0.33780798, z: 2.1354523}
+  m_Center: {x: 0, y: 0.16890399, z: 0.016987085}
+--- !u!114 &-1789916653362850652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8458034909589414643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6443c32051563545b707b71203cdf68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  parent: {fileID: 0}
+  circlesPrefab: {fileID: 0}
+  player: {fileID: 0}
+  cam: {fileID: 0}
+  minCircleDst: 12
+  minInteractDst: 3
+  interactionMethod: Pickup
+  interactionKey: 101
+  constrainValue: 10
+--- !u!114 &-7696077399528150681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8458034909589414643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17482006a75283e4ea10f05ace3aee23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  item: {fileID: 11400000, guid: 5e2d53802f74d3247b9cec6394f29d0f, type: 2}
+  amount: 0

@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 1586043261415648385}
   - component: {fileID: 2426624791778419492}
   - component: {fileID: 453154018396149742}
+  - component: {fileID: 2092231858860253017}
+  - component: {fileID: 4561468056706936805}
+  - component: {fileID: 3525811826001772445}
   m_Layer: 0
   m_Name: Buskruit
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,3 +86,53 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2092231858860253017
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110236995583522363}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.116978556, y: 0.16884747, z: 0.116978556}
+  m_Center: {x: 0, y: 0.08442372, z: 0}
+--- !u!114 &4561468056706936805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110236995583522363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6443c32051563545b707b71203cdf68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  parent: {fileID: 0}
+  circlesPrefab: {fileID: 0}
+  player: {fileID: 0}
+  cam: {fileID: 0}
+  minCircleDst: 12
+  minInteractDst: 3
+  interactionMethod: Pickup
+  interactionKey: 101
+  constrainValue: 10
+--- !u!114 &3525811826001772445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110236995583522363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17482006a75283e4ea10f05ace3aee23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  item: {fileID: 11400000, guid: 47b1c1a5d6ac8ca409f319dbfab09e49, type: 2}
+  amount: 0

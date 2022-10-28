@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class VuurpijlenScript : MonoBehaviour
+public class VuurpijlenScript : Turret
 {
     public int health;
 

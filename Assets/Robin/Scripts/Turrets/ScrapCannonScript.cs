@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScrapCannonScript : MonoBehaviour
+public class ScrapCannonScript : Turret
 {
     public int health;
 

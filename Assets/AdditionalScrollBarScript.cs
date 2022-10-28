@@ -10,7 +10,8 @@ public class AdditionalScrollBarScript : MonoBehaviour
     public float multiplier = 0.05f;
 
     Scrollbar scrollbar;
-    public VerticalLayoutGroup layout;
+    public VerticalLayoutGroup layoutRes;
+    public VerticalLayoutGroup layoutAmmo;
     public float layoutTopMin, layoutTopMax;
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,16 @@ public class AdditionalScrollBarScript : MonoBehaviour
         scrollbar.value -= Input.mouseScrollDelta.y * multiplier;
         scrollbar.value = Mathf.Clamp01(scrollbar.value);
 
-        layout.padding.top = (int)Mathf.Lerp(layoutTopMin,layoutTopMax, scrollbar.value);
-        layout.SetLayoutVertical();
+        if(layoutRes.gameObject.activeSelf)
+        {
+            layoutRes.padding.top = (int)Mathf.Lerp(layoutTopMin, layoutTopMax, scrollbar.value);
+            layoutRes.SetLayoutVertical();
+        }
+        else if(layoutAmmo.gameObject.activeSelf)
+        {
+            layoutAmmo.padding.top = (int)Mathf.Lerp(layoutTopMin, layoutTopMax, scrollbar.value);
+            layoutAmmo.SetLayoutVertical();
+        }
+
     }
 }

@@ -18,7 +18,7 @@ public class BuyScript : MonoBehaviour
     public TMP_Text itemName;
     public TMP_Text priceText;
 
-    int slotNumber;
+    public int slotNumber;
     void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Manager").GetComponent<InventoryManager>();
@@ -33,9 +33,9 @@ public class BuyScript : MonoBehaviour
     {
         slotNumber = inventory.CheckForItem(currency, slotNumber);
 
-        if(inventory.slots[slotNumber].GetComponent<Slot>().itemData != null)
+        if(inventory.slots[slotNumber].GetComponent<Slot>().itemData != null && 0 < inventory.slots[slotNumber].GetComponent<Slot>().amount)
         {
-            if(price <= inventory.slots[slotNumber].GetComponent<Slot>().itemData.maxStack - inventory.slots[slotNumber].GetComponent<Slot>().amount)
+            if(price >= price - inventory.slots[slotNumber].GetComponent<Slot>().amount)
             {
                 inventory.RemoveItem(currency, price);
                 inventory.AddItem(item, amount);

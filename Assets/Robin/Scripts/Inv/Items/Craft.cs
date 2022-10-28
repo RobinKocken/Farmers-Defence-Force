@@ -14,6 +14,6 @@ public class Craft : ScriptableObject
 [System.Serializable]
 public class Requirements
 {
-    public int id;
+    public Item item;
     public int amount;
 }

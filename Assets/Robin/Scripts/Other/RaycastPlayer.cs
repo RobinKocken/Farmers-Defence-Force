@@ -79,11 +79,6 @@ public class RaycastPlayer : MonoBehaviour
             {
                 inventory.AddGas();
             }
-            else if(Input.GetKeyDown(interact) && hit.transform.CompareTag("Shop"))
-            {
-                hit.transform.GetComponent<ShopScript>().Shopping();
-                
-            }
         }
     }
 
@@ -104,7 +99,7 @@ public class RaycastPlayer : MonoBehaviour
                 if(Input.GetButtonDown("Fire1"))
                 {
                     move.transform.position = hitBuild.point;
-                    move.GetComponent<SingleShotScript>().enabled = true;
+                    move.GetComponent<Turret>().enabled = true;
 
                     for (int i = 0; i < currentPrefabMeshRenderers.Length; i++)
                     {

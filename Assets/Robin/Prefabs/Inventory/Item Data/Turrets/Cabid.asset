@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33fc142749c9b8644b0997d5d9d7fd8b, type: 3}
-  m_Name: Carbid Ammo
+  m_Name: Cabid
   m_EditorClassIdentifier: 
-  iD: 14
-  itemName: Carbid Ammo
-  icon: {fileID: 21300000, guid: 936aaf567e1d23947bfb52075d07dae5, type: 3}
-  maxStack: 32
+  iD: 12
+  itemName: 'Cabid '
+  icon: {fileID: 21300000, guid: c141fea6c95463a4f9417a16448f4d32, type: 3}
+  maxStack: 1
   price: 0
-  placeable: 0
-  prefab: {fileID: 0}
+  placeable: 1
+  prefab: {fileID: 1400919340730659191, guid: dda0cbddc9866cb43b920bb84f1ef7a7, type: 3}

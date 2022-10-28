@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarbidCannonScript : MonoBehaviour
+public class CarbidCannonScript : Turret
 {
     public int health;
 

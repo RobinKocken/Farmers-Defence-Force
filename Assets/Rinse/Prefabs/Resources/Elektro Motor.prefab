@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 5635679176671295293}
   - component: {fileID: 8762368592844028056}
   - component: {fileID: 6809117759043079250}
+  - component: {fileID: -7491659681349476001}
+  - component: {fileID: 8850154152073676860}
+  - component: {fileID: 7169785431592817779}
   m_Layer: 0
   m_Name: Elektro Motor
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,3 +86,53 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-7491659681349476001
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5007480477804572039}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.46255547, y: 0.37878183, z: 0.81770825}
+  m_Center: {x: -0.00000500679, y: -0.009824082, z: -0.085384235}
+--- !u!114 &8850154152073676860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5007480477804572039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6443c32051563545b707b71203cdf68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  parent: {fileID: 0}
+  circlesPrefab: {fileID: 0}
+  player: {fileID: 0}
+  cam: {fileID: 0}
+  minCircleDst: 12
+  minInteractDst: 3
+  interactionMethod: Pickup
+  interactionKey: 101
+  constrainValue: 10
+--- !u!114 &7169785431592817779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5007480477804572039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17482006a75283e4ea10f05ace3aee23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  item: {fileID: 11400000, guid: 778aec5ff2a9248458e6fdc9b6b7293b, type: 2}
+  amount: 0

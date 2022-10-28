@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 5436091802785757624}
   - component: {fileID: 8997975606876059165}
   - component: {fileID: 6574072853013643991}
+  - component: {fileID: -3535427082066088238}
+  - component: {fileID: -8742977686612488814}
+  - component: {fileID: 1812315922572492717}
   m_Layer: 0
   m_Name: Buizen
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,3 +86,53 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-3535427082066088238
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4628345947423073026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.27641296, y: 0.24344428, z: 1.3091989}
+  m_Center: {x: 0, y: 0.121722125, z: 0.027893513}
+--- !u!114 &-8742977686612488814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4628345947423073026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6443c32051563545b707b71203cdf68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  parent: {fileID: 0}
+  circlesPrefab: {fileID: 0}
+  player: {fileID: 0}
+  cam: {fileID: 0}
+  minCircleDst: 12
+  minInteractDst: 3
+  interactionMethod: Pickup
+  interactionKey: 101
+  constrainValue: 10
+--- !u!114 &1812315922572492717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4628345947423073026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17482006a75283e4ea10f05ace3aee23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  item: {fileID: 11400000, guid: fe934b117a582de428c68e31737e2a23, type: 2}
+  amount: 0

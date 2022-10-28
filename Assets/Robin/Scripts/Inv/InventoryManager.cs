@@ -230,7 +230,7 @@ public class InventoryManager : MonoBehaviour
             {
                 if(slots[i].GetComponent<Slot>().itemData != null)
                 {
-                    if(slots[i].GetComponent<Slot>().itemData.iD == reqs[x].id && slots[i].GetComponent<Slot>().amount >= reqs[x].amount)
+                    if(slots[i].GetComponent<Slot>().itemData == reqs[x].item && slots[i].GetComponent<Slot>().amount >= reqs[x].amount)
                     {
                         collectedItem[x] = slots[i].GetComponent<Slot>().itemData;
                         collectedID[x] = slots[i].GetComponent<Slot>().iD;

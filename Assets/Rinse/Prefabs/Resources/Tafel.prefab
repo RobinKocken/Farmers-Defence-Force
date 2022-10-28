@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2705788051900331801}
   - component: {fileID: 1306950374599227580}
   - component: {fileID: 3875293848550509686}
+  - component: {fileID: -7125771096198052337}
   m_Layer: 0
   m_Name: Tafel
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-7125771096198052337
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3370719235502484899}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8674606, y: 0.6753828, z: 1.8999997}
+  m_Center: {x: -0.013730332, y: 0.33769134, z: 0.000000059604645}

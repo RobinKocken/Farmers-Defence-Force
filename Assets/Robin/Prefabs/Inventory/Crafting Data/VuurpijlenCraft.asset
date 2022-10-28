@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 404b9a3d642d58044bd1eac0ce97f97c, type: 3}
-  m_Name: SingleShotCraft
+  m_Name: VuurpijlenCraft
   m_EditorClassIdentifier: 
   requirements:
   - item: {fileID: 11400000, guid: 5e2d53802f74d3247b9cec6394f29d0f, type: 2}
@@ -22,6 +22,6 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 778aec5ff2a9248458e6fdc9b6b7293b, type: 2}
     amount: 2
   - item: {fileID: 11400000, guid: fe934b117a582de428c68e31737e2a23, type: 2}
-    amount: 2
-  outcome: {fileID: 11400000, guid: 8f35ac3f15a54874eba2b168065a1422, type: 2}
+    amount: 25
+  outcome: {fileID: 11400000, guid: 5ae5205e1da874a41942cc0fbef5a25f, type: 2}
   outcomeAmount: 1
