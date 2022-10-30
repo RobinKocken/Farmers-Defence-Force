@@ -105,5 +105,11 @@ public class Interactable : MonoBehaviour
         
 
         //activeCircles.transform.localScale = Vector3.one * (Vector3.Distance(transform.position, player.position) * value);
-    }        
+    }
+
+    private void OnDestroy()
+    {
+        if (activeCircles)
+            Destroy(activeCircles.gameObject);
+    }
 }

@@ -12,6 +12,14 @@ TagManager:
   - Shop
   - Alien
   - AlienManager
+  - Axe
+  - Gun
+  - House
+  - Ground
+  - Tree
+  - TreeTrunk
+  - MainCanvas
+  - Interaction
   layers:
   - Default
   - TransparentFX
