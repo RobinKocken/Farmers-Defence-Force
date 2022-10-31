@@ -91,6 +91,11 @@ public class Interactable : MonoBehaviour
 
     void UpdateCircle()
     {
+        if (canvas == null)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
         clampValues = new(canvas.pixelRect.xMax,canvas.pixelRect.yMax);
 
         Vector3 previousPos = activeCircles.transform.position;

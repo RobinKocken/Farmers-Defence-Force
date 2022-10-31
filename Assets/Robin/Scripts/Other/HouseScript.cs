@@ -18,7 +18,7 @@ public class HouseScript : MonoBehaviour
     void Update()
     {
 
-        if (health <= 0) StartCoroutine(gameOverManager.GameOver());
+        if (health <= 0) StartCoroutine(gameOverManager.GameOver(false));
     }
 
     public void TakeDamage(int damage)

@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -15,9 +16,10 @@ public class GameOverManager : MonoBehaviour
     public GameObject gameOverCanvas, player;
 
     public GameObject loading;
+    public Image fade;
 
     public MainMenuButton retry, toMenu;
-    public TextMeshProUGUI survivedTime, rounds, towersPlaced, metalScrapSpend, ufosShotdown;
+    public TextMeshProUGUI lostOrWon, survivedTime, rounds, towersPlaced, metalScrapSpend, ufosShotdown;
     bool canClick = true;
 
     bool loaded;
@@ -30,7 +32,7 @@ public class GameOverManager : MonoBehaviour
         if(GameStats.playing)
         GameStats.survivedTime += Time.deltaTime;
     }
-    public IEnumerator GameOver()
+    public IEnumerator GameOver(bool won)
     {
         if (isDead) yield return null;
 
@@ -45,6 +47,8 @@ public class GameOverManager : MonoBehaviour
         float min = Mathf.FloorToInt(timeToDisplay / 60);
         float sec = Mathf.FloorToInt(timeToDisplay % 60);
 
+        lostOrWon.text = won ? "You won!" : "You Lost!";
+
         survivedTime.text = $"Time survived{spaces}{min} | {sec}";
 
         rounds.text = $"Rounds{spaces}{GameStats.rounds}";
@@ -55,7 +59,7 @@ public class GameOverManager : MonoBehaviour
         isDead = true;
         fadeAnimator.SetBool("Dead", true);
 
-        yield return new WaitForSeconds(fadeWaitTime);
+        while (fade.color.a < 1) yield return null;
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
