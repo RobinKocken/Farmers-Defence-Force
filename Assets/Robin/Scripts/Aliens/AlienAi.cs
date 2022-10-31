@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class AlienAi : MonoBehaviour
 {
     public NavMeshAgent alienAgent;
+    public GameObject alien;
     public GameObject shootPoint;
     public int health;
 
@@ -28,6 +29,12 @@ public class AlienAi : MonoBehaviour
     float startTime;
     public float waitForSeconds;
 
+    [Header("Rotation")]
+    public float yRotSpeed;
+    public float speed;
+    public float xRot;
+    public float zRot;
+
     void Start()
     {
         alienAgent = GetComponent<NavMeshAgent>();
@@ -48,6 +55,7 @@ public class AlienAi : MonoBehaviour
             Attack();
         }
 
+        Animation();
         Death();
     }
 
@@ -97,6 +105,13 @@ public class AlienAi : MonoBehaviour
     {
         Quaternion quatShoot = Quaternion.Slerp(shootPoint.transform.localRotation, Quaternion.LookRotation(aimPoint.transform.position - shootPoint.transform.position), 100);
         shootPoint.transform.eulerAngles = new Vector3(quatShoot.eulerAngles.x, quatShoot.eulerAngles.y, quatShoot.eulerAngles.z);
+    }
+
+    void Animation()
+    {
+        alien.transform.Rotate(Vector3.up, yRotSpeed * Time.deltaTime);
+
+        alien.transform.rotation = Quaternion.Euler(xRot * Mathf.Sin(Time.time * speed), alien.transform.eulerAngles.y, zRot * Mathf.Sin(Time.time * speed));
     }
 
     void IsHit(GameObject turretHit)

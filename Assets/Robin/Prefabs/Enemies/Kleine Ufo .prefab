@@ -94,7 +94,7 @@ MonoBehaviour:
   aggro: 0
   pathing: 0
   bullet: {fileID: 3473361625797077222, guid: f1ce894beb7409141a49f9eb9f1cf3e3, type: 3}
-  bulletSpeed: 15
+  bulletSpeed: 30
   damage: 5
   waitForSeconds: 2
 --- !u!195 &2345210368170780671
@@ -104,7 +104,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7979957138090914757}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.6294403
   m_Speed: 3.5
