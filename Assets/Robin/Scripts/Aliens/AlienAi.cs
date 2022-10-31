@@ -14,6 +14,8 @@ public class AlienAi : MonoBehaviour
     public GameObject aimPoint;
     public GameObject target;
 
+    public GameObject explosionParticle;
+
     public float distance;
 
     public bool aggro;
@@ -112,8 +114,6 @@ public class AlienAi : MonoBehaviour
         if(health <= 0)
         {
             Debug.Log("Dead");
-            GameStats.ufosShotDown++;
-            Destroy(gameObject);
         }
     }
 
@@ -136,5 +136,18 @@ public class AlienAi : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (!Application.isPlaying) return;
+
+        CameraShake.camShake.Explode(transform.position);
+
+        Destroy(Instantiate(explosionParticle, transform.position, Quaternion.identity),10f);
+
+        GameStats.ufosShotDown++;
+
+        Destroy(gameObject);
     }
 }

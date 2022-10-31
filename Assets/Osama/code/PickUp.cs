@@ -13,6 +13,8 @@ public class PickUp : MonoBehaviour
     public GameObject gunPlayer;
     public GameObject axe;
     public GameObject axePlayer;
+
+    public GameObject treeParticle;
     
     public int treeHp;
     public int treeTrunkHp;
@@ -70,10 +72,12 @@ public class PickUp : MonoBehaviour
                             if (tree.canDamageTrunk == false)
                             {
                                 tree.ChopTree(1);
+                                PlaceTreeParticle(hit.point, hit.normal, hit.transform);
                             }
                             else if (hit.transform.gameObject.CompareTag("TreeTrunk"))
                             {
                                 tree.ChopTrunk(1);
+                                PlaceTreeParticle(hit.point, hit.normal, hit.transform);
                             }
                         }
                     } 
@@ -148,6 +152,11 @@ public class PickUp : MonoBehaviour
             timeUntilOver2 -= 1 * Time.deltaTime;
             print(timeUntilOver2);
         }
+    }
+
+    public void PlaceTreeParticle(Vector3 hitpoint, Vector3 normal,Transform parent)
+    {
+        var particle = Instantiate(treeParticle, hitpoint, Quaternion.LookRotation(normal), parent);
     }
 
     private void OnCollisionEnter(Collision collision)

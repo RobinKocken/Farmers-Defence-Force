@@ -88,6 +88,8 @@ MonoBehaviour:
   house: {fileID: 0}
   aimPoint: {fileID: 0}
   target: {fileID: 0}
+  explosionParticle: {fileID: 7711745615801737191, guid: bdb2c781983c543438f9e10a63f0a0b3,
+    type: 3}
   distance: 0
   aggro: 0
   pathing: 0

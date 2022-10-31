@@ -31,6 +31,14 @@ public class PauseManager : MonoBehaviour
         Paused = pause;
     }
 
+    private void Update()
+    {
+        if(Paused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;  
+        } 
+    }
     /// <summary>
     /// Function to toggle the pause menu on and off
     /// </summary>

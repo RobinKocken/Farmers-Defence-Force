@@ -1,5 +1,56 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &134797991736441769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6739923428067068362}
+  - component: {fileID: 4266528209549096176}
+  m_Layer: 0
+  m_Name: CameraHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6739923428067068362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134797991736441769}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2320312308194051117}
+  m_Father: {fileID: 2900866587633336554}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4266528209549096176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134797991736441769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05cf0cf33653d814ab9d6395de49feea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  posMultiplier: 0.1
+  rotMultiplier: 2
+  minExplosionRadius: 40
+  closestExplosionRadius: 5
+  testDuration: 1.5
+  testStrength: 2
 --- !u!1 &2320312307507848101
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,14 +177,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2320312308194051105}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2320312307507848097}
   - {fileID: 1645874524375415112}
-  m_Father: {fileID: 2900866587633336554}
-  m_RootOrder: 1
+  m_Father: {fileID: 6739923428067068362}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &2320312308194051116
 Camera:
@@ -256,6 +307,9 @@ MonoBehaviour:
   move: {fileID: 0}
   distanceBuild: 50
   mouseWheel: 0
+  canPlace: {fileID: 0}
+  cantPlace: {fileID: 0}
+  placeParticlePrefab: {fileID: 0}
   inventory: {fileID: 0}
 --- !u!1 &2900866586593063045
 GameObject:
@@ -535,7 +589,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2900866586593063042}
-  - {fileID: 2320312308194051117}
+  - {fileID: 6739923428067068362}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -663,6 +717,7 @@ MonoBehaviour:
   gunPlayer: {fileID: 2900866587587342842}
   axe: {fileID: 0}
   axePlayer: {fileID: 2320312307507848101}
+  treeParticle: {fileID: 0}
   treeHp: 0
   treeTrunkHp: 0
   metalScrapTotal: 0
