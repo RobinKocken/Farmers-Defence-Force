@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.AI;
 
 public class AlienManager : MonoBehaviour
 {
@@ -100,9 +101,6 @@ public class AlienManager : MonoBehaviour
                     yield return new WaitForSeconds(waveManager[i].intervalsToSpawn);
                 }
             }
-
-
-
             yield return new WaitUntil(() => !timerIsRunning);
         }
         yield break;
