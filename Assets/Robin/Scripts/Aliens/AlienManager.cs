@@ -23,10 +23,10 @@ public class AlienManager : MonoBehaviour
     float disMin;
     float disSec;
 
-    //[Header("UI")]
-    //public Slider healthbarHouse;
-    //public TextMeshProUGUI rounds;
-    //public TextMeshProUGUI timer;
+    [Header("UI")]
+    public Slider healthbarHouse;
+    public TextMeshProUGUI rounds;
+    public TextMeshProUGUI timer;
 
     [Header("Raycast")]
     public float distance;
@@ -38,7 +38,7 @@ public class AlienManager : MonoBehaviour
         Setup();
         StartCoroutine(Spawner());
 
-        //healthbarHouse.maxValue = house.health;
+        healthbarHouse.maxValue = house.health;
 
         
     }
@@ -48,7 +48,7 @@ public class AlienManager : MonoBehaviour
         Timer();
         GameCondition();
 
-        //healthbarHouse.value = house.health;
+        healthbarHouse.value = house.health;
     }
 
 
@@ -101,7 +101,7 @@ public class AlienManager : MonoBehaviour
             }
         }
 
-        //timer.text = string.Format("{0:00}:{1:00}", disMin, disSec);
+        timer.text = string.Format("{0:00}:{1:00}", disMin, disSec);
     }
 
     IEnumerator Spawner()
@@ -110,7 +110,7 @@ public class AlienManager : MonoBehaviour
         {
             number = i;
             timerIsRunning = true;
-            //rounds.text = waveManager[i].description;
+            rounds.text = waveManager[i].description;
 
             if(waveManager[i].isWave)
             {
