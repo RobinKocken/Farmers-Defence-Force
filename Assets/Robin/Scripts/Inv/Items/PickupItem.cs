@@ -7,7 +7,7 @@ public class PickupItem : MonoBehaviour
 {
     public InventoryManager manager;
     public Item item;
-    public int amount;
+    public int amount = 10;
 
     void Start()
     {

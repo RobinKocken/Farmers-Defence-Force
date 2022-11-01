@@ -818,7 +818,7 @@ MonoBehaviour:
   gasPerSecond: 1
   waitForSeconds: 0.1
   gasText: {fileID: 57653321}
-  notificationManager: {fileID: 0}
+  notificationManager: {fileID: 2007107861}
 --- !u!114 &54512329
 MonoBehaviour:
   m_ObjectHideFlags: 0

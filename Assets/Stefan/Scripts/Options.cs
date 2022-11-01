@@ -7,7 +7,7 @@ public class Options : MonoBehaviour
 {
     public static float xSens = 300;
     public static float ySens = 300;
-    public static float volume { get { return AudioListener.volume; } }
+    public static float volume { get { return AudioListener.volume; } set { AudioListener.volume = value; } }
 
     public static float cameraShakeAmount = 1;
 
