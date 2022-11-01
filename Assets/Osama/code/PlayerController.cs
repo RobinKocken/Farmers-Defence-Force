@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
 
     public Vector3 moveDirection;
+    public Vector3 jump;
 
     public float jumpPower;
     public float horizontal;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public bool running;
 
     public PickUp pickup;
+    public CameraBob bob;
     public RaycastHit hit;
 
     public Transform feet;
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
         boostSpeed = 12;
         jumpPower = 7f;
         rb = GetComponent<Rigidbody>();
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
     }
 
     // Update is called once per frame
@@ -119,18 +122,17 @@ public class PlayerController : MonoBehaviour
                 if (isGrounded == true)
                 {
                     isGrounded = false;
-                    //player.transform.position += new Vector3(velocity.x, 5f, velocity.z) * Time.deltaTime*jumpPower;
                     GetComponent<Rigidbody>().velocity = new Vector3(rb.velocity.x, rb.velocity.y + jumpPower, rb.velocity.z);
-                    //GetComponent<Rigidbody>().velocity += jumpPower;
+                    rb.AddForce(jump * jumpPower, ForceMode.Impulse);
                 }
             }
             if (pickup.jumpBoostIsActief == true)
             {
-                jumpPower = 14f;
+                jumpPower = 6f;
             }
             else if (pickup.jumpBoostIsActief == false)
             {
-                jumpPower = 7f;
+                jumpPower = 3f;
             }
         }
 
@@ -156,6 +158,16 @@ public class PlayerController : MonoBehaviour
                     player.transform.position += new Vector3(0, 5f, 0) * Time.deltaTime;
                 }
             }
+        }
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            bob.enabled = false;
+            cam.transform.position += new Vector3(0, -1f, 0);
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            bob.enabled = true;
+            cam.transform.position += new Vector3(0, 1f, 0);
         }
     }
 
