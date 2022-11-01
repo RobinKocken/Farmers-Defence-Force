@@ -128,7 +128,7 @@ public class AlienAi : MonoBehaviour
     {
         if(health <= 0)
         {
-            Debug.Log("Dead");
+            Destroy(gameObject);
         }
     }
 
@@ -138,7 +138,7 @@ public class AlienAi : MonoBehaviour
         {
             float distance = Vector3.Distance(transform.position, goTo);
 
-            if(distance > 0.5f)
+            if(distance > 0.1f)
             {
                 transform.position = Vector3.Lerp(transform.position, goTo, 2 * Time.deltaTime);
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(goTo - transform.position), 5 * Time.deltaTime);
@@ -157,7 +157,8 @@ public class AlienAi : MonoBehaviour
     {
         if (!Application.isPlaying) return;
 
-        CameraShake.camShake.Explode(transform.position);
+        if(CameraShake.camShake != null)
+            CameraShake.camShake.Explode(transform.position);
 
         Destroy(Instantiate(explosionParticle, transform.position, Quaternion.identity),10f);
 

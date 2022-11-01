@@ -53,6 +53,10 @@ public class VuurpijlenScript : Turret
     public float targetDistance;
     public float travelTime;
 
+    [Header("UI")]
+    public GameObject ammoUI;
+    public GameObject gasUI;
+
     void Start()
     {
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<AlienManager>();
@@ -77,6 +81,7 @@ public class VuurpijlenScript : Turret
             Shooting();
         }
 
+        UI();
         Death();
     }
 
@@ -237,6 +242,27 @@ public class VuurpijlenScript : Turret
         if(health <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void UI()
+    {
+        if(currentAmmo <= 0)
+        {
+            ammoUI.SetActive(true);
+        }
+        else
+        {
+            ammoUI.SetActive(false);
+        }
+
+        if(currentGas <= 0)
+        {
+            gasUI.SetActive(true);
+        }
+        else
+        {
+            gasUI.SetActive(false);
         }
     }
 

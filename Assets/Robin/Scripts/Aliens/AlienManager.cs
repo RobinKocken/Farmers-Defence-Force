@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.AI;
+using Unity.VisualScripting;
 
 public class AlienManager : MonoBehaviour
 {
@@ -22,17 +23,24 @@ public class AlienManager : MonoBehaviour
     float disMin;
     float disSec;
 
-    [Header("UI")]
-    public Slider healthbarHouse;
-    public TextMeshProUGUI rounds;
-    public TextMeshProUGUI timer;
+    //[Header("UI")]
+    //public Slider healthbarHouse;
+    //public TextMeshProUGUI rounds;
+    //public TextMeshProUGUI timer;
 
+    [Header("Raycast")]
+    public float distance;
+    RaycastHit hit;
+
+    public float offset;
     void Start()
     {
         Setup();
         StartCoroutine(Spawner());
 
-        healthbarHouse.maxValue = house.health;
+        //healthbarHouse.maxValue = house.health;
+
+        
     }
 
     void Update()
@@ -40,14 +48,31 @@ public class AlienManager : MonoBehaviour
         Timer();
         GameCondition();
 
-        healthbarHouse.value = house.health;
+        //healthbarHouse.value = house.health;
     }
+
 
     void Setup()
     {
-        for(int i = 0; i < gameObject.transform.childCount; i++)
+        offset = alien.GetComponent<NavMeshAgent>().baseOffset;
+
+        for(int i = 0; i < alienSpawner.transform.childCount; i++)
         {
-            spawnPos.Add(gameObject.transform.GetChild(i));
+            spawnPos.Add(alienSpawner.transform.GetChild(i));
+        }
+
+        
+        for(int i = 0; i < spawnPos.Count; i++)
+        {
+            if(Physics.Raycast(spawnPos[i].position, Vector3.down, out hit))
+            {
+                distance = hit.distance;
+
+                if(distance != offset + hit.point.y)
+                {
+                    spawnPos[i].position = new Vector3(spawnPos[i].position.x, offset + hit.point.y, spawnPos[i].position.z);
+                }
+            }
         }
     }
 
@@ -76,7 +101,7 @@ public class AlienManager : MonoBehaviour
             }
         }
 
-        timer.text = string.Format("{0:00}:{1:00}", disMin, disSec);
+        //timer.text = string.Format("{0:00}:{1:00}", disMin, disSec);
     }
 
     IEnumerator Spawner()
@@ -85,14 +110,14 @@ public class AlienManager : MonoBehaviour
         {
             number = i;
             timerIsRunning = true;
-            rounds.text = waveManager[i].description;
+            //rounds.text = waveManager[i].description;
 
             if(waveManager[i].isWave)
             {
                 GameStats.rounds = i;
                 for(int x = 0; x < waveManager[i].numberOfUfos; x++)
                 {
-                    GameObject currentAlien = Instantiate(alien, transform.position, Quaternion.identity);
+                    GameObject currentAlien = Instantiate(alien, alienSpawner.transform.position, Quaternion.identity);
 
                     int number = Random.Range(0, spawnPos.Count);
 

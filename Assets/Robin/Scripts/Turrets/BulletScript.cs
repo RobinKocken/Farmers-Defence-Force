@@ -40,8 +40,7 @@ public class BulletScript : MonoBehaviour
 
     private void OnDestroy()
     {
+        Destroy(Instantiate(explosion, transform.position, Quaternion.identity), 10f);
         transform.DetachChildren();
-        Instantiate(explosion, transform.position, Quaternion.identity);
-        Destroy(transform.GetChild(0).gameObject, 10f);
     }
 }
