@@ -119,8 +119,8 @@ public class PlayerController : MonoBehaviour
                 if (isGrounded == true)
                 {
                     isGrounded = false;
-                    player.transform.position += new Vector3(velocity.x, 5f, velocity.z) * Time.deltaTime*jumpPower;
-                    //GetComponent<Rigidbody>().velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+                    //player.transform.position += new Vector3(velocity.x, 5f, velocity.z) * Time.deltaTime*jumpPower;
+                    GetComponent<Rigidbody>().velocity = new Vector3(rb.velocity.x, rb.velocity.y + jumpPower, rb.velocity.z);
                     //GetComponent<Rigidbody>().velocity += jumpPower;
                 }
             }
