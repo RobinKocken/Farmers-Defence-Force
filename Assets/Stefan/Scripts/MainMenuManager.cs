@@ -79,11 +79,11 @@ public class MainMenuManager : MonoBehaviour
     {
         loading.SetActive(true);
         loadingGame = true;
-        Invoke( nameof(LoadGameScene), loadingTime);
+        Invoke( nameof(LoadGameScene), Random.Range(3,8));
     }
 
     void LoadGameScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadSceneAsync(1);
     }
 }
