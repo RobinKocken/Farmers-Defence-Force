@@ -15,6 +15,8 @@ public class OptionsMenuButton : MainMenuButton
     {
         if(onClicked != null)
             onClicked(optionsIndex);
+        
+        MainAudioSource.Play2DSound(clicked);
     }
 
     public void Disable()

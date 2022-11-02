@@ -9,12 +9,11 @@ public class BaseButton : MonoBehaviour
 
     [SerializeField] protected Vector2[] interactZones;
 
-    protected CanvasScaler canvasScaler;
+    public CanvasScaler canvasScaler;
 
-    private void OnValidate()
+    private void Awake()
     {
-        if(canvasScaler == null)
-            canvasScaler = FindObjectOfType<CanvasScaler>();
+        canvasScaler = FindObjectOfType<CanvasScaler>();
     }
 
     //True whenever the mouse is hovering over the button
@@ -22,6 +21,8 @@ public class BaseButton : MonoBehaviour
     {
         get
         {
+            if(canvasScaler == null) canvasScaler = FindObjectOfType<CanvasScaler>();
+
             var mousePos = Input.mousePosition;
             for (int i = 0; i < interactZones.Length; i++)
             {

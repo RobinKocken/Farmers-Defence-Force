@@ -24,6 +24,10 @@ public class MainMenuButton : BaseButton
     [Header("Clicked")]
     public Color clickedColor;
 
+    [Header("Sounds")]
+    const string mainMenuSoundPath = "Main Menu/";
+    public Audio hover, clicked;
+
     public delegate void OnButtonClicked();
 
     public OnButtonClicked onButtonClicked;
@@ -31,6 +35,12 @@ public class MainMenuButton : BaseButton
     private bool previousHovered;
 
     public static bool startingGame = false;
+
+    private void Awake()
+    {
+        hover += Resources.Load($"{mainMenuSoundPath}Button Hover") as AudioClip;
+        clicked += Resources.Load($"{mainMenuSoundPath}Button Click") as AudioClip;
+    }
 
     //True whenever the mouse is hovering over the button
     public override bool Hovered
@@ -123,6 +133,7 @@ public class MainMenuButton : BaseButton
     public virtual void OnClick()
     {
         onButtonClicked?.Invoke();
+        MainAudioSource.Play2DSound(clicked);
     }
 
     void ButtonHovered()
@@ -141,5 +152,9 @@ public class MainMenuButton : BaseButton
     /// <summary>
     /// Called as soon as the mouse started hovering over the button
     /// </summary>
-    void OnHover() => currentColorTimer = 0;
+    void OnHover()
+    {
+        currentColorTimer = 0;
+        MainAudioSource.Play2DSound(hover);
+    }
 }
