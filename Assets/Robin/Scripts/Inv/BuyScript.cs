@@ -24,7 +24,7 @@ public class BuyScript : MonoBehaviour
         inventory = GameObject.FindGameObjectWithTag("Manager").GetComponent<InventoryManager>();
 
         icon.sprite = item.icon;
-        itemName.text = icon.name;
+        itemName.text = item.name;
         priceText.text = price.ToString();
 
     }

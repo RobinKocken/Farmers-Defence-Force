@@ -28,7 +28,9 @@ public class BulletScript : MonoBehaviour
             if(hits[i].transform.CompareTag("Alien"))
             {
                 hits[i].transform.GetComponent<AlienAi>().TakeDamage(damage);
-                
+                hits[i].transform.GetComponent<AlienAi>().IsHit(parent);
+
+
                 Destroy(transform.GetChild(0).gameObject, 10f);
                 transform.DetachChildren();
                 Destroy(gameObject);

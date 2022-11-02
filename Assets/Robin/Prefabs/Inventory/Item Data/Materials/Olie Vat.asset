@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iD: 7
   itemName: Olie Vat
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b3d61d1789162114084832645f9e9bfc, type: 3}
   maxStack: 5
+  price: 0
   placeable: 0
   prefab: {fileID: 0}

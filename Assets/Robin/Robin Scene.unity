@@ -3998,6 +3998,9 @@ MonoBehaviour:
   spawnPos: []
   currentAliens: []
   house: {fileID: 584282971}
+  healthbarHouse: {fileID: 0}
+  rounds: {fileID: 0}
+  timer: {fileID: 0}
   distance: 0
   offset: 0
 --- !u!1 &625301178
@@ -5186,6 +5189,7 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: -20, y: 0}
   - {x: -40, y: 0}
+  canvasScaler: {fileID: 1796245496}
   changeColorImages:
   - {fileID: 1962136498}
   changeColorTexts:
@@ -8754,6 +8758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29943d33b537a614abb1a35bb9e49326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
   minDst: 25
   slots:
   - {fileID: 72048627}
@@ -8763,6 +8768,10 @@ MonoBehaviour:
   minHoverTime: 0.5
   offset: {x: 80, y: 80, z: 0}
   description: {fileID: 803778352}
+  canName: {fileID: 0}
+  itemsNeeded: []
+  icons: []
+  color: []
 --- !u!222 &1207529285
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11373,6 +11382,7 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: -20, y: 0}
   - {x: -40, y: 0}
+  canvasScaler: {fileID: 1796245496}
   changeColorImages:
   - {fileID: 1114388470}
   changeColorTexts:

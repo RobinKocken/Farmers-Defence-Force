@@ -74,6 +74,57 @@ public class RaycastPlayer : MonoBehaviour
                         inventory.currentGas = hit.transform.GetComponent<SingleShotScript>().ReloadGas(inventory.currentGas);
                     }
                 }
+                else if(hit.transform.GetComponent<ScrapCannonScript>())
+                {
+                    bulletSlot = inventory.CheckForItem(hit.transform.GetComponent<ScrapCannonScript>().iDBullet, bulletSlot);
+
+                    if(bulletSlot != -1)
+                    {
+                        if(inventory.slots[bulletSlot].GetComponent<Slot>().itemData != null)
+                        {
+                            inventory.slots[bulletSlot].GetComponent<Slot>().amount = hit.transform.GetComponent<ScrapCannonScript>().ReloadAmmo(inventory.slots[bulletSlot].GetComponent<Slot>().amount);
+                        }
+                    }
+
+                    if(inventory.currentGas > 0)
+                    {
+                        inventory.currentGas = hit.transform.GetComponent<ScrapCannonScript>().ReloadGas(inventory.currentGas);
+                    }
+                }
+                else if(hit.transform.GetComponent<CarbidCannonScript>())
+                {
+                    bulletSlot = inventory.CheckForItem(hit.transform.GetComponent<CarbidCannonScript>().iDBullet, bulletSlot);
+
+                    if(bulletSlot != -1)
+                    {
+                        if(inventory.slots[bulletSlot].GetComponent<Slot>().itemData != null)
+                        {
+                            inventory.slots[bulletSlot].GetComponent<Slot>().amount = hit.transform.GetComponent<CarbidCannonScript>().ReloadAmmo(inventory.slots[bulletSlot].GetComponent<Slot>().amount);
+                        }
+                    }
+
+                    if(inventory.currentGas > 0)
+                    {
+                        inventory.currentGas = hit.transform.GetComponent<CarbidCannonScript>().ReloadGas(inventory.currentGas);
+                    }
+                }
+                else if(hit.transform.GetComponent<VuurpijlenScript>())
+                {
+                    bulletSlot = inventory.CheckForItem(hit.transform.GetComponent<VuurpijlenScript>().iDBullet, bulletSlot);
+
+                    if(bulletSlot != -1)
+                    {
+                        if(inventory.slots[bulletSlot].GetComponent<Slot>().itemData != null)
+                        {
+                            inventory.slots[bulletSlot].GetComponent<Slot>().amount = hit.transform.GetComponent<VuurpijlenScript>().ReloadAmmo(inventory.slots[bulletSlot].GetComponent<Slot>().amount);
+                        }
+                    }
+
+                    if(inventory.currentGas > 0)
+                    {
+                        inventory.currentGas = hit.transform.GetComponent<VuurpijlenScript>().ReloadGas(inventory.currentGas);
+                    }
+                }
             }
             else if(Input.GetKey(interact) && hit.transform.CompareTag("Gas"))
             {

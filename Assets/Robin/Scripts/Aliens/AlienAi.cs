@@ -6,12 +6,14 @@ using UnityEngine.AI;
 
 public class AlienAi : MonoBehaviour
 {
+    public InventoryManager inventory;
     public NavMeshAgent alienAgent;
     public GameObject alien;
     public GameObject shootPoint;
     public int health;
 
     public GameObject house;
+    public GameObject housePoint;
     public GameObject aimPoint;
     public GameObject target;
 
@@ -35,13 +37,20 @@ public class AlienAi : MonoBehaviour
     public float xRot;
     public float zRot;
 
+    [Header("Drop")]
+    public Item item;
+    public int min, max;
+
     void Start()
     {
         alienAgent = GetComponent<NavMeshAgent>();
         alienAgent.enabled = false;
 
+        inventory = GameObject.FindGameObjectWithTag("Manager").GetComponent<InventoryManager>();
         house = GameObject.FindGameObjectWithTag("House");
-        aimPoint = GameObject.FindGameObjectWithTag("House").GetComponent<HouseScript>().hitPoint;
+        housePoint = GameObject.FindGameObjectWithTag("House").GetComponent<HouseScript>().hitPoint;
+
+        aimPoint = housePoint;
         target = house;
     }
 
@@ -73,13 +82,14 @@ public class AlienAi : MonoBehaviour
 
     void Attack()
     {
-        if(target != null && distance < 40)
+        if(target != null && distance < 30)
         {
             Shooting();
         }
         else if(target == null)
         {
             target = house;
+            aimPoint = housePoint;
         }
     }
 
@@ -114,9 +124,10 @@ public class AlienAi : MonoBehaviour
         alien.transform.rotation = Quaternion.Euler(xRot * Mathf.Sin(Time.time * speed), alien.transform.eulerAngles.y, zRot * Mathf.Sin(Time.time * speed));
     }
 
-    void IsHit(GameObject turretHit)
+    public void IsHit(GameObject turretHit)
     {
         target = turretHit;
+        aimPoint = turretHit;
     }
 
     public void TakeDamage(int damage)
@@ -155,6 +166,8 @@ public class AlienAi : MonoBehaviour
 
     private void OnDestroy()
     {
+        inventory.AddItem(item, Random.Range(min, max));
+
         if (!Application.isPlaying) return;
 
         if(CameraShake.camShake != null)
