@@ -6786,7 +6786,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &991572143
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13037,11 +13037,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4821287437980817933, guid: dda0cbddc9866cb43b920bb84f1ef7a7,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dda0cbddc9866cb43b920bb84f1ef7a7, type: 3}
 --- !u!1001 &1954873501
@@ -13115,11 +13110,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8910745648513911480, guid: 5a3d5233bd389d5418f92753527a2cca,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a3d5233bd389d5418f92753527a2cca, type: 3}
@@ -13978,26 +13968,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 494639056, guid: 355810006c15fa9448ac38c24d35b43b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2236505320403751958, guid: 355810006c15fa9448ac38c24d35b43b,
         type: 3}
       propertyPath: m_Name
       value: Vuurpijlen Cannon
       objectReference: {fileID: 0}
     - target: {fileID: 2236505320403751958, guid: 355810006c15fa9448ac38c24d35b43b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6178952362199153152, guid: 355810006c15fa9448ac38c24d35b43b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6178952362654660524, guid: 355810006c15fa9448ac38c24d35b43b,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -14529,28 +14505,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1248492708, guid: a0c9b332852fcd44fa4ed79c7f1566e6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1548390983, guid: a0c9b332852fcd44fa4ed79c7f1566e6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1340704671659080184, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2610457419378704108, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
         type: 3}
       propertyPath: m_Name
       value: Single Shot Cannon
-      objectReference: {fileID: 0}
-    - target: {fileID: 2610457419378704108, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4080760331801220600, guid: a0c9b332852fcd44fa4ed79c7f1566e6,
         type: 3}
@@ -14874,6 +14832,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ufo
       objectReference: {fileID: 0}
+    - target: {fileID: 6278742615738820008, guid: bda8230a54c8b8d40b5fe77355b2f192,
+        type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 609596550}
     - target: {fileID: 6278742615738820011, guid: bda8230a54c8b8d40b5fe77355b2f192,
         type: 3}
       propertyPath: m_RootOrder
@@ -14882,12 +14845,12 @@ PrefabInstance:
     - target: {fileID: 6278742615738820011, guid: bda8230a54c8b8d40b5fe77355b2f192,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 96.67608
+      value: 16.05
       objectReference: {fileID: 0}
     - target: {fileID: 6278742615738820011, guid: bda8230a54c8b8d40b5fe77355b2f192,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.45
+      value: 7.1
       objectReference: {fileID: 0}
     - target: {fileID: 6278742615738820011, guid: bda8230a54c8b8d40b5fe77355b2f192,
         type: 3}

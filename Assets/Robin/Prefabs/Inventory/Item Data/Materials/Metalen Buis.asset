@@ -15,7 +15,7 @@ MonoBehaviour:
   iD: 6
   itemName: Metalen Buis
   icon: {fileID: 21300000, guid: a1cda2f06fa2d1d49bfab2478b4e6dba, type: 3}
-  maxStack: 10
+  maxStack: 90
   price: 0
   placeable: 0
   prefab: {fileID: 0}

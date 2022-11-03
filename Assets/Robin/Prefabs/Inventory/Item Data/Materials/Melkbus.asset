@@ -15,7 +15,7 @@ MonoBehaviour:
   iD: 5
   itemName: Melkbus
   icon: {fileID: 21300000, guid: 26bb7dacd0cf4c646a80ee2f5d7e0c91, type: 3}
-  maxStack: 10
+  maxStack: 90
   price: 0
   placeable: 0
   prefab: {fileID: 0}
