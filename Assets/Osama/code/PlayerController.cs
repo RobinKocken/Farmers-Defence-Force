@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
                     }
                     if (running == true)
                     {
-                        stamina -= 10 * Time.deltaTime;
+                        stamina -= 5 * Time.deltaTime;
                     }
                     else if (stamina < 100)
                     {
