@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class SingleShotScript : Turret
 {
@@ -53,6 +54,8 @@ public class SingleShotScript : Turret
     [Header("UI")]
     public GameObject ammoUI;
     public GameObject gasUI;
+    public TMP_Text ammoText;
+    public TMP_Text gasText;
 
     void Start()
     {
@@ -91,18 +94,21 @@ public class SingleShotScript : Turret
 
     void PredictMovement()
     {
-        currentVelocity = (target.transform.position - prev) / Time.deltaTime;
-        prev = target.transform.position;
+        if(target != null)
+        {
+            currentVelocity = (target.transform.position - prev) / Time.deltaTime;
+            prev = target.transform.position;
 
-        currentPosition = target.transform.position;
+            currentPosition = target.transform.position;
 
-        targetDistance = Vector3.Distance(shootPoint.transform.position, target.transform.position);
-        travelTime = targetDistance / bulletSpeed;
+            targetDistance = Vector3.Distance(shootPoint.transform.position, target.transform.position);
+            travelTime = targetDistance / bulletSpeed;
 
-        Vector3 predictedPosition = currentPosition + currentVelocity * travelTime;
+            Vector3 predictedPosition = currentPosition + currentVelocity * travelTime;
 
-        aimingPoint.position = predictedPosition;
-    }    
+            aimingPoint.position = predictedPosition;
+        }
+    }
 
     void LookAtTarget()
     {
@@ -156,53 +162,66 @@ public class SingleShotScript : Turret
 
     public int ReloadAmmo(int ammoAmount)
     {
-        if(maxAmmo - currentAmmo < maxAmmo)
+        if(currentAmmo < maxAmmo && ammoAmount > 0)
         {
-            int needAmmo = maxAmmo - currentAmmo;
-
-            if(ammoAmount - needAmmo >= 0)
+            int needAmmo = 0;
+            if(currentAmmo == 0)
             {
-                currentAmmo += needAmmo;
-                ammoAmount -= needAmmo;
-                
-                return ammoAmount;
+                needAmmo = maxAmmo;
             }
-            else if(ammoAmount - needAmmo < 0)
+            else if(currentAmmo > 0)
             {
-                needAmmo = ammoAmount;
+                needAmmo = maxAmmo - currentAmmo;
+            }
+
+            if(ammoAmount - needAmmo > 0)
+            {
                 currentAmmo += needAmmo;
 
-                ammoAmount = 0;
+                return needAmmo;
+            }
+            else if(ammoAmount - needAmmo <= 0)
+            {
+                currentAmmo += ammoAmount;
+
                 return ammoAmount;
             }
         }
 
+        ammoAmount = 0;
         return ammoAmount;
     }
 
     public float ReloadGas(float gasAmount)
     {
-        if(maxGas - currentGas < maxGas)
+        if(currentGas < maxGas && gasAmount > 0)
         {
-            float needGas = maxGas - currentGas;
-
-            if(gasAmount - needGas >= 0)
+            float needGas;
+            if(currentGas == 0)
+            {
+                needGas = maxGas;
+            }
+            else
+            {
+                needGas = maxGas - currentGas;
+            }
+                        
+            if(gasAmount - needGas > 0)
             {
                 currentGas += needGas;
-                gasAmount -= needGas;
+
+                return needGas;
+            }
+            else if(gasAmount - needGas <= 0)
+            {
+                currentGas += gasAmount;
 
                 return gasAmount;
             }
-            else if(gasAmount - needGas < 0)
-            {
-                needGas = gasAmount;
-                currentGas += needGas;
 
-                gasAmount = 0;
-                return gasAmount;
-            }
         }
 
+        gasAmount = 0;
         return gasAmount;
     }
 
@@ -238,6 +257,9 @@ public class SingleShotScript : Turret
         {
             gasUI.SetActive(false);
         }
+
+        ammoText.text = currentAmmo.ToString() + "/" + maxAmmo.ToString();
+        gasText.text = currentGas.ToString() + "%";
     }
 
     void OverlapSphere()

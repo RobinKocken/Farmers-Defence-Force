@@ -15,7 +15,7 @@ MonoBehaviour:
   iD: 2
   itemName: Spijkers
   icon: {fileID: 21300000, guid: 9d1a22a5fc7f78647bcdb07b5239c3e3, type: 3}
-  maxStack: 120
+  maxStack: 90
   price: 0
   placeable: 0
   prefab: {fileID: 0}

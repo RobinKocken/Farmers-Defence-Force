@@ -36,8 +36,8 @@ public class TurretWaningIcons : MonoBehaviour
         if (mainCam == null) return;
         if (ShowIcons)
         {
-            activeGasWarning.gameObject.SetActive(true);
-            activeAmmoWarning.gameObject.SetActive(true);
+            //activeGasWarning.gameObject.SetActive(true);
+            //activeAmmoWarning.gameObject.SetActive(true);
 
             activeAmmoWarning.localScale = Vector3.SmoothDamp(activeAmmoWarning.localScale, targetScale, ref ammoVelocity, scaleSmoothTime);
             activeGasWarning.localScale = Vector3.SmoothDamp(activeGasWarning.localScale, targetScale, ref gasVelocity, scaleSmoothTime);

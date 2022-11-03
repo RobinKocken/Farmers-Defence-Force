@@ -65,7 +65,15 @@ public class RaycastPlayer : MonoBehaviour
                     {
                         if(inventory.slots[bulletSlot].GetComponent<Slot>().itemData != null)
                         {
-                            inventory.slots[bulletSlot].GetComponent<Slot>().amount = hit.transform.GetComponent<SingleShotScript>().ReloadAmmo(inventory.slots[bulletSlot].GetComponent<Slot>().amount);
+                            if(inventory.slots[bulletSlot].GetComponent<Slot>().amount > 0)
+                            {
+                                int amount = hit.transform.GetComponent<SingleShotScript>().ReloadAmmo(inventory.slots[bulletSlot].GetComponent<Slot>().amount);
+
+                                if(amount > 0)
+                                {
+                                    inventory.RemoveItem(inventory.slots[bulletSlot].GetComponent<Slot>().itemData, amount);
+                                }
+                            }
                         }
                     }
 
@@ -82,7 +90,15 @@ public class RaycastPlayer : MonoBehaviour
                     {
                         if(inventory.slots[bulletSlot].GetComponent<Slot>().itemData != null)
                         {
-                            inventory.slots[bulletSlot].GetComponent<Slot>().amount = hit.transform.GetComponent<ScrapCannonScript>().ReloadAmmo(inventory.slots[bulletSlot].GetComponent<Slot>().amount);
+                            if(inventory.slots[bulletSlot].GetComponent<Slot>().amount > 0)
+                            {
+                                int amount = hit.transform.GetComponent<ScrapCannonScript>().ReloadAmmo(inventory.slots[bulletSlot].GetComponent<Slot>().amount);
+
+                                if(amount > 0)
+                                {
+                                    inventory.RemoveItem(inventory.slots[bulletSlot].GetComponent<Slot>().itemData, amount);
+                                }
+                            }
                         }
                     }
 
@@ -99,7 +115,15 @@ public class RaycastPlayer : MonoBehaviour
                     {
                         if(inventory.slots[bulletSlot].GetComponent<Slot>().itemData != null)
                         {
-                            inventory.slots[bulletSlot].GetComponent<Slot>().amount = hit.transform.GetComponent<CarbidCannonScript>().ReloadAmmo(inventory.slots[bulletSlot].GetComponent<Slot>().amount);
+                            if(inventory.slots[bulletSlot].GetComponent<Slot>().amount > 0)
+                            {
+                                int amount = hit.transform.GetComponent<CarbidCannonScript>().ReloadAmmo(inventory.slots[bulletSlot].GetComponent<Slot>().amount);
+
+                                if(amount > 0)
+                                {
+                                    inventory.RemoveItem(inventory.slots[bulletSlot].GetComponent<Slot>().itemData, amount);
+                                }
+                            }
                         }
                     }
 
@@ -116,7 +140,15 @@ public class RaycastPlayer : MonoBehaviour
                     {
                         if(inventory.slots[bulletSlot].GetComponent<Slot>().itemData != null)
                         {
-                            inventory.slots[bulletSlot].GetComponent<Slot>().amount = hit.transform.GetComponent<VuurpijlenScript>().ReloadAmmo(inventory.slots[bulletSlot].GetComponent<Slot>().amount);
+                            if(inventory.slots[bulletSlot].GetComponent<Slot>().amount > 0)
+                            {
+                                int amount = hit.transform.GetComponent<VuurpijlenScript>().ReloadAmmo(inventory.slots[bulletSlot].GetComponent<Slot>().amount);
+
+                                if(amount > 0)
+                                {
+                                    inventory.RemoveItem(inventory.slots[bulletSlot].GetComponent<Slot>().itemData, amount);
+                                }
+                            }
                         }
                     }
 

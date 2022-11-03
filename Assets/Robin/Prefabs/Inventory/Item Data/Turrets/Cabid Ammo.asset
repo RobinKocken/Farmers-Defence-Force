@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Cabid Ammo
   m_EditorClassIdentifier: 
   iD: 14
-  itemName: Cabid Ammo
+  itemName: Cabid
   icon: {fileID: 21300000, guid: 936aaf567e1d23947bfb52075d07dae5, type: 3}
-  maxStack: 32
+  maxStack: 90
   price: 0
   placeable: 0
   prefab: {fileID: 0}

@@ -27,11 +27,13 @@ public class InventoryManager : MonoBehaviour
     public Image boxCursor;
     public Vector3 offset;
 
-    Item itemHolder;
-    int itemAmount;
+    public Item itemHolder;
+    public int itemAmount;
 
     public Image iconHolder;
     public TMP_Text itemAmountText;
+
+    public TMP_Text nameDis;
 
     [Header("Lists")]
     public List<Transform> slots;
@@ -318,6 +320,11 @@ public class InventoryManager : MonoBehaviour
                 {
                     if(itemAmount <= slots[i].GetComponent<Slot>().itemData.maxStack - slots[i].GetComponent<Slot>().amount)
                     {
+                        if(notificationManager != null)
+                        {
+                            notificationManager.AddNotification2(item.itemName, itemAmount, item.icon);
+                        }
+
                         slots[i].GetComponent<Slot>().amount -= itemAmount;
                         return;
                     }
@@ -333,6 +340,7 @@ public class InventoryManager : MonoBehaviour
             //Put inside Cursor
             itemHolder = slots[currentSlot].GetComponent<Slot>().itemData;
             itemAmount = slots[currentSlot].GetComponent<Slot>().amount;
+            nameDis.text = slots[currentSlot].GetComponent<Slot>().itemData.itemName;
 
             slots[currentSlot].GetComponent<Slot>().amount = 0;
             slots[currentSlot].GetComponent<Slot>().itemData = null;

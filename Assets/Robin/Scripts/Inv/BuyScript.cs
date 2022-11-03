@@ -24,7 +24,7 @@ public class BuyScript : MonoBehaviour
         inventory = GameObject.FindGameObjectWithTag("Manager").GetComponent<InventoryManager>();
 
         icon.sprite = item.icon;
-        itemName.text = item.name;
+        itemName.text = amount + " "+ item.name;
         priceText.text = price.ToString();
 
     }
@@ -33,15 +33,22 @@ public class BuyScript : MonoBehaviour
     {
         slotNumber = inventory.CheckForItem(currency, slotNumber);
 
-        if(inventory.slots[slotNumber].GetComponent<Slot>().itemData != null && 0 < inventory.slots[slotNumber].GetComponent<Slot>().amount)
+        if(slotNumber != -1)
         {
-            if(price >= price - inventory.slots[slotNumber].GetComponent<Slot>().amount)
+            if(inventory.slots[slotNumber].GetComponent<Slot>().itemData != null)
             {
-                GameStats.scrapUsed += price;
+                if(0 < inventory.slots[slotNumber].GetComponent<Slot>().amount)
+                {
+                    if(price >= price - inventory.slots[slotNumber].GetComponent<Slot>().amount)
+                    {
+                        GameStats.scrapUsed += price;
 
-                inventory.RemoveItem(currency, price);
-                inventory.AddItem(item, amount);
+                        inventory.RemoveItem(currency, price);
+                        inventory.AddItem(item, amount);
+                    }
+                }
             }
         }
+
     }
 }

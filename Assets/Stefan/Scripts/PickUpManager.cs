@@ -76,6 +76,19 @@ public class PickUpManager : MonoBehaviour
 
         obj.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"   +{amount} {name}";
         obj.GetChild(1).GetComponent<Image>().sprite = sprite;
+    }    
+    
+    public void AddNotification2(string name, int amount, Sprite sprite)
+    {
+        var obj = Instantiate(messagePrefab, spawnPos.position, Quaternion.identity, spawnPos).transform;
+        var notification = new NotificationData(obj, amount, name);
+        activeNotifications.Insert(0, notification);
+
+        obj.GetChild(0).GetComponent<TextMeshProUGUI>().text = $"   -{amount} {name}";
+        obj.GetChild(1).GetComponent<Image>().sprite = sprite;
+
+        obj.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.red;
+        obj.GetChild(1).GetComponent<Image>().color = Color.red;
     }
 
     [System.Serializable]

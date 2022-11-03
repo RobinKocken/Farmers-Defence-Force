@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CarbidCannonScript : Turret
 {
@@ -28,7 +29,10 @@ public class CarbidCannonScript : Turret
     public float rotGearFrame;
     public float rotGearMotor;
 
-    [Header("Bullet")]
+    Vector3 prevRotFrame;
+    Vector3 currentRotFrame;
+
+[Header("Bullet")]
     public int bulletDamage;
     public float bulletSpeed;
     float startTime;
@@ -53,6 +57,8 @@ public class CarbidCannonScript : Turret
     [Header("UI")]
     public GameObject ammoUI;
     public GameObject gasUI;
+    public TMP_Text ammoText;
+    public TMP_Text gasText;
 
     void Start()
     {
@@ -91,17 +97,20 @@ public class CarbidCannonScript : Turret
 
     void PredictMovement()
     {
-        currentVelocity = (target.transform.position - prev) / Time.deltaTime;
-        prev = target.transform.position;
+        if(target != null)
+        {
+            currentVelocity = (target.transform.position - prev) / Time.deltaTime;
+            prev = target.transform.position;
 
-        currentPosition = target.transform.position;
+            currentPosition = target.transform.position;
 
-        targetDistance = Vector3.Distance(shootPoint.transform.position, target.transform.position);
-        travelTime = targetDistance / bulletSpeed;
+            targetDistance = Vector3.Distance(shootPoint.transform.position, target.transform.position);
+            travelTime = targetDistance / bulletSpeed;
 
-        Vector3 predictedPosition = currentPosition + currentVelocity * travelTime;
+            Vector3 predictedPosition = currentPosition + currentVelocity * travelTime;
 
-        aimingPoint.position = predictedPosition;
+            aimingPoint.position = predictedPosition;
+        }
     }
 
     void LookAtTarget()
@@ -115,20 +124,11 @@ public class CarbidCannonScript : Turret
         cannon.transform.localEulerAngles = new Vector3(cannonQuat.eulerAngles.x, -90, 0);
 
         //Gear Frame
-        //Work in Progress
-        //Vector3 oldGearCannonAngles = cannon.transform.localEulerAngles;
+        //Quaternion frameGear = Quaternion.Slerp(gearFrame.transform.localRotation, frameQuat, rotSpeed * Time.deltaTime);
+        //gearFrame.transform.localEulerAngles = new Vector3(0, 0, frameGear.eulerAngles.z);
 
-        //if(oldGearCannonAngles != cannon.transform.localEulerAngles)
-        //{
-        //    if(oldGearCannonAngles.z > cannon.transform.localEulerAngles.z)
-        //    {
-
-        //    }
-        //    else if(oldGearCannonAngles.z < cannon.transform.localEulerAngles.z)
-        //    {
-
-        //    }
-        //}
+        //Quaternion motorGear = Quaternion.Slerp(gearFrame.transform.localRotation, cannonQuat, rotSpeed * Time.deltaTime);
+        //gearFrame.transform.localEulerAngles = new Vector3(0, 180, motorGear.eulerAngles.z);
     }
 
     void Shooting()
@@ -158,53 +158,66 @@ public class CarbidCannonScript : Turret
 
     public int ReloadAmmo(int ammoAmount)
     {
-        if(maxAmmo - currentAmmo < maxAmmo)
+        if(currentAmmo < maxAmmo && ammoAmount > 0)
         {
-            int needAmmo = maxAmmo - currentAmmo;
-
-            if(ammoAmount - needAmmo >= 0)
+            int needAmmo = 0;
+            if(currentAmmo == 0)
             {
-                currentAmmo += needAmmo;
-                ammoAmount -= needAmmo;
-
-                return ammoAmount;
+                needAmmo = maxAmmo;
             }
-            else if(ammoAmount - needAmmo < 0)
+            else if(currentAmmo > 0)
             {
-                needAmmo = ammoAmount;
+                needAmmo = maxAmmo - currentAmmo;
+            }
+
+            if(ammoAmount - needAmmo > 0)
+            {
                 currentAmmo += needAmmo;
 
-                ammoAmount = 0;
+                return needAmmo;
+            }
+            else if(ammoAmount - needAmmo <= 0)
+            {
+                currentAmmo += ammoAmount;
+
                 return ammoAmount;
             }
         }
 
+        ammoAmount = 0;
         return ammoAmount;
     }
 
     public float ReloadGas(float gasAmount)
     {
-        if(maxGas - currentGas < maxGas)
+        if(currentGas < maxGas && gasAmount > 0)
         {
-            float needGas = maxGas - currentGas;
+            float needGas;
+            if(currentGas == 0)
+            {
+                needGas = maxGas;
+            }
+            else
+            {
+                needGas = maxGas - currentGas;
+            }
 
-            if(gasAmount - needGas >= 0)
+            if(gasAmount - needGas > 0)
             {
                 currentGas += needGas;
-                gasAmount -= needGas;
+
+                return needGas;
+            }
+            else if(gasAmount - needGas <= 0)
+            {
+                currentGas += gasAmount;
 
                 return gasAmount;
             }
-            else if(gasAmount - needGas < 0)
-            {
-                needGas = gasAmount;
-                currentGas += needGas;
 
-                gasAmount = 0;
-                return gasAmount;
-            }
         }
 
+        gasAmount = 0;
         return gasAmount;
     }
 
@@ -240,6 +253,9 @@ public class CarbidCannonScript : Turret
         {
             gasUI.SetActive(false);
         }
+
+        ammoText.text = currentAmmo.ToString() + "/" + maxAmmo.ToString();
+        gasText.text = currentGas.ToString() + "%";
     }
 
     void OverlapSphere()

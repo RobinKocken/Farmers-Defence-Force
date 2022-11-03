@@ -24,7 +24,16 @@ public class AlienBulletScript : MonoBehaviour
         {
             if(hits[i].transform.CompareTag("Turret"))
             {
-                hits[i].transform.GetComponent<SingleShotScript>().TakeDamage(damage);
+                if(hits[i].transform.GetComponent<SingleShotScript>())
+                    hits[i].transform.GetComponent<SingleShotScript>().TakeDamage(damage);                
+                else if(hits[i].transform.GetComponent<ScrapCannonScript>())
+                    hits[i].transform.GetComponent<ScrapCannonScript>().TakeDamage(damage);                
+                else if(hits[i].transform.GetComponent<CarbidCannonScript>())
+                    hits[i].transform.GetComponent<CarbidCannonScript>().TakeDamage(damage);                
+                else if(hits[i].transform.GetComponent<VuurpijlenScript>())
+                    hits[i].transform.GetComponent<VuurpijlenScript>().TakeDamage(damage);
+
+
 
                 SpawnImpact(hits[i].normal);
                 Destroy(gameObject);

@@ -14832,11 +14832,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ufo
       objectReference: {fileID: 0}
-    - target: {fileID: 6278742615738820008, guid: bda8230a54c8b8d40b5fe77355b2f192,
-        type: 3}
-      propertyPath: inventory
-      value: 
-      objectReference: {fileID: 609596550}
     - target: {fileID: 6278742615738820011, guid: bda8230a54c8b8d40b5fe77355b2f192,
         type: 3}
       propertyPath: m_RootOrder

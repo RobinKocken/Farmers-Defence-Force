@@ -30,9 +30,6 @@ public class BulletScript : MonoBehaviour
                 hits[i].transform.GetComponent<AlienAi>().TakeDamage(damage);
                 hits[i].transform.GetComponent<AlienAi>().IsHit(parent);
 
-
-                Destroy(transform.GetChild(0).gameObject, 10f);
-                transform.DetachChildren();
                 Destroy(gameObject);
             }
         }
@@ -42,7 +39,10 @@ public class BulletScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        Destroy(Instantiate(explosion, transform.position, Quaternion.identity), 10f);
-        transform.DetachChildren();
+        if(explosion != null)
+        {
+            Destroy(Instantiate(explosion, transform.position, Quaternion.identity), 10f);
+            transform.DetachChildren();
+        }
     }
 }
