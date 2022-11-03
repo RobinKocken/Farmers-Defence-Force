@@ -153,8 +153,9 @@ MonoBehaviour:
   alienAgent: {fileID: 0}
   alien: {fileID: 2668347206869354772}
   shootPoint: {fileID: 8956522398909972000}
-  health: 100
+  health: 20
   house: {fileID: 0}
+  housePoint: {fileID: 0}
   aimPoint: {fileID: 0}
   target: {fileID: 0}
   explosionParticle: {fileID: 7711745615801737191, guid: bdb2c781983c543438f9e10a63f0a0b3,
@@ -171,8 +172,8 @@ MonoBehaviour:
   xRot: 5
   zRot: 5
   item: {fileID: 11400000, guid: 148f53d705b1a7c4fa97baa486de057b, type: 2}
-  min: 30
-  max: 40
+  min: 10
+  max: 20
 --- !u!195 &6278742615738820009
 NavMeshAgent:
   m_ObjectHideFlags: 0

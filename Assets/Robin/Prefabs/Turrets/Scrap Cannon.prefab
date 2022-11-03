@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c93c10cd7423f44484db5f35616e6e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 300
   manager: {fileID: 0}
   shotParticle: {fileID: 6541992091536952590}
   target: {fileID: 0}
@@ -123,9 +123,9 @@ MonoBehaviour:
   rotSpeed: 10
   rotGearFrame: 0
   rotGearMotor: 0
-  bulletDamage: 5
-  bulletSpeed: 20
-  waitForSeconds: 4
+  bulletDamage: 100
+  bulletSpeed: 30
+  waitForSeconds: 5
   currentAmmo: 12
   maxAmmo: 12
   currentGas: 100

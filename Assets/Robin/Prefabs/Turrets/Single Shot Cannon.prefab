@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d877e5fe32a757b46a408691d1f75f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 300
   manager: {fileID: 0}
   shotParticle: {fileID: 2458295751209035200}
   target: {fileID: 0}
@@ -456,7 +456,7 @@ MonoBehaviour:
   rotSpeed: 10
   rotGearFrame: 0
   rotGearMotor: 0
-  bulletDamage: 2
+  bulletDamage: 50
   bulletSpeed: 30
   waitForSeconds: 2
   currentAmmo: 24

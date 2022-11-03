@@ -86,11 +86,11 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 1}
   highlights:
-    m_OverrideState: 0
-    m_Value: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
   balance:
     m_OverrideState: 1
-    m_Value: 58
+    m_Value: 92
 --- !u!114 &-1344219802387322337
 MonoBehaviour:
   m_ObjectHideFlags: 3

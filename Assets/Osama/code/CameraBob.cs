@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraBob : MonoBehaviour
 {
-    public float walkingBobbingSpeed = 14f;
-    public float bobbingAmount = 0.05f;
+    public float walkingBobbingSpeed = 80f;
+    public float bobbingAmount = 0.001f;
     public PlayerController controller;
 
     float defaultPosY = 0;
