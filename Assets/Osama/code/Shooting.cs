@@ -11,6 +11,7 @@ public class Shooting : MonoBehaviour
     public GameObject ufObject;
     public GameObject metalScrap;
     public PickUp pickup;
+    public AlienAi script;
 
     public int ufo;
     public float cooldown = 2f;
@@ -62,7 +63,7 @@ public class Shooting : MonoBehaviour
         if (Physics.Raycast(cam.position, cam.forward, out hit, 20))
         {
            
-            if (hit.transform.gameObject.tag == "Ufo")
+            if (hit.transform.gameObject.tag == "Alien")
             {
                 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -79,7 +80,7 @@ public class Shooting : MonoBehaviour
                             
                             if (pickup.damageBoostIsActief == true && ammo > 0)
                             {
-                                ufo -= 20;
+                                script.health -= 20;
                                 if (ufo <= 0)
                                 {
                                     ufObject.SetActive(false);
@@ -89,7 +90,7 @@ public class Shooting : MonoBehaviour
                             }
                             else if (ammo > 0)
                             {
-                                ufo -= 10;
+                                script.health -= 10;
                                 if (ufo <= 0)
                                 {
                                     ufObject.SetActive(false);
