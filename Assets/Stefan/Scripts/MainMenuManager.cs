@@ -19,6 +19,8 @@ public class MainMenuManager : MonoBehaviour
     public float loadingTime;
     public float startLoadTime;
 
+    public GameObject mainTheme, loadingTheme;
+
     bool loadingGame;
     // Start is called before the first frame update
     void Start()
@@ -77,6 +79,8 @@ public class MainMenuManager : MonoBehaviour
 
     void StartFakeLoadingScreen()
     {
+        mainTheme.SetActive(false);
+        loadingTheme.SetActive(true);   
         loading.SetActive(true);
         loadingGame = true;
         Invoke( nameof(LoadGameScene), Random.Range(3,8));
