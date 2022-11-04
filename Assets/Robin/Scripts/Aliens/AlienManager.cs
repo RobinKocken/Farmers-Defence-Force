@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.AI;
-using Unity.VisualScripting;
-using UnityEditorInternal;
 
 public class AlienManager : MonoBehaviour
 {
