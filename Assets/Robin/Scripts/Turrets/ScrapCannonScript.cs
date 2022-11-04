@@ -112,28 +112,39 @@ public class ScrapCannonScript : Turret
     void LookAtTarget()
     {
         //Frame Rot
+        Vector3 oldGearFrame = frame.transform.localEulerAngles;
         Quaternion frameQuat = Quaternion.Slerp(frame.transform.localRotation, Quaternion.LookRotation(transform.InverseTransformPoint(aimingPoint.position) - frame.transform.localPosition), rotSpeed * Time.deltaTime);
         frame.transform.localEulerAngles = new Vector3(0, frameQuat.eulerAngles.y, 0);
 
         //Cannon Rot
+        Vector3 oldGearMotor = cannon.transform.localEulerAngles;
         Quaternion cannonQuat = Quaternion.Slerp(cannon.transform.localRotation, Quaternion.LookRotation(transform.InverseTransformPoint(aimingPoint.position) - cannon.transform.localPosition), rotSpeed * Time.deltaTime);
         cannon.transform.localEulerAngles = new Vector3(cannonQuat.eulerAngles.x, -90, 0);
 
         //Gear Frame
-        //Work in Progress
-        //Vector3 oldGearCannonAngles = cannon.transform.localEulerAngles;
+        if(oldGearFrame != frame.transform.localEulerAngles)
+        {
+            if(oldGearFrame.x > frame.transform.localEulerAngles.x)
+            {
+                gearFrame.Rotate(0, 0, rotSpeed * Time.deltaTime);
+            }
+            else if(oldGearFrame.x < frame.transform.localEulerAngles.x)
+            {
+                gearFrame.Rotate(0, 0, -rotSpeed * Time.deltaTime);
+            }
+        }
 
-        //if(oldGearCannonAngles != cannon.transform.localEulerAngles)
-        //{
-        //    if(oldGearCannonAngles.z > cannon.transform.localEulerAngles.z)
-        //    {
-
-        //    }
-        //    else if(oldGearCannonAngles.z < cannon.transform.localEulerAngles.z)
-        //    {
-
-        //    }
-        //}
+        if(oldGearMotor != cannon.transform.localEulerAngles)
+        {
+            if(oldGearMotor.x > cannon.transform.localEulerAngles.x)
+            {
+                gearMotor.Rotate(0, 0, rotSpeed * Time.deltaTime);
+            }
+            else if(oldGearMotor.x < cannon.transform.localEulerAngles.x)
+            {
+                gearMotor.Rotate(0, 0, -rotSpeed * Time.deltaTime);
+            }
+        }
     }
 
     void Shooting()
