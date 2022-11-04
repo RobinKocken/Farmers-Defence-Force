@@ -45,8 +45,6 @@ public class PlayerController : MonoBehaviour
         walkSpeed = 3;
         speed = walkSpeed;
         runSpeed = 6;
-        boostSpeed = 12;
-        jumpPower = 7f;
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
 

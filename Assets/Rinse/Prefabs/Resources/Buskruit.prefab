@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2092231858860253017}
   - component: {fileID: 4561468056706936805}
   - component: {fileID: 3525811826001772445}
+  - component: {fileID: 8091896892356235520}
   m_Layer: 0
   m_Name: Buskruit
   m_TagString: Item
@@ -136,3 +137,19 @@ MonoBehaviour:
   manager: {fileID: 0}
   item: {fileID: 11400000, guid: 47b1c1a5d6ac8ca409f319dbfab09e49, type: 2}
   amount: 0
+--- !u!54 &8091896892356235520
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110236995583522363}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
