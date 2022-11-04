@@ -33,6 +33,9 @@ public class AlienManager : MonoBehaviour
     RaycastHit hit;
 
     public float offset;
+
+    [Header("Shoot")]
+    public Shooting shooting;
     void Start()
     {
         Setup();
@@ -114,6 +117,7 @@ public class AlienManager : MonoBehaviour
 
             if(waveManager[i].isWave)
             {
+                shooting.curretnAmmo = shooting.maxAmmo;
                 GameStats.rounds = i;
                 for(int x = 0; x < waveManager[i].numberOfUfos; x++)
                 {

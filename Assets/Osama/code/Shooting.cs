@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Shooting : MonoBehaviour
 {
@@ -8,19 +9,19 @@ public class Shooting : MonoBehaviour
     public Transform gun;
     public Transform player;
     public RaycastHit hit;
-    public GameObject ufObject;
-    public GameObject metalScrap;
     public PickUp pickup;
-    public AlienAi script;
 
     public int ufo;
     public float cooldown = 2f;
-    public float ammo = 5;
+    public float curretnAmmo = 24;
+    public int maxAmmo = 24;
     public float recoilGun;
 
     public bool kanSchieten;
     public bool cooldownActive;
     public bool recoil;
+
+    public TMP_Text ammoText;
 
     // Start is called before the first frame update
     void Start()
@@ -49,9 +50,9 @@ public class Shooting : MonoBehaviour
             recoil = false;
         }
 
-        if (ammo < 0 || ammo == 0)
+        if (curretnAmmo < 0 || curretnAmmo == 0)
         {
-            ammo = 0f;
+            curretnAmmo = 0f;
             kanSchieten = false;
         }
 
@@ -74,28 +75,19 @@ public class Shooting : MonoBehaviour
                         
                         if (kanSchieten == true)
                         {
-                            ammo--;
+                            curretnAmmo--;
                             cooldownActive = true;
                             recoil = true;
                             
-                            if (pickup.damageBoostIsActief == true && ammo > 0)
+                            if (pickup.damageBoostIsActief == true && curretnAmmo > 0)
                             {
-                                script.health -= 20;
-                                if (ufo <= 0)
-                                {
-                                    ufObject.SetActive(false);
-                                    metalScrap.SetActive(true);
-                                }
+
+                                hit.transform.GetComponent<AlienAi>().TakeDamage(20);
 
                             }
-                            else if (ammo > 0)
+                            else if (curretnAmmo > 0)
                             {
-                                script.health -= 10;
-                                if (ufo <= 0)
-                                {
-                                    ufObject.SetActive(false);
-                                    metalScrap.SetActive(true);
-                                }
+                                hit.transform.GetComponent<AlienAi>().TakeDamage(10);
                             }
                         }
                     }
@@ -107,18 +99,20 @@ public class Shooting : MonoBehaviour
                 {
                     if (kanSchieten == true)
                     {
-                        ammo--;
+                        curretnAmmo--;
                         cooldownActive = true;
                         recoil = true;
                     }
                 }
             }
         }
+
+        ammoText.text = curretnAmmo + "/" + maxAmmo;
     }
 
     public void Reload()
     {
         kanSchieten = true;
-        ammo = 5f;
+        curretnAmmo = 5f;
     }
 }

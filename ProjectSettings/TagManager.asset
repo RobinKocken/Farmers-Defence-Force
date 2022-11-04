@@ -20,6 +20,9 @@ TagManager:
   - TreeTrunk
   - MainCanvas
   - Interaction
+  - Ladder
+  - SpeedUp
+  - JumpUp
   layers:
   - Default
   - TransparentFX
