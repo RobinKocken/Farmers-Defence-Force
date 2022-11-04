@@ -90,7 +90,7 @@ public class PickUp : MonoBehaviour
         {
             if (hit.transform.gameObject.tag == "Gun")
             {
-                if (Input.GetKeyDown(KeyCode.Mouse1))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     gun.SetActive(false);
                     gunIsOpgepakt = true;
@@ -101,7 +101,7 @@ public class PickUp : MonoBehaviour
         {
             if (hit.transform.gameObject.tag == "Axe")
             {
-                if (Input.GetKeyDown(KeyCode.Mouse1))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     axe.SetActive(false);
                     axeIsOpgepakt = true;

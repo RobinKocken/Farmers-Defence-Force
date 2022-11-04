@@ -188,6 +188,7 @@ public class RaycastPlayer : MonoBehaviour
                     {
                         currentPrefabMeshRenderers[i].sharedMaterial = currentPrefabDefaultMaterials[i];
                     }
+                    GetComponent<AudioSource>().Play();
                     Destroy(Instantiate(placeParticlePrefab, hitBuild.point, placeParticlePrefab.transform.rotation), 2.3f);
                     //move.transform.parent = null;
                     mouseWheel = 0;

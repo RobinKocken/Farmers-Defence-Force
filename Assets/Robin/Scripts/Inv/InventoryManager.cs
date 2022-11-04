@@ -60,6 +60,8 @@ public class InventoryManager : MonoBehaviour
 
     [Header("Pickup Notification")]
     public PickUpManager notificationManager;
+    public Audio crafting;
+    public Audio pickUpSound;
 
     void Start()
     {
@@ -253,6 +255,7 @@ public class InventoryManager : MonoBehaviour
             slots[collectedID[i]].GetComponent<Slot>().amount -= reqs[i].amount;
         }
 
+        MainAudioSource.Play2DSound(crafting);
         AddItem(outcome, outcomeAmount);
     }
 
@@ -262,6 +265,8 @@ public class InventoryManager : MonoBehaviour
         {
             notificationManager.AddNotification(item.itemName, itemAmount, item.icon);
         }
+
+        MainAudioSource.Play2DSound(pickUpSound);
 
         for(int i = 0; i < slots.Count; i++)
         {

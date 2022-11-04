@@ -60,6 +60,9 @@ public class CarbidCannonScript : Turret
     public TMP_Text ammoText;
     public TMP_Text gasText;
 
+    [Header("Sounds")]
+    public AudioSource shootSource;
+
     void Start()
     {
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<AlienManager>();
@@ -158,6 +161,8 @@ public class CarbidCannonScript : Turret
         if(Time.time - startTime > waitForSeconds && currentAmmo > 0 && currentGas > 0)
         {
             shotParticle.Play();
+
+            shootSource.Play();
 
             GameObject currentBullet = Instantiate(bullet, shootPoint.transform.position, Quaternion.identity);
 

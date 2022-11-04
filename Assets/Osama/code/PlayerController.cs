@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public Camera playerCamera;
     public GameObject player;   
     AudioSource audioSource;
+    public AudioClip walkingClip, runningClip;
 
     float xRotation = 0f;
 
@@ -193,6 +194,9 @@ public class PlayerController : MonoBehaviour
         moveDirection.z = vertical;
         transform.Translate(moveDirection * Time.deltaTime * speed);
         rb.drag = 1;
+
+        var clip = running ? runningClip : walkingClip;
+        audioSource.clip = clip;
 
         if(horizontal != 0 || vertical != 0)
         {
