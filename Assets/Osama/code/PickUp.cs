@@ -53,29 +53,37 @@ public class PickUp : MonoBehaviour
             {
                 kanHakken = true;
                 cooldownActive = false;
-                cooldown = 2f;
+                cooldown = 1f;
             }
         }
 
         if (Physics.Raycast(cam.position, cam.forward, out hit, 3))
         {
-            Tree tree = hit.transform.root.GetComponent<Tree>();
+            Tree tree = hit.transform.GetComponentInParent<Tree>();
+
+            print("a");
             if (tree != null)
             {
+                print("b");
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    if(axeIsActief == true)
+                    print("c");
+                    if (axeIsActief == true)
                     {
+                        print("d");
                         if (kanHakken == true)
                         {
+                            print("e");
                             cooldownActive = true;
                             if (tree.canDamageTrunk == false)
                             {
+                                print("f");
                                 tree.ChopTree(1);
                                 PlaceTreeParticle(hit.point, hit.normal, hit.transform);
                             }
                             else if (hit.transform.gameObject.CompareTag("TreeTrunk"))
                             {
+                                print("g");
                                 tree.ChopTrunk(1);
                                 PlaceTreeParticle(hit.point, hit.normal, hit.transform);
                             }

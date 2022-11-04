@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.AI;
 using Unity.VisualScripting;
+using UnityEditorInternal;
 
 public class AlienManager : MonoBehaviour
 {
@@ -36,6 +37,10 @@ public class AlienManager : MonoBehaviour
 
     [Header("Shoot")]
     public Shooting shooting;
+
+    [Header("Sounds")]
+    public AudioSource source;
+    public AudioClip preroundSound, waveSound;
     void Start()
     {
         Setup();
@@ -115,8 +120,15 @@ public class AlienManager : MonoBehaviour
             timerIsRunning = true;
             rounds.text = waveManager[i].description;
 
+            var clip = waveManager[i].isWave ? waveSound : preroundSound;
+
             if(waveManager[i].isWave)
             {
+                if (source.clip != clip) source.Stop(); 
+                source.clip = clip;
+
+                source.Play();
+
                 shooting.curretnAmmo = shooting.maxAmmo;
                 GameStats.rounds = i;
                 for(int x = 0; x < waveManager[i].numberOfUfos; x++)
