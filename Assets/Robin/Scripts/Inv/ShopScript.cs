@@ -13,6 +13,9 @@ public class ShopScript : MonoBehaviour
     public GameObject res;
     public GameObject ammo;
 
+    public AudioSource source;
+    public AudioClip on, off;
+
     public bool bla;
 
     void Update()
@@ -20,6 +23,11 @@ public class ShopScript : MonoBehaviour
         if(Input.GetKeyDown(openShop))
         {
             bla = !bla;
+
+            var clip = bla ? on : off;
+
+            source.clip = clip;
+            source.Play();
 
             if(inventory.inventory.activeSelf == true)
             {

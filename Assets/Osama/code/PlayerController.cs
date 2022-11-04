@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
     public Transform cam;
     public Transform gun;
     public Camera playerCamera;
-    public GameObject player;
-    
+    public GameObject player;   
+    AudioSource audioSource;
 
     float xRotation = 0f;
 
@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
         jumpPower = 7f;
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -191,5 +193,16 @@ public class PlayerController : MonoBehaviour
         moveDirection.z = vertical;
         transform.Translate(moveDirection * Time.deltaTime * speed);
         rb.drag = 1;
+
+        if(horizontal != 0 || vertical != 0)
+        {
+            if(!audioSource.isPlaying)
+                audioSource.Play();
+        }
+        else
+        {
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+        }
     }
 }
