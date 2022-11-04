@@ -9,6 +9,7 @@ using UnityEngine.Playables;
 
 public class PowerUpNotificationManager : MonoBehaviour
 {
+    public static PowerUpNotificationManager instance;
     public GameObject prefab;
 
     public Transform spawnPos,HUD;
@@ -24,7 +25,7 @@ public class PowerUpNotificationManager : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        PickUp(testColor,testSprite,testTime);
+        instance = this;
     }
 
     private void Update()

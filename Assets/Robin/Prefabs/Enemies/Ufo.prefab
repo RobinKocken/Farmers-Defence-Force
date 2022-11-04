@@ -153,7 +153,7 @@ MonoBehaviour:
   alienAgent: {fileID: 0}
   alien: {fileID: 2668347206869354772}
   shootPoint: {fileID: 8956522398909972000}
-  health: 20
+  health: 100
   house: {fileID: 0}
   housePoint: {fileID: 0}
   aimPoint: {fileID: 0}
@@ -172,8 +172,8 @@ MonoBehaviour:
   xRot: 5
   zRot: 5
   item: {fileID: 11400000, guid: 148f53d705b1a7c4fa97baa486de057b, type: 2}
-  min: 10
-  max: 20
+  min: 5
+  max: 15
 --- !u!195 &6278742615738820009
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 2
-  m_Speed: 3.5
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

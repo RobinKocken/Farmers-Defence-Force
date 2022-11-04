@@ -458,7 +458,7 @@ MonoBehaviour:
   rotSpeed: 10
   rotGearFrame: 0
   rotGearMotor: 0
-  bulletDamage: 50
+  bulletDamage: 30
   bulletSpeed: 30
   waitForSeconds: 2
   currentAmmo: 24

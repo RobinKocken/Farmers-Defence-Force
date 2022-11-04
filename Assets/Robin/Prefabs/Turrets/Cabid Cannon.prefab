@@ -139,7 +139,7 @@ MonoBehaviour:
   rotSpeed: 10
   rotGearFrame: 0
   rotGearMotor: 0
-  bulletDamage: 50
+  bulletDamage: 30
   bulletSpeed: 25
   waitForSeconds: 3
   currentAmmo: 16

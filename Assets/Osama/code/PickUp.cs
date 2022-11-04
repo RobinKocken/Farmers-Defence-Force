@@ -35,6 +35,8 @@ public class PickUp : MonoBehaviour
     public bool cooldownActive;
     public bool kanHakken;
 
+    public Sprite damage, speed, jump;
+
 
     // Start is called before the first frame update
     void Start()
@@ -185,18 +187,24 @@ public class PickUp : MonoBehaviour
             Destroy(collision.gameObject);
             damageBoostIsActief = true;
             Invoke("SetBoolBack", 30);
+
+            PowerUpNotificationManager.instance.PickUp(Color.red,damage,30);
         }
         if (collision.gameObject.tag == "SpeedUp")
         {
             Destroy(collision.gameObject);
             speedBoostIsActief = true;
             Invoke("SetBoolBack", 30);
+
+            PowerUpNotificationManager.instance.PickUp(Color.blue, speed, 30);
         }
         if (collision.gameObject.tag == "JumpUp")
         {
             Destroy(collision.gameObject);
             jumpBoostIsActief = true;
             Invoke("SetBoolBack", 30);
+
+            PowerUpNotificationManager.instance.PickUp(Color.yellow, jump, 30);
         }
     }
     private void SetBoolBack()
